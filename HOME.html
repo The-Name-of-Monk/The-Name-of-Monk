@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Name of the Monk</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container-fluid px-4 px-lg-5">
+            <a class="navbar-brand logo-text" href="#">THE NAME OF MONK</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-4">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Map</a></li>
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Exhibition</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Narratives</a></li>
+                            <li><a class="dropdown-item" href="#">Collections</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">About</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Documentation</a></li>
+                            <li><a class="dropdown-item" href="#">Disclaimer</a></li>
+                            <li><a class="dropdown-item" href="#">About Us</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item ms-lg-2">
+                        <button class="btn btn-style-toggle rounded-pill btn-sm px-3">
+                            CHANGE STYLES
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container-fluid min-vh-100 d-flex align-items-center position-relative">
+        <div class="container py-5 mt-5">
+            <div class="row align-items-center gx-lg-5">
+                
+                <div class="col-lg-7 mb-5 mb-lg-0">
+                    <div class="content-wrapper pe-lg-5">
+                        
+                        <h5 class="section-label mb-3">ABOUT THE EXHIBITION</h5>
+
+                        <h1 class="display-3 mb-4 main-title">
+                            What is in a <br>
+                            <span class="accent-text fst-italic">Name?</span>
+                        </h1>
+                        
+                        <div class="lead-text">
+                            <p>
+                                The word <strong>"Monk"</strong> has traveled a long distance through history. It began in the stone cloisters of the Middle Ages, signifying a life of absolute discipline, silence, and withdrawal from the world. Yet, centuries later, we find the same name stamped on the leather soles of gentleman’s footwear and spinning on the turntables of smoky jazz clubs in New York.
+                            </p>
+                            <p>
+                                This exhibition, <em class="serif-font">"The Name of the Monk"</em>, uses the polysemy of “Monk” to trace a trajectory from <span class="highlight">asceticism</span>, to <span class="highlight">utility</span>, to <span class="highlight">liberalism</span>—three modes through which human beings have regulated, shaped, and ultimately released the body, knowledge, sound, and identity.
+                            </p>
+                            <p>
+                                We invite visitors to walk a path that leads from the Sacred to the Secular, and finally to the Subversive. Through 15 carefully selected artifacts—from the rigid Rule of Saint Benedict to the improvised rhythms of Thelonious Monk—we trace how humanity has moved from the strict adherence to collective rules toward the celebration of individual freedom.
+                            </p>
+                            <p class="mt-4 welcome-msg serif-font fst-italic">
+                                Welcome to the evolution of the Monk.
+                            </p>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-3 mt-5">
+                            <a href="#" class="btn btn-custom-primary btn-lg px-4">Start the Exhibition</a>
+                            <a href="#" class="btn btn-custom-outline btn-lg px-4">Go to the Map</a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-5 text-center position-relative">
+                    <div class="scribble-line d-none d-lg-block"></div>
+                    <div class="image-frame">
+                        <img src="path/to/your-monk-image.jpg" alt="Thelonious Monk" class="img-fluid rounded shadow-lg main-image">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
