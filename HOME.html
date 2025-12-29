@@ -9,11 +9,122 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
+    <link id="theme-css" rel="stylesheet" href="style.css">
+    
+    <style>
+        /* 1. Font Tweaks */
+        body { font-family: 'Inter', sans-serif; } /* 确保默认是 Inter */
+        
+        .lead-text p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        /* 2. Animation Base Styles */
+        .anim-element { opacity: 0; transition: all cubic-bezier(0.2, 1, 0.3, 1); }
+        .anim-up { transform: translateY(60px); transition-duration: 2.5s; }
+        .anim-left { transform: translateX(-100px); transition-duration: 1.8s; }
+        .anim-element.is-visible { opacity: 1; transform: translate(0, 0); }
+
+        /* 3. Welcome Message Styling */
+        .welcome-msg {
+            font-family: 'Playfair Display', Georgia, serif; 
+            font-size: 3.8rem; 
+            line-height: 1.1;
+            color: var(--cyan-grey);
+            margin-top: 1rem; 
+            margin-bottom: 3rem;
+            display: block;
+            font-weight: 600; 
+            font-style: italic; 
+            letter-spacing: 0.5px; 
+        }
+
+        /* 4. Back to Top Button */
+        #btn-back-to-top {
+            position: fixed; bottom: 30px; right: 30px; display: none; z-index: 1000;
+            width: 50px; height: 50px; border-radius: 50%;
+            background-color: var(--cyan-grey); color: #fff; border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.3s ease;
+            align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer;
+        }
+        #btn-back-to-top:hover { background-color: var(--accent-red); transform: translateY(-5px); }
+
+        /* =========================================
+           Interactive Carousel Styles
+           ========================================= */
+        .image-frame {
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .carousel-item img {
+            transition: transform 0.8s ease;
+            width: 100%;
+            height: 520px; 
+            object-fit: cover;
+        }
+
+        .carousel-link-area {
+            display: block;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .hover-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.4s ease; z-index: 2;
+        }
+        
+        .image-frame:hover .hover-overlay { opacity: 1; }
+        .image-frame:hover .carousel-item img { transform: scale(1.03); }
+
+        /* ★★★ UPDATED BUTTON STYLE ★★★ */
+        .btn-browse-custom {
+            /* 字体改回 Inter，和正文一致 */
+            font-family: 'Inter', sans-serif; 
+            font-style: normal; /* 去掉斜体 */
+            font-weight: 500;   /* 稍微加粗一点点，保证清晰度 */
+            font-size: 0.9rem;  /* 字体稍微小一点，显得精致 */
+            text-transform: uppercase; /* 大写，更有UI感 */
+            letter-spacing: 2px; /* 字间距宽一点 */
+            
+            color: #fff;
+            background-color: rgba(47, 72, 88, 0.9); /* 深色背景 */
+            border: 1px solid rgba(255,255,255,0.4); /* 细边框 */
+            padding: 12px 28px;
+            border-radius: 50px; /* 胶囊圆角 */
+            backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-browse-custom:hover {
+            background-color: var(--accent-red);
+            border-color: var(--accent-red);
+            transform: translateY(-2px);
+        }
+
+        /* Carousel Controls */
+        .carousel-control-prev, .carousel-control-next {
+            width: 10%; opacity: 0; transition: opacity 0.3s; z-index: 10;
+        }
+        .image-frame:hover .carousel-control-prev, 
+        .image-frame:hover .carousel-control-next { opacity: 0.8; }
+
+        @media (max-width: 768px) {
+            .welcome-msg { font-size: 2.2rem; }
+            .carousel-item img { height: 350px; }
+        }
+    </style>
 </head>
-<body>
+<body data-theme="modern">
 
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container-fluid px-4 px-lg-5">
@@ -32,7 +143,7 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Exhibition</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Narratives</a></li>
-                            <li><a class="dropdown-item" href="#">Collections</a></li>
+                            <li><a class="dropdown-item" href="collection.html">Collections</a></li>
                         </ul>
                     </li>
 
@@ -45,10 +156,18 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item ms-lg-2">
-                        <button class="btn btn-style-toggle rounded-pill btn-sm px-3">
+                    <li class="nav-item dropdown ms-lg-2">
+                        <a class="btn btn-style-toggle rounded-pill btn-sm px-3 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                             CHANGE STYLES
-                        </button>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('style.css', 'modern')">Modern (Default)</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('style-jazz.css', 'jazz')">Jazz</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('style-medieval.css', 'medieval')">Medieval</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('style-gothic.css', 'gothic')">Gothic</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('style-abstract.css', 'abstract')">Abstract</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('style-future.css', 'future')">Future</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -57,34 +176,49 @@
 
     <main class="container-fluid min-vh-100 d-flex align-items-center position-relative">
         <div class="container py-5 mt-5">
-            <div class="row align-items-center gx-lg-5">
+            <div class="row align-items-start gx-lg-5">
                 
                 <div class="col-lg-7 mb-5 mb-lg-0">
                     <div class="content-wrapper pe-lg-5">
                         
-                        <h5 class="section-label mb-3">ABOUT THE EXHIBITION</h5>
-
-                        <h1 class="display-3 mb-4 main-title">
-                            What is in a <br>
-                            <span class="accent-text fst-italic">Name?</span>
-                        </h1>
-                        
-                        <div class="lead-text">
-                            <p>
-                                The word <strong>"Monk"</strong> has traveled a long distance through history. It began in the stone cloisters of the Middle Ages, signifying a life of absolute discipline, silence, and withdrawal from the world. Yet, centuries later, we find the same name stamped on the leather soles of gentleman’s footwear and spinning on the turntables of smoky jazz clubs in New York.
-                            </p>
-                            <p>
-                                This exhibition, <em class="serif-font">"The Name of the Monk"</em>, uses the polysemy of “Monk” to trace a trajectory from <span class="highlight">asceticism</span>, to <span class="highlight">utility</span>, to <span class="highlight">liberalism</span>—three modes through which human beings have regulated, shaped, and ultimately released the body, knowledge, sound, and identity.
-                            </p>
-                            <p>
-                                We invite visitors to walk a path that leads from the Sacred to the Secular, and finally to the Subversive. Through 15 carefully selected artifacts—from the rigid Rule of Saint Benedict to the improvised rhythms of Thelonious Monk—we trace how humanity has moved from the strict adherence to collective rules toward the celebration of individual freedom.
-                            </p>
-                            <p class="mt-4 welcome-msg serif-font fst-italic">
-                                Welcome to the evolution of the Monk.
-                            </p>
+                        <div class="mb-5">
+                            <h5 class="section-label mb-3">ABOUT THE EXHIBITION</h5>
+                            <h1 class="display-3 mb-4 main-title anim-element anim-up">
+                                What is in a <br>
+                                <span class="accent-text fst-italic">Name?</span>
+                            </h1>
+                            <div class="lead-text">
+                                <p>
+                                    The word <strong>"Monk"</strong> has traveled a long distance through history. It began in the stone cloisters of the Middle Ages, signifying a life of absolute discipline, silence, and withdrawal from the world. Yet, centuries later, we find the same name stamped on the leather soles of gentleman’s footwear and spinning on the turntables of smoky jazz clubs in New York.
+                                </p>
+                                <p>
+                                    This exhibition, <em class="serif-font">"The Name of Monk"</em>, uses the polysemy of “Monk” to trace a trajectory from <span class="highlight">asceticism</span>, to <span class="highlight">utility</span>, to <span class="highlight">liberalism</span>—three modes through which human beings have regulated, shaped, and ultimately released the body, knowledge, sound, and identity.
+                                </p>
+                            </div>
                         </div>
 
-                        <div class="d-flex flex-wrap gap-3 mt-5">
+                        <hr class="my-5" style="border-color: var(--cyan-grey); opacity: 0.1;">
+
+                        <div class="mb-5">
+                            <h5 class="section-label mb-3">ABOUT THE PROJECT</h5>
+                            <div class="lead-text">
+                                <p>
+                                    This website is a <strong>Multimedia Museum Meta Mirror (MMMM)</strong>—a digital companion designed to guide you through a curated collection of physical artifacts. Our exhibition, <em>"The Name of the Monk,"</em> traces the fascinating semantic and cultural trajectory of a single word—Monk.
+                                </p>
+                                <p>
+                                    <strong class="highlight" style="color:var(--cyan-grey);">How to Visit:</strong> Unlike a traditional museum where you might stroll randomly, this digital experience allows you to choose your own path. We have organized the 16 exhibition items into two distinct <strong>Narratives</strong>, changing the order and context in which you encounter the items.
+                                </p>
+                                <p>
+                                    By clicking the <strong>"Start the Exhibition"</strong> button, you can choose your preferred narrative. You can also view all the exhibition items in the Collections by clicking on the images to the right, or <strong>"Go to the Map"</strong> to see exhibition items in the virtual rooms.
+                                </p>
+                                
+                                <p class="welcome-msg anim-element anim-left">
+                                    Welcome to the evolution of the Monk.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-wrap gap-3 mt-4">
                             <a href="#" class="btn btn-custom-primary btn-lg px-4">Start the Exhibition</a>
                             <a href="#" class="btn btn-custom-outline btn-lg px-4">Go to the Map</a>
                         </div>
@@ -92,17 +226,101 @@
                     </div>
                 </div>
 
-                <div class="col-lg-5 text-center position-relative">
-                    <div class="scribble-line d-none d-lg-block"></div>
-                    <div class="image-frame">
-                        <img src="path/to/your-monk-image.jpg" alt="Thelonious Monk" class="img-fluid rounded shadow-lg main-image">
+                <div class="col-lg-5 text-center position-relative sticky-lg-top" style="top: 160px; z-index: 1;">
+                    
+                    <div class="image-frame shadow-lg">
+                        
+                        <div id="heroCarousel" class="carousel slide carousel-fade">
+                            
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                            </div>
+
+                            <div class="carousel-inner">
+                                
+                                <div class="carousel-item active">
+                                    <a href="collection.html" class="carousel-link-area">
+                                        <img src="Photography_of_Thelonious_Monk.webp" class="d-block w-100" alt="Thelonious Monk">
+                                        <div class="hover-overlay">
+                                            <span class="btn-browse-custom">BROWSE COLLECTIONS</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                
+                                <div class="carousel-item">
+                                    <a href="collections.html" class="carousel-link-area">
+                                        <img src="Monk_Shoes.jpg" class="d-block w-100" alt="Monk Shoes"> 
+                                        <div class="hover-overlay">
+                                            <span class="btn-browse-custom">BROWSE COLLECTIONS</span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <a href="collection.html" class="carousel-link-area">
+                                        <img src="The_Mourner_Scuplture.jpg" class="d-block w-100" alt="The Mourner Scuplture">
+                                        <div class="hover-overlay">
+                                            <span class="btn-browse-custom">BROWSE COLLECTIONS</span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+
                     </div>
+                    
+                    <p class="text-muted mt-3 small fst-italic text-center">
+                        Highlights from the Collection (Switch to view)
+                    </p>
+
                 </div>
 
             </div>
         </div>
     </main>
 
+    <button type="button" id="btn-back-to-top">↑</button>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function setTheme(cssFile, themeName) {
+            document.getElementById('theme-css').href = cssFile;
+            document.body.setAttribute('data-theme', themeName);
+        }
+
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('is-visible');
+                else entry.target.classList.remove('is-visible');
+            });
+        }, observerOptions);
+        document.querySelectorAll('.anim-element').forEach((el) => observer.observe(el));
+
+        let mybutton = document.getElementById("btn-back-to-top");
+        window.onscroll = function () {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                mybutton.style.display = "flex";
+            } else {
+                mybutton.style.display = "none";
+            }
+        };
+        mybutton.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
