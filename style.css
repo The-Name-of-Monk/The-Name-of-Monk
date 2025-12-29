@@ -1,0 +1,219 @@
+/* --- 1. Design Tokens --- */
+:root {
+    --bg-color: #FDFCF5;       /* 米白色背景 */
+    --text-color: #1A1A1A;     /* 炭黑正文 */
+    --accent-red: #C8102E;     /* 红色 (用于强调词 Monk, Name) */
+    
+    /* 深青灰色 (保留用于按钮和小标题) */
+    --cyan-grey: #2F4858;      
+    
+    --nav-bg: rgba(253, 252, 245, 0.95);
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+/* --- 2. Global Styles --- */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+}
+
+.serif-font { font-family: var(--font-heading); }
+
+/* --- 3. Navbar Styles --- */
+.navbar {
+    background-color: var(--nav-bg);
+    /* 减淡边框，让它看起来更像第一版那样干净 */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03); 
+    padding: 1.2rem 0;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+    color: var(--text-color);
+}
+
+.nav-link {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    /* 增加一点左右间距，防止文字太挤 */
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+.nav-link:hover, .nav-link.active {
+    /* 导航栏文字Hover还是保留深青灰色，比较稳重 */
+    color: var(--cyan-grey) !important; 
+}
+
+/* --- 下拉菜单样式 (Reverted to Original Clean Style) --- */
+/* 这里还原了您截图中那个干净的方块效果 */
+
+.dropdown-menu {
+    background-color: #FDFCF5; /* 与背景同色，或者纯白 #FFFFFF */
+    border: 1px solid rgba(0,0,0,0.05); /* 极细的边框 */
+    border-radius: 2px; /* 几乎直角，只带一点点圆润 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06); /* 柔和的阴影漂浮感 */
+    padding: 15px 0; /* 上下留白，看起来更高级 */
+    margin-top: 10px; /* 让菜单和导航栏有一点距离 */
+    min-width: 180px;
+}
+
+/* 消除 Bootstrap 默认的箭头或多余样式 */
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.4em;
+    vertical-align: 0.1em;
+    content: "▾"; /* 用更精致的箭头符号代替默认三角形 */
+    border: none;
+    font-size: 0.8em;
+}
+
+.dropdown-item {
+    color: #555; /* 稍微浅一点的灰色，形成层级 */
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    padding: 8px 24px; /* 左右宽一点的内边距 */
+    font-weight: 400;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: transparent; /* 悬停时不加背景色，保持干净 */
+    color: var(--accent-red); /* 悬停时变红，呼应 EXHIBITION 的红色 */
+    padding-left: 30px; /* 悬停时稍微右移一点点，增加交互感 */
+}
+
+/* --- 4. Main Content Styles --- */
+
+/* About the Exhibition 小标题 (保留深青灰色) */
+.section-label {
+    font-family: var(--font-body);
+    color: var(--cyan-grey);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-left: 3px solid var(--accent-red);
+    padding-left: 12px;
+}
+
+.main-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.accent-text {
+    color: var(--accent-red);
+}
+
+.lead-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    font-weight: 300;
+    color: #333;
+    text-align: justify;
+}
+
+.lead-text p { margin-bottom: 1.5rem; }
+
+.highlight {
+    font-weight: 600;
+    color: var(--cyan-grey);
+}
+
+.welcome-msg {
+    color: var(--cyan-grey);
+    font-size: 1.2rem;
+}
+
+/* --- 5. Interactive Buttons (保留深青灰色) --- */
+.btn-style-toggle {
+    border: 1px solid var(--text-color);
+    color: var(--text-color);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+.btn-style-toggle:hover {
+    background-color: var(--cyan-grey);
+    border-color: var(--cyan-grey);
+    color: #fff;
+}
+
+.btn-custom-primary {
+    background-color: var(--cyan-grey);
+    color: #fff;
+    border: 1px solid var(--cyan-grey);
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-custom-primary:hover {
+    background-color: #1e333e;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(47, 72, 88, 0.3);
+}
+
+.btn-custom-outline {
+    background-color: transparent;
+    color: var(--cyan-grey);
+    border: 1px solid var(--cyan-grey);
+    border-radius: 50px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-custom-outline:hover {
+    background-color: var(--bg-color);
+    border-color: var(--accent-red);
+    color: var(--accent-red);
+}
+
+/* --- 6. Decorative Elements --- */
+.scribble-line {
+    position: absolute;
+    right: 0;
+    top: -10%;
+    height: 120%;
+    width: 200px;
+    border-right: 2px solid var(--cyan-grey);
+    opacity: 0.2;
+    transform: rotate(3deg);
+    z-index: -1;
+}
+
+.main-image {
+    transition: transform 0.5s ease;
+}
+.main-image:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 991px) {
+    .lead-text { text-align: left; }
+    .btn-custom-primary, .btn-custom-outline { width: 100%; }
+    .navbar-collapse {
+        background-color: var(--bg-color);
+        padding: 20px;
+        margin-top: 10px;
+        border-radius: 4px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+}
