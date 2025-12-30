@@ -1,18 +1,22 @@
-/* --- 1. Design Tokens --- */
-:root {
+/* =========================================
+   1. Design Tokens (主题变量)
+   ========================================= */
+   :root {
     --bg-color: #FDFCF5;       /* 米白色背景 */
     --text-color: #1A1A1A;     /* 炭黑正文 */
-    --accent-red: #C8102E;     /* 红色 (用于强调词 Monk, Name) */
-    
-    /* 深青灰色 (保留用于按钮和小标题) */
-    --cyan-grey: #2F4858;      
+    --accent-red: #C8102E;     /* 红色 (用于强调) */
+    --cyan-grey: #2F4858;      /* 深青灰色 (用于按钮、标题) */
     
     --nav-bg: rgba(253, 252, 245, 0.95);
+    
+    /* 字体定义 */
     --font-heading: 'Playfair Display', Georgia, serif;
     --font-body: 'Inter', sans-serif;
 }
 
-/* --- 2. Global Styles --- */
+/* =========================================
+   2. Global Styles (全局样式)
+   ========================================= */
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -21,10 +25,50 @@ body {
 
 .serif-font { font-family: var(--font-heading); }
 
-/* --- 3. Navbar Styles --- */
+/* 链接与文字 */
+.lead-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    font-weight: 300;
+    color: #333;
+    text-align: justify;
+}
+
+.lead-text p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    font-weight: 600;
+    color: var(--cyan-grey);
+}
+
+.section-label {
+    font-family: var(--font-body);
+    color: var(--cyan-grey);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-left: 3px solid var(--accent-red);
+    padding-left: 12px;
+}
+
+.main-title {
+    font-family: var(--font-heading);
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.accent-text { color: var(--accent-red); }
+
+/* =========================================
+   3. Navbar Styles (导航栏)
+   ========================================= */
 .navbar {
     background-color: var(--nav-bg);
-    /* 减淡边框，让它看起来更像第一版那样干净 */
     border-bottom: 1px solid rgba(0, 0, 0, 0.03); 
     padding: 1.2rem 0;
 }
@@ -45,99 +89,50 @@ body {
     letter-spacing: 1px;
     color: var(--text-color);
     transition: color 0.3s ease;
-    /* 增加一点左右间距，防止文字太挤 */
     padding-left: 1rem !important;
     padding-right: 1rem !important;
 }
 
 .nav-link:hover, .nav-link.active {
-    /* 导航栏文字Hover还是保留深青灰色，比较稳重 */
     color: var(--cyan-grey) !important; 
 }
 
-/* --- 下拉菜单样式 (Reverted to Original Clean Style) --- */
-/* 这里还原了您截图中那个干净的方块效果 */
-
+/* 下拉菜单 */
 .dropdown-menu {
-    background-color: #FDFCF5; /* 与背景同色，或者纯白 #FFFFFF */
-    border: 1px solid rgba(0,0,0,0.05); /* 极细的边框 */
-    border-radius: 2px; /* 几乎直角，只带一点点圆润 */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06); /* 柔和的阴影漂浮感 */
-    padding: 15px 0; /* 上下留白，看起来更高级 */
-    margin-top: 10px; /* 让菜单和导航栏有一点距离 */
+    background-color: #FDFCF5;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 2px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    padding: 15px 0;
+    margin-top: 10px;
     min-width: 180px;
 }
 
-/* 消除 Bootstrap 默认的箭头或多余样式 */
 .dropdown-toggle::after {
     display: inline-block;
     margin-left: 0.4em;
     vertical-align: 0.1em;
-    content: "▾"; /* 用更精致的箭头符号代替默认三角形 */
+    content: "▾";
     border: none;
     font-size: 0.8em;
 }
 
 .dropdown-item {
-    color: #555; /* 稍微浅一点的灰色，形成层级 */
+    color: #555;
     font-family: var(--font-body);
     font-size: 0.9rem;
-    padding: 8px 24px; /* 左右宽一点的内边距 */
+    padding: 8px 24px;
     font-weight: 400;
     transition: all 0.2s ease;
 }
 
 .dropdown-item:hover {
-    background-color: transparent; /* 悬停时不加背景色，保持干净 */
-    color: var(--accent-red); /* 悬停时变红，呼应 EXHIBITION 的红色 */
-    padding-left: 30px; /* 悬停时稍微右移一点点，增加交互感 */
-}
-
-/* --- 4. Main Content Styles --- */
-
-/* About the Exhibition 小标题 (保留深青灰色) */
-.section-label {
-    font-family: var(--font-body);
-    color: var(--cyan-grey);
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-left: 3px solid var(--accent-red);
-    padding-left: 12px;
-}
-
-.main-title {
-    font-family: var(--font-heading);
-    font-weight: 400;
-    line-height: 1.1;
-}
-
-.accent-text {
+    background-color: transparent;
     color: var(--accent-red);
+    padding-left: 30px;
 }
 
-.lead-text {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    font-weight: 300;
-    color: #333;
-    text-align: justify;
-}
-
-.lead-text p { margin-bottom: 1.5rem; }
-
-.highlight {
-    font-weight: 600;
-    color: var(--cyan-grey);
-}
-
-.welcome-msg {
-    color: var(--cyan-grey);
-    font-size: 1.2rem;
-}
-
-/* --- 5. Interactive Buttons (保留深青灰色) --- */
+/* 样式切换按钮 */
 .btn-style-toggle {
     border: 1px solid var(--text-color);
     color: var(--text-color);
@@ -151,6 +146,9 @@ body {
     color: #fff;
 }
 
+/* =========================================
+   4. Buttons (通用按钮)
+   ========================================= */
 .btn-custom-primary {
     background-color: var(--cyan-grey);
     color: #fff;
@@ -186,26 +184,264 @@ body {
     color: var(--accent-red);
 }
 
-/* --- 6. Decorative Elements --- */
-.scribble-line {
-    position: absolute;
-    right: 0;
-    top: -10%;
-    height: 120%;
-    width: 200px;
-    border-right: 2px solid var(--cyan-grey);
+/* 返回顶部按钮 */
+#btn-back-to-top {
+    position: fixed; bottom: 30px; right: 30px; display: none; z-index: 1000;
+    width: 50px; height: 50px; border-radius: 50%;
+    background-color: var(--cyan-grey); color: #fff; border: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: all 0.3s ease;
+    align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer;
+}
+#btn-back-to-top:hover { background-color: var(--accent-red); transform: translateY(-5px); }
+
+/* =========================================
+   5. Home Page Specifics (首页独有)
+   ========================================= */
+
+/* 动画类 */
+.anim-element { opacity: 0; transition: all cubic-bezier(0.2, 1, 0.3, 1); }
+.anim-up { transform: translateY(60px); transition-duration: 2.5s; }
+.anim-left { transform: translateX(-100px); transition-duration: 1.8s; }
+.anim-element.is-visible { opacity: 1; transform: translate(0, 0); }
+
+/* Welcome 大字 */
+.welcome-msg {
+    font-family: var(--font-heading); 
+    font-size: 3.8rem; 
+    line-height: 1.1;
+    color: var(--cyan-grey);
+    margin-top: 1rem; 
+    margin-bottom: 3rem;
+    display: block;
+    font-weight: 600; 
+    font-style: italic; 
+    letter-spacing: 0.5px; 
+}
+
+/* 轮播图与图片框 */
+.image-frame {
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.carousel-item img {
+    transition: transform 0.8s ease;
+    width: 100%;
+    height: 520px; 
+    object-fit: cover;
+}
+
+.carousel-link-area {
+    display: block; position: relative; cursor: pointer;
+}
+
+.hover-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.4s ease; z-index: 2;
+}
+
+.image-frame:hover .hover-overlay { opacity: 1; }
+.image-frame:hover .carousel-item img { transform: scale(1.03); }
+
+/* Browse 按钮 */
+.btn-browse-custom {
+    font-family: var(--font-body); 
+    font-style: normal; 
+    font-weight: 500;   
+    font-size: 0.9rem;  
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    color: #fff;
+    background-color: rgba(47, 72, 88, 0.9); 
+    border: 1px solid rgba(255,255,255,0.4); 
+    padding: 12px 28px;
+    border-radius: 50px; 
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+}
+
+.btn-browse-custom:hover {
+    background-color: var(--accent-red);
+    border-color: var(--accent-red);
+    transform: translateY(-2px);
+}
+
+.carousel-control-prev, .carousel-control-next {
+    width: 10%; opacity: 0; transition: opacity 0.3s; z-index: 10;
+}
+.image-frame:hover .carousel-control-prev, 
+.image-frame:hover .carousel-control-next { opacity: 0.8; }
+
+
+/* =========================================
+   6. Map Page Specifics (地图页独有)
+   ========================================= */
+
+/* 地图容器 */
+.map-wrapper {
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.05); 
+    border-radius: 4px;
+    padding: 40px 20px;
+    position: relative;
+}
+
+/* SVG 基础 */
+svg {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    overflow: visible;
+}
+
+/* 房间线条 */
+.room-outline {
+    fill: none;
+    stroke: var(--cyan-grey);
+    stroke-width: 1.5;
+    opacity: 0.3;
+    transition: all 0.3s ease;
+}
+
+.path-line {
+    stroke: var(--cyan-grey);
+    stroke-width: 1;
+    stroke-dasharray: 5, 5;
     opacity: 0.2;
-    transform: rotate(3deg);
-    z-index: -1;
 }
 
-.main-image {
-    transition: transform 0.5s ease;
-}
-.main-image:hover {
-    transform: scale(1.02);
+.room-text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    fill: var(--cyan-grey);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
+/* 交互点 (Dots) */
+.map-point {
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    stroke: #fff;
+    stroke-width: 2px;
+}
+
+.point-room1 { fill: var(--cyan-grey); }
+.point-room2 { fill: #8D6E63; }
+.point-room3 { fill: var(--accent-red); }
+
+.map-point:hover { r: 10; opacity: 0.8; }
+.map-point.active {
+    r: 14; 
+    stroke: var(--text-color);
+    stroke-width: 3px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+/* 信息面板 */
+.info-panel {
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    border-left: 1px solid rgba(0,0,0,0.05);
+}
+
+.info-category {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--cyan-grey);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-category::before {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 1px;
+    background: var(--accent-red);
+}
+
+.info-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+.info-source {
+    font-size: 0.9rem;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 25px;
+}
+
+.info-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    font-weight: 300;
+}
+
+/* 筛选器按钮 */
+.filter-nav button {
+    background: none;
+    border: none;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    padding: 5px 15px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.filter-nav button.active, .filter-nav button:hover {
+    color: var(--cyan-grey);
+    border-bottom: 2px solid var(--accent-red);
+    font-weight: 600;
+}
+
+/* =========================================
+   7. Footer (页脚)
+   ========================================= */
+.site-footer {
+    background-color: #1A252A; 
+    color: #fff;
+    padding: 4rem 0; 
+    margin-top: 6rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer-logo img {
+    max-height: 90px; 
+    width: auto;
+    opacity: 0.95;
+}
+.footer-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    opacity: 0.85; 
+}
+.footer-text .small {
+    font-size: 0.8rem;
+    opacity: 0.5; 
+    margin-top: 1rem;
+}
+
+/* =========================================
+   8. Responsive Adjustments (移动端适配)
+   ========================================= */
 @media (max-width: 991px) {
     .lead-text { text-align: left; }
     .btn-custom-primary, .btn-custom-outline { width: 100%; }
@@ -216,4 +452,19 @@ body {
         border-radius: 4px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
+    
+    /* Map Page Mobile */
+    .info-panel {
+        border-left: none;
+        padding-left: 0;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(0,0,0,0.05);
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-msg { font-size: 2.2rem; }
+    .carousel-item img { height: 350px; }
+    .site-footer { text-align: center; } 
 }
