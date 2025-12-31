@@ -40,8 +40,18 @@
                             <li><a class="dropdown-item" href="#">About Us</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item ms-lg-2">
-                        <button class="btn btn-style-toggle rounded-pill btn-sm px-3">CHANGE STYLES</button>
+                    <li class="nav-item dropdown ms-lg-2">
+                        <a class="btn btn-style-toggle rounded-pill btn-sm px-3 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            CHANGE STYLES
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('style.css', 'modern')">Modern (Default)</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('style-jazz.css', 'jazz')">Jazz</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('style-medieval.css', 'medieval')">Medieval</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('style-gothic.css', 'gothic')">Gothic</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('style-abstract.css', 'abstract')">Abstract</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('style-future.css', 'future')">Future</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -351,4 +361,3 @@
     </script>
 </body>
 </html>
-
