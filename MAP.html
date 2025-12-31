@@ -9,164 +9,11 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css">
-    
-    <style>
-        /* Map Container */
-        .map-wrapper {
-            background-color: #fff;
-            /* 极简边框，几乎不可见 */
-            border: 1px solid rgba(0,0,0,0.05); 
-            border-radius: 4px;
-            padding: 40px 20px;
-            position: relative;
-        }
-
-        /* SVG Base */
-        svg {
-            width: 100%;
-            height: auto;
-            max-height: 400px;
-            overflow: visible; /* 允许阴影或点溢出 */
-        }
-
-        /* 房间轮廓 - 极简线条 */
-        .room-outline {
-            fill: none;
-            stroke: var(--cyan-grey); /* 使用深青灰色 */
-            stroke-width: 1.5;
-            opacity: 0.3; /* 降低透明度，不抢眼 */
-            transition: all 0.3s ease;
-        }
-
-        /* 连接路径 */
-        .path-line {
-            stroke: var(--cyan-grey);
-            stroke-width: 1;
-            stroke-dasharray: 5, 5; /* 虚线 */
-            opacity: 0.2;
-        }
-
-        /* 房间标签 */
-        .room-text {
-            font-family: var(--font-body);
-            font-size: 14px;
-            fill: var(--cyan-grey);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* 交互点 (Dots) */
-        .map-point {
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            stroke: #fff;
-            stroke-width: 2px;
-        }
-
-        /* 默认点的颜色 */
-        .point-room1 { fill: var(--cyan-grey); }
-        .point-room2 { fill: #8D6E63; } /* 棕色区分 */
-        .point-room3 { fill: var(--accent-red); }
-
-        /* Hover & Active */
-        .map-point:hover {
-            r: 10; /* 变大 */
-            opacity: 0.8;
-        }
-        
-        .map-point.active {
-            r: 14; /* 激活时最大 */
-            stroke: var(--text-color);
-            stroke-width: 3px;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
-        }
-
-        /* Info Panel */
-        .info-panel {
-            padding-left: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
-            border-left: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .info-category {
-            font-family: var(--font-body);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--cyan-grey);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .info-category::before {
-            content: '';
-            display: block;
-            width: 20px;
-            height: 1px;
-            background: var(--accent-red);
-        }
-
-        .info-title {
-            font-family: var(--font-heading);
-            font-size: 2.2rem;
-            margin-bottom: 15px;
-            line-height: 1.1;
-        }
-
-        .info-source {
-            font-size: 0.9rem;
-            color: #888;
-            font-style: italic;
-            margin-bottom: 25px;
-        }
-
-        .info-desc {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #444;
-            font-weight: 300;
-        }
-
-        /* 筛选按钮 */
-        .filter-nav button {
-            background: none;
-            border: none;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #999;
-            padding: 5px 15px;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s;
-        }
-        
-        .filter-nav button.active, .filter-nav button:hover {
-            color: var(--cyan-grey);
-            border-bottom: 2px solid var(--accent-red);
-            font-weight: 600;
-        }
-
-        @media (max-width: 991px) {
-            .info-panel {
-                border-left: none;
-                padding-left: 0;
-                margin-top: 40px;
-                padding-top: 20px;
-                border-top: 1px solid rgba(0,0,0,0.05);
-            }
-        }
-    </style>
+    <link id="theme-css" rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-theme="modern">
 
     <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
         <div class="container-fluid px-4 px-lg-5">
@@ -182,7 +29,7 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Exhibition</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Narratives</a></li>
-                            <li><a class="dropdown-item" href="#">Collections</a></li>
+                            <li><a class="dropdown-item" href="collection.html">Collections</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -205,16 +52,37 @@
         <div class="container py-5 mt-5">
             
             <div class="row mb-5 align-items-end">
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                     <h5 class="section-label mb-2">Spatial Guide</h5>
-                    <h1 class="main-title">Exhibition Map</h1>
+                    <h1 class="main-title mb-0">Exhibition Map</h1>
                 </div>
-                <div class="col-lg-6 text-lg-end">
-                    <div class="filter-nav mt-3 mt-lg-0">
-                        <button class="active" onclick="filterMap('all')">View All</button>
-                        <button onclick="filterMap('room1')">Room 1</button>
-                        <button onclick="filterMap('room2')">Room 2</button>
-                        <button onclick="filterMap('room3')">Room 3</button>
+                
+                <div class="col-lg-8 text-lg-end">
+                    <div class="d-flex flex-wrap gap-4 justify-content-lg-end align-items-center mt-4 mt-lg-0">
+                        
+                        <span class="filter-label d-none d-md-inline">Explore by:</span>
+
+                        <div class="dropdown">
+                            <button class="narrative-toggle" type="button" data-bs-toggle="dropdown">The Evolution</button>
+                            <ul class="dropdown-menu dropdown-menu-end filter-menu">
+                                <li><h6 class="dropdown-header filter-header">CHRONOLOGICAL PATH</h6></li>
+                                <li><a class="dropdown-item filter-item" href="#" onclick="filterMap('room1')">The Rule</a></li>
+                                <li><a class="dropdown-item filter-item" href="#" onclick="filterMap('room2')">The Utility</a></li>
+                                <li><a class="dropdown-item filter-item" href="#" onclick="filterMap('room3')">The Improvisation</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown">
+                            <button class="narrative-toggle" type="button" data-bs-toggle="dropdown">Mental Discourse</button>
+                            <ul class="dropdown-menu dropdown-menu-end filter-menu">
+                                <li><h6 class="dropdown-header filter-header">THEMATIC PATH</h6></li>
+                                <li><a class="dropdown-item filter-item" href="#" onclick="filterMap('identity')">The Identity</a></li>
+                                <li><a class="dropdown-item filter-item" href="#" onclick="filterMap('echo')">The Echo</a></li>
+                                <li><a class="dropdown-item filter-item" href="#" onclick="filterMap('spirit')">The Spirit</a></li>
+                            </ul>
+                        </div>
+
+                        <button class="btn-view-all ms-2" onclick="filterMap('all')">Reset View</button>
                     </div>
                 </div>
             </div>
@@ -224,21 +92,23 @@
                 <div class="col-lg-8">
                     <div class="map-wrapper">
                         <svg viewBox="0 0 900 300">
-                            
                             <line x1="100" y1="150" x2="800" y2="150" class="path-line" />
 
                             <g id="group-room1">
                                 <rect x="50" y="50" width="250" height="200" rx="2" class="room-outline" />
-                                <text x="50" y="40" class="room-text">Room 1</text>
+                                <text x="50" y="40" class="room-text">ROOM 1</text>
+                                
                                 <circle cx="100" cy="100" r="8" class="map-point point-room1" onclick="showInfo('rule')" data-id="rule" />
                                 <circle cx="150" cy="180" r="8" class="map-point point-room1" onclick="showInfo('mourner')" data-id="mourner" />
                                 <circle cx="200" cy="120" r="8" class="map-point point-room1" onclick="showInfo('antiphonary')" data-id="antiphonary" />
                                 <circle cx="250" cy="200" r="8" class="map-point point-room1" onclick="showInfo('statue')" data-id="statue" />
+                                <circle cx="120" cy="150" r="8" class="map-point point-room1" onclick="showInfo('misericord')" data-id="misericord" />
                             </g>
 
                             <g id="group-room2">
                                 <rect x="325" y="50" width="250" height="200" rx="2" class="room-outline" />
-                                <text x="325" y="40" class="room-text">Room 2</text>
+                                <text x="325" y="40" class="room-text">ROOM 2</text>
+                                
                                 <circle cx="360" cy="150" r="8" class="map-point point-room2" onclick="showInfo('patten')" data-id="patten" />
                                 <circle cx="410" cy="90" r="8" class="map-point point-room2" onclick="showInfo('buckles')" data-id="buckles" />
                                 <circle cx="450" cy="210" r="8" class="map-point point-room2" onclick="showInfo('shoemaker')" data-id="shoemaker" />
@@ -248,14 +118,15 @@
 
                             <g id="group-room3">
                                 <rect x="600" y="50" width="250" height="200" rx="2" class="room-outline" />
-                                <text x="600" y="40" class="room-text">Room 3</text>
+                                <text x="600" y="40" class="room-text">ROOM 3</text>
+                                
                                 <circle cx="640" cy="110" r="8" class="map-point point-room3" onclick="showInfo('photo')" data-id="photo" />
-                                <circle cx="680" cy="190" r="8" class="map-point point-room3" onclick="showInfo('album')" data-id="album" />
+                                <circle cx="680" cy="190" r="8" class="map-point point-room3" onclick="showInfo('album_music')" data-id="album_music" />
                                 <circle cx="725" cy="150" r="10" class="map-point point-room3" onclick="showInfo('matisse')" data-id="matisse" />
                                 <circle cx="770" cy="90" r="8" class="map-point point-room3" onclick="showInfo('video')" data-id="video" />
                                 <circle cx="810" cy="210" r="8" class="map-point point-room3" onclick="showInfo('portrait')" data-id="portrait" />
+                                <circle cx="700" cy="70" r="8" class="map-point point-room3" onclick="showInfo('album_round')" data-id="album_round" />
                             </g>
-
                         </svg>
                     </div>
                 </div>
@@ -264,14 +135,20 @@
                     <div class="info-panel" id="info-panel">
                         <div id="default-state">
                             <h3 class="serif-font text-muted" style="opacity:0.5;">Select an Artifact</h3>
-                            <p class="text-muted mt-3 small">Explore the evolution by clicking the points on the map.</p>
+                            <p class="text-muted mt-3 small">Click on the points on the map to view details.</p>
                         </div>
                         
                         <div id="active-content" style="display:none;">
                             <div class="info-category" id="d-room">ROOM X</div>
+                            
                             <h2 class="info-title" id="d-title">Artifact Title</h2>
-                            <div class="info-source" id="d-source">Source Name</div>
+                            
+                            <div class="info-image-wrapper">
+                                <img id="d-image" src="" alt="Artifact Image">
+                            </div>
+
                             <p class="info-desc" id="d-desc">Description text goes here.</p>
+                            
                             <a href="#" class="btn btn-custom-outline btn-sm mt-4 px-4">View Details</a>
                         </div>
                     </div>
@@ -281,126 +158,196 @@
         </div>
     </main>
 
+    <footer class="site-footer">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-4">
+                <div class="footer-logo">
+                    <img src="images/LOGO_white.png" alt="University of Bologna" class="img-fluid">
+                </div>
+                <div class="footer-text text-center text-md-start">
+                    <p class="mb-1 text-uppercase fw-bold" style="letter-spacing: 1px;">A Linked Open Data Project</p>
+                    <p class="mb-1">MA "Digital Humanities and Digital Knowledge", University of Bologna</p>
+                    <p class="mb-3">Course "Information Modeling and Web Technologies"</p>
+                    <div class="small">
+                        <p class="mb-0">All copyrights and related rights on the content remain with their original owners.</p>
+                        <p class="mb-0">All copyright on the typographic and layout choices are 2026 © The Name of Monk</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button type="button" id="btn-back-to-top">↑</button>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Data derived from "Exhibition Items.pdf"
+        function setTheme(cssFile, themeName) {
+            document.getElementById('theme-css').href = cssFile;
+            document.body.setAttribute('data-theme', themeName);
+        }
+
         const data = {
-            // Room 1: The Rule (Asceticism)
+            // --- ROOM 1 (The Rule) ---
             'rule': { 
-                room: "Room 1", title: "Rule of St. Benedict", source: "The Bodleian Libraries",
-                desc: "The manuscript establishing the strict rules of discipline and silence." 
-            },
-            'mourner': { 
-                room: "Room 1", title: "Mourner Sculpture", source: "The Metropolitan Museum of Art",
-                desc: "A figure hidden beneath a cowl, symbolizing the erasure of identity." 
+                title: "Rule of St. Benedict", room: "room1", theme: "spirit",
+                desc: "The manuscript establishing the strict rules of discipline and silence.",
+                image: "images/01.jpg"
             },
             'antiphonary': { 
-                room: "Room 1", title: "Benedictine Antiphonary", source: "The Metropolitan Museum of Art",
-                desc: "A choir book used for communal prayer and chanting." 
+                title: "Benedictine Antiphonary", room: "room1", theme: "echo",
+                desc: "A choir book used for communal prayer and chanting.",
+                image: "images/07.jpg"
             },
             'statue': { 
-                room: "Room 1", title: "Benedictine Monk Statue", source: "The Metropolitan Museum of Art",
-                desc: "A limestone depiction of a monk in vow." 
+                title: "A Benedictine Monk", room: "room1", theme: "identity",
+                desc: "A painting of a monk in vow.",
+                image: "images/09.jpg"
+            },
+            'misericord': { 
+                title: "The Misericord", room: "room1", theme: "spirit",
+                desc: "The 'Mercy Seat' used by monks during long prayers.",
+                image: "images/03.jpg"
+            },
+            'mourner': { 
+                title: "The Mourner Sculpture", room: "room1", theme: "identity",
+                desc: "A figure hidden beneath a cowl, symbolizing the erasure of identity.",
+                image: "images/10.jpg"
             },
 
-            // Room 2: The Utility (Craft)
+            // --- ROOM 2 (The Utility) ---
             'patten': { 
-                room: "Room 2", title: "Medieval Leather Patten", source: "Victoria and Albert Museum",
-                desc: "Practical overshoes for mud, the ancestor of the monk strap." 
-            },
-            'buckles': { 
-                room: "Room 2", title: "18th C. Shoe Buckles", source: "Victoria and Albert Museum",
-                desc: "Functional fasteners evolving into jewelry." 
+                title: "Medieval Leather Patten", room: "room2", theme: "echo",
+                desc: "Practical overshoes for mud, the ancestor of the monk strap.",
+                image: "images/04.jpg"
             },
             'shoemaker': { 
-                room: "Room 2", title: "The Shoemaker Painting", source: "Northampton Museums",
-                desc: "Depicting the workshop of a traditional shoemaker." 
+                title: "The Shoemaker", room: "room2", theme: "identity",
+                desc: "A painting depicting the workshop of a traditional shoemaker.",
+                image: "images/11.jpg"
+            },
+            'buckles': { 
+                title: "Shoe Buckle", room: "room2", theme: "spirit",
+                desc: "Functional fasteners evolving into jewelry.",
+                image: "images/14.jpg"
             },
             'monk_shoes': { 
-                room: "Room 2", title: "Burberry Monk Shoes", source: "Northampton Museums",
-                desc: "1930s footwear marking the transition to fashion." 
+                title: "Monk Shoes", room: "room2", theme: "identity",
+                desc: "1940s footwear marking the transition to fashion.",
+                image: "images/08.jpg"
             },
             'double_monk': { 
-                room: "Room 2", title: "Double Monk Straps", source: "World Championship of Shoemaking",
-                desc: "Modern craftsmanship representing style over utility." 
+                title: "Double Monk Straps", room: "room2", theme: "identity",
+                desc: "Modern craftsmanship representing style over utility.",
+                image: "images/06.jpg"
             },
 
-            // Room 3: Improvisation (Jazz)
+            // --- ROOM 3 (The Improvisation) ---
             'photo': { 
-                room: "Room 3", title: "Monk at Piano", source: "The Museum of Modern Art",
-                desc: "Thelonious Monk breaking musical rules." 
-            },
-            'album': { 
-                room: "Room 3", title: "Monk's Music", source: "Wikipedia Source",
-                desc: "The iconic album cover featuring the red wagon." 
-            },
-            'matisse': { 
-                room: "Room 3", title: "Matisse's Jazz", source: "Fine Arts Museums of San Francisco",
-                desc: "Visual improvisation cutting through color." 
-            },
-            'video': { 
-                room: "Room 3", title: "Video: I Mean You", source: "Blue Note",
-                desc: "Live performance footage." 
+                title: "Photography of Thelonious Monk", room: "room3", theme: "spirit",
+                desc: "Thelonious Monk breaking musical rules.",
+                image: "images/12.jpg"
             },
             'portrait': { 
-                room: "Room 3", title: "Portrait of Thelonious", source: "The Smithsonian Institution",
-                desc: "The face revealed, celebrating individual identity." 
-            }
+                title: "Portrait of Thelonious Monk", room: "room3", theme: "spirit", 
+                desc: "The face revealed, celebrating individual identity.",
+                image: "images/13.jpg"
+            },
+            'album_round': {
+                title: "Album 'Round About Midnight'", room: "room3", theme: "echo",
+                desc: "A seminal jazz album defining the era.",
+                image: "images/16.jpg"
+            },
+            'matisse': { 
+                title: "Matisse's Jazz", room: "room3", theme: "spirit",
+                desc: "Visual improvisation cutting through color.",
+                image: "images/02.jpg"
+            },
+            'album_music': { 
+                title: "Album 'Monk's Music'", room: "room3", theme: "echo",
+                desc: "The iconic album cover featuring the red wagon.",
+                image: "images/15.jpg"
+            },
+            'video': { 
+                title: "Video: I Mean You", room: "room3", theme: "echo",
+                desc: "Live performance footage.",
+                image: "images/05.jpg"
+            },
         };
 
         function showInfo(id) {
             const item = data[id];
             if(!item) return;
 
-            // Update UI Dots
             document.querySelectorAll('.map-point').forEach(el => el.classList.remove('active'));
             const activeDot = document.querySelector(`.map-point[data-id="${id}"]`);
             if(activeDot) activeDot.classList.add('active');
 
-            // Update Content
             document.getElementById('default-state').style.display = 'none';
             const content = document.getElementById('active-content');
             content.style.display = 'block';
-            
-            // Text Animation reset
             content.style.opacity = 0;
             setTimeout(() => content.style.opacity = 1, 50);
             content.style.transition = 'opacity 0.4s ease';
 
-            document.getElementById('d-room').innerText = item.room;
+            // Text
+            document.getElementById('d-room').innerText = item.room === 'room1' ? "The Rule" : 
+                                                          item.room === 'room2' ? "The Utility" : "The Improvisation";
             document.getElementById('d-title').innerText = item.title;
-            document.getElementById('d-source').innerText = item.source;
+            // Removed source text assignment
             document.getElementById('d-desc').innerText = item.desc;
+            
+            // Image
+            const imgEl = document.getElementById('d-image');
+            imgEl.src = item.image || 'image_49e926.jpg'; 
+            imgEl.alt = item.title;
         }
 
         function filterMap(filter) {
-            // Button styles
-            document.querySelectorAll('.filter-nav button').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
-
-            // Map Visibility
             const points = document.querySelectorAll('.map-point');
             const rooms = document.querySelectorAll('.room-outline, .room-text');
 
             if(filter === 'all') {
                 points.forEach(p => p.style.opacity = 1);
                 rooms.forEach(r => r.style.opacity = 0.3);
-            } else {
-                // Fade out everything
-                points.forEach(p => p.style.opacity = 0.1);
-                rooms.forEach(r => r.style.opacity = 0.1);
+                return;
+            }
 
-                // Fade in selected room
-                document.querySelectorAll(`.point-${filter}`).forEach(p => p.style.opacity = 1);
-                
-                // Highlight Room Box
+            points.forEach(p => p.style.opacity = 0.1);
+            rooms.forEach(r => r.style.opacity = 0.05);
+
+            if (filter.startsWith('room')) {
+                Object.keys(data).forEach(key => {
+                    if (data[key].room === filter) {
+                        const dot = document.querySelector(`.map-point[data-id="${key}"]`);
+                        if(dot) dot.style.opacity = 1;
+                    }
+                });
                 const group = document.getElementById(`group-${filter}`);
                 if(group) {
                     group.querySelector('.room-outline').style.opacity = 1;
                     group.querySelector('.room-text').style.opacity = 1;
                 }
+            } else {
+                Object.keys(data).forEach(key => {
+                    if (data[key].theme === filter) {
+                        const dot = document.querySelector(`.map-point[data-id="${key}"]`);
+                        if(dot) dot.style.opacity = 1;
+                    }
+                });
             }
         }
+
+        let mybutton = document.getElementById("btn-back-to-top");
+        window.onscroll = function () {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                mybutton.style.display = "flex";
+            } else {
+                mybutton.style.display = "none";
+            }
+        };
+        mybutton.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     </script>
 </body>
 </html>
