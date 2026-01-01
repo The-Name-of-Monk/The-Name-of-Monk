@@ -5,7 +5,7 @@ const galleryData = [
         title: "Rule of St. Benedict",
         image: "images/01.jpg",
         creator: "Benedict of Nursia",
-        year: "c. 530 AD",
+        year: "ca. 1040s-60s",
         type: "Manuscript / Text",
         origin: "Italy (Monte Cassino)",
         source: "The Bodleian Libraries",
@@ -15,20 +15,20 @@ const galleryData = [
         evolution: "The Rule",
         mental: "The Spirit",
 
-        shortDesc: "The Rule of Saint Benedict is a book of precepts written in 516 by Benedict of Nursia for monks living communally under the authority of an abbot.",
-        mediumDesc: "This seminal text established the foundational principles of Western monasticism: poverty, chastity, and obedience. It strictly regulated the monk's day, dividing it between prayer, work, and study.",
-        longDesc: "Essentially, the Rule created a 'technology of the self' where the individual identity was subsumed by the collective discipline of the order. It marks the starting point of our exhibition's trajectory: strict control over the body and the mind.",
+        shortDesc: "This old book contains the rules that monks followed every day. It is the oldest surviving copy of the Rule of Saint Benedict.",
+        mediumDesc: "A monk long ago copied these words by hand. The book told monks when to wake up, pray, work, eat, and stay quiet. Other monks later added small corrections, showing that this book was used again and again.",
+        longDesc: "By following these rules, the monks learned to live calmly and simply. The book helped them stay focused, work together, and become the kind of people they hoped to be.",
 
         simple: {
-            short: "This is an ancient rule book for monks living together in a monastery.",
-            medium: "It gave them strict rules to follow: own nothing, do not marry, and always obey the leader. It also planned their whole day, telling them exactly when to pray and when to work.",
-            long: "Basically, this book taught monks how to live a disciplined life. It is the beginning of our story, showing how people controlled themselves to focus entirely on spiritual life."
+            short: "This manuscript is the earliest surviving copy of the Rule of Saint Benedict, the foundational text that defined the daily structure of Western monastic life. Written in England in the late 7th or early 8th century, it records the regulations that shaped every hour of a monk’s existence.",
+            medium: "Copied in uncial script and later amended by multiple hands, the book reveals a long tradition of reading, correcting, and transmitting the Rule within Benedictine communities. Its scriptio continua, minimal decoration, and practical layout reflect its function as a working text used for instruction. Through it, monks learned when to rise, pray, work, read, fast, and keep silence — not as personal choices, but as obligations shared by the entire community.",
+            long: "More than a book, this manuscript is a blueprint for monastic identity. It demonstrates how discipline was enacted through writing, how the body followed the page, and how communal stability emerged from the strict ordering of daily time. Its austere form embodies the ascetic spirit it teaches: clarity over ornament, obedience over individuality. Through this object, we witness the moment when the monk becomes a monk — not by solitude, but by submitting to a rule."
         },
 
         complex: {
-            short: "The Regula Benedicti constitutes the foundational codification of cenobitic monasticism, defining the administrative and spiritual praxis of the cloister.",
-            medium: "It instituted the tripartite vows while enforcing a rigid horarium that partitioned the circadian rhythm into distinct periods of Divine Office (Opus Dei), manual labor, and lectio divina.",
-            long: "Foucaultian analysis suggests the Rule functions as a disciplinary apparatus, wherein subjective agency is relinquished for collective homogeneity. It serves as the ascetic baseline against which the subsequent liberation of the 'Monk' archetype is measured."
+            short: "This codex is the earliest extant manuscript of the Regula Benedicti and the only surviving copy written entirely in uncial script. Produced in southern England in the late 7th or early 8th century, it stands at the threshold of Benedictine monasticism in the Anglo-Saxon world.",
+            medium: "The manuscript’s layered corrections—entered by multiple hands from the early Middle Ages through the 13th century—attest to a sustained institutional engagement with the Rule. Its scriptio continua, sparse rubrication, and functional mise-en-page indicate a book designed for active study and communal regulation. Within Benedictine life, the Rule structured liturgical, labor, and devotional rhythms, transforming monastic time into an ordered system of obedience.",
+            long: "As an artefact, the manuscript records not only textual transmission but the formation of monastic subjectivity. It illuminates how identity was produced through disciplined reading practices and the alignment of bodily routine with written prescription. Its austerity echoes the ideological core of Benedictine asceticism: stability, humility, and the effacement of individuality. The codex therefore serves as the conceptual entry point to this exhibition, grounding all subsequent objects in the written discipline that shaped the medieval monk."
         }
     },
     {
@@ -45,20 +45,20 @@ const galleryData = [
         evolution: "The Improvisation",
         mental: "The Spirit",
 
-        shortDesc: "Henri Matisse’s 'Jazz' is a limited-edition artist’s book containing prints of colorful cut-paper collages.",
-        mediumDesc: "Created towards the end of his life using the 'cut-out' technique, Matisse used scissors to carve directly into color, mirroring the improvisation of jazz music.",
-        longDesc: "The title 'Jazz' reflects the rhythmic, syncopated nature of the composition. It marks the transition in our narrative from utility to pure, expressive freedom, cutting through the rigid history of art like a improvised melody.",
+        shortDesc: "This Jazz series, created by Henri Matisse in 1947, can be seen as a groundbreaking exemplar of capturing the spirit of improvisation in visual form within modern art. It was born during a period when the artist's health prevented him from painting, marking a decisive shift in his creative method from the rule-bound act of depiction with a brush to the freedom of direct performance with scissors. This work is not merely a book; it is a visual score composed with color and shape.",
+        mediumDesc: "The central formal element paper shapes cut from pre-painted sheets is in itself an act of liberation. Matisse described these cut-outs as drawing with scissors, a process that abandoned the deliberate sketches and layered revisions of traditional painting for a spontaneous, dynamic, and irreversible act of cutting-as-improvising. Much like a jazz musician improvising within a set harmonic structure, Matisse explored infinite possibilities of color relationships and negative space within these vibrant compositions (such as The Clown and Icarus).",
+        longDesc: "The Jazz series establishes a revolutionary link between artistic asceticism and freedom. While confined to a wheelchair and bed by physical limitations, Matisse found unprecedented freedom of action and expression through scissors and colored paper. This work perfectly illustrates the philosophical background.The title Jazz is not a mere metaphor but a direct declaration of its internal creative philosophy: art, like jazz, achieves its highest state in infinite, joyous, and vital improvisation within self-imposed laws of color and form.",
 
         simple: {
-            short: "This is a colorful art book made by Henri Matisse using paper cut-outs instead of paint.",
-            medium: "Matisse made this when he was older. He used scissors to 'draw' with colored paper, just like a jazz musician plays with notes.",
-            long: "He named it 'Jazz' because the pictures feel free and lively. It shows how art became fun and expressive, moving away from strict rules."
+            short: "This is a famous art book called Jazz, made by Henri Matisse in 1947. It's very special because Matisse made it when he was sick and couldn't paint with a brush anymore. Instead of giving up, he started a new way of making art: he used scissors to cut shapes out of brightly colored paper. This book is like a pioneering example of turning the free, spontaneous feeling of jazz music into something you can see. ",
+            medium: "The main thing you see in Jazz are those big, bold shapes cut from painted paper. It was a totally new way to work. He didn't plan everything out with pencil sketches first. Instead, he would just pick up his scissors and cut, it was quick, full of movement, and he couldn't go back and erase it, just like a jazz musician making up a solo on the spot. In pictures like The Clown or Icarus, he played with how colors look next to each other and the shapes of the empty spaces, just like a musician plays with notes. This way of working changed art from quiet, careful work at an easel into something more like a fun, hands-on, and exciting activity.",
+            long: "Jazz is a powerful story about finding creativity even when things are difficult. Even though Matisse's body was limited, using scissors and paper gave him a new kind of freedom to move and express his ideas. In this way, Matisse and the jazz musician Thelonious Monk were alike: they both turned their personal limits into a loud, beautiful, and complex explosion of art. The free monk of music and the free painter of colors share the same story."
         },
 
         complex: {
-            short: "Matisse’s 'Jazz' represents a paradigm shift in 20th-century aesthetics, utilizing the 'papiers découpés' (paper cut-out) technique.",
-            medium: "This synthesis of drawing and color parallels the syncopated deconstruction found in bebop jazz. Matisse bypasses the mediation of the brush to carve directly into chromatic fields.",
-            long: "The nomenclature 'Jazz' signifies a semiotic alignment with improvisation. Within our framework, it demarcates the transcendence of utilitarian limitation towards pure, abstract expressionism."
+            short: "Henri Matisse's Jazz portfolio, conceived and executed in 1947, constitutes a seminal artifact within modernist practice. Created during a period of convalescence that precluded traditional easel painting, the series marks a decisive epistemological break, supplanting the prescriptive grammars of brushwork and depiction with the autonomous, performative act of decoupage. The work thus transcends its bibliographic format to operate as a chromatic and formal score, encoding the principles of spontaneity and rhythmic variation within the materiality of the printed page.",
+            medium: "This methodology embodies a visual analogue to jazz improvisation: a dynamic negotiation between intuition and structure, where each applied gouache-clad shape functions as an irrevocable, axiomatic note within a compositional field. Iconic plates such as The Clown and Icarus demonstrate a mastery of chromatic vibration and the activation of negative space, their sequencing generating a syncopated visual rhythm. The technique thereby transmutes the artist's practice from the solitary, meditative discipline of the studio into a kinetic, haptic, and phenomenologically direct encounter with form.",
+            long: "The Jazz series enacts a profound dialectic, wherein physical limitation catalyzes unprecedented formal and conceptual liberty. Confined by infirmity, Matisse discovered in the simple apparatus of blade and colored paper an expansive, generative freedom. The work serves as a consummate illustration of the modernist paradox: the deliberate renunciation of received pictorial conventions and technical disciplines enables the constitution of a new, internally rigorous aesthetic system. The titular reference to Jazz is thus a precise theoretical statement, positioning artistic creation as a practice of inventive, joyous, and ontologically vital improvisation within a self-generated framework of constraints. In this, Matisse achieves a profound, trans-disciplinary consonance with the ethos of Thelonious Monk: both artists orchestrate a alchemical conversion, transforming the imposed silences of circumstance into a resonant, complex, and definitive vocabulary of artistic expression. The liberated monk of auditory innovation and the liberated master of chromatic form are here revealed as kindred spirits within the arc of radical cultural production."
         }
     },
     {
@@ -75,20 +75,20 @@ const galleryData = [
         evolution: "The Rule",
         mental: "The Spirit",
 
-        shortDesc: "A misericord, or 'mercy seat', is a small wooden shelf on the underside of a folding church seat.",
-        mediumDesc: "It was designed to offer support to monks who had to stand during long periods of prayer, allowing them to lean while appearing to stand.",
-        longDesc: "This object embodies the tension between strict discipline and human limitation. It is a physical manifestation of the 'Spirit' narrative—finding a hidden space for comfort within a rigid structural framework.",
+        shortDesc: "This carved wooden seat has a hidden ledge that helped tired monks during long prayers.",
+        mediumDesc: "When the seat was flipped up, the monk could lean on the little shelf and look as if he was still standing. The carving shows people gathering corn, and two funny little creatures watching them.",
+        longDesc: "Even in a strict monastery, objects sometimes showed everyday life. This carving reminds us that monks lived in the same world as farmers and workers",
 
         simple: {
-            short: "This is a small wooden ledge hidden under a church seat, known as a 'mercy seat'.",
-            medium: "Monks had to stand for hours during prayer. This ledge let them lean back and rest a little bit without anyone noticing.",
-            long: "It shows that even with strict rules, people found ways to be comfortable. It is a secret compromise between obeying the rules and being human."
+            short: "A misericord is a discreet wooden ledge hidden beneath a folding choir stall, allowing monks to rest while appearing to stand during long services.",
+            medium: "This late 14th-century English example depicts a man and a woman “stooking” sheaves of corn, flanked by clothed hybrid creatures. Such secular imagery, common on misericords, draws on manuscript calendar traditions and local performance culture. Although misericords softened the physical rigors of the Rule, they remained invisible to most observers — a private concession within a public discipline.",
+            long: "Placed in the context of monastic asceticism, the misericord reveals an unexpected coexistence: strict obedience paired with small acts of mercy toward the body. Its carvings open a window onto the everyday world beyond the cloister, suggesting that even in a life of regulated silence, imagination and humor found protected spaces."
         },
 
         complex: {
-            short: "The misericord serves as a liturgical architectural subversion, providing physical alleviation during the Divine Office.",
-            medium: "While the Rule mandated standing, this 'misericordia' (act of mercy) allowed the monastic body to inhabit a liminal state between standing and sitting.",
-            long: "It represents a structural negotiation between ascetic ideal and physiological reality, creating a sanctioned space for bodily relief within the rigid geometry of the choir stall."
+            short: "This East Anglian misericord consists of a hinged choir stall seat with a carved corbel depicting agricultural labor. It represents a liminal zone between liturgical discipline and vernacular imagery.",
+            medium: "The carving of a man and woman stooking sheaves aligns with “labours of the months” iconography yet resists inclusion within a systematic cycle. The flanking hybrid supporters, clothed in mantle-like garments, evoke both marginal manuscript grotesques and performative traditions of masked harvest celebrations. As a functional object, the misericord mediated the Benedictine requirement of standing through a combination of architectural ingenuity and pastoral pragmatism.",
+            long: "Its presence in this exhibition underscores how monastic identity was negotiated not only through rules and liturgy but also through embodied accommodations and visual commentary. The misericord demonstrates that ascetic discipline contains its own margins — spaces where the secular world, humor, and human fragility could enter without breaking the spiritual order."
         }
     },
     {
@@ -105,20 +105,20 @@ const galleryData = [
         evolution: "The Utility",
         mental: "The Echo",
 
-        shortDesc: "Pattens were protective overshoes worn in the Middle Ages to lift the wearer above the mud and dirt.",
-        mediumDesc: "These are the direct functional ancestors of the modern Monk Strap shoe. The strap mechanism allowed for quick adjustment and practical utility.",
-        longDesc: "Originally designed purely for protection, the strap would later evolve from a necessity of the mud into the decorative buckles of high fashion, bridging the gap between 'The Utility' and 'The Identity'.",
+        shortDesc: "This curious object from 15 BC can be seen as the ancestor of the modern Monk shoe. It is a leather overshoe for the right foot with a long pointed toe.",
+        mediumDesc: "Remains of heel strap with buckle and ankle strap. Sole consisting of three layers of leather thonged together round the edge. In the Middle Ages, pattens were wooden or leather overshoes worn to elevate the wearer above the mud and filth of the streets and fields. Monks, who often worked in agriculture, used strap-and-buckle fastenings like these because they were more durable and practical than laces for heavy work.",
+        longDesc: "This artifact serves as a tangible link between the sacred vow of labor and the secular history of fashion. While the modern 'Monk strap' is admired for its sleek silhouette, its ancestor here is defined by rugged survival. The buckle you see was not chosen for its shine, but for its grip—a mechanical solution to a muddy problem. It invites us to reconsider the definition of luxury: before the buckle became a jewel for the gentleman's foot, it was a fundamental tool for the monk's toil.",
 
         simple: {
-            short: "This is an old leather overshoe used to keep feet dry in muddy streets.",
-            medium: "People wore these over their normal shoes. The strap on top helped keep it tight and secure while walking.",
-            long: "This simple strap is the grandfather of modern buckle shoes. It started as a tool for dirt, but eventually became a style for fashion."
+            short: "This object from 15 BC is an early version of the modern Monk shoe. It is a leather cover for the right foot with a long, pointed toe. You can still see parts of the heel strap and the buckle. The sole is made of three layers of leather tied together at the edges.",
+            medium: "In the Middle Ages, these shoes were called pattens. They were worn to lift the person above the mud and dirt in the streets and fields. Monks often worked on farms, so they used these strap-and-buckle fasteners. Buckles were stronger and more useful than shoelaces for this kind of heavy work.",
+            long: "This item connects the hard work of the monks with the history of fashion. Today, the modern Monk shoe is famous for its smooth shape and style. However, this old shoe was made for survival in tough conditions. The buckle was not chosen because it looked shiny, but because it held tight. It was a practical solution to a muddy problem. This helps us think about luxury in a new way: before the buckle became a decoration for a gentleman's foot, it was a basic tool for a monk's hard labor."
         },
 
         complex: {
-            short: "The patten functions as a medieval prophylactic for footwear, elevating the wearer above terrestrial filth.",
-            medium: "Its morphological significance lies in the strap retention system, a utilitarian precursor to the aestheticized closure of the modern Monk Strap shoe.",
-            long: "This artifact traces the phylogenetic evolution of footwear from purely pragmatic functionality to stylistic affectation, marking the first step in the secularization of the strap."
+            short: "This artifact, provisionally dated to 15 BC, represents a significant morphological precursor to the contemporary Monk strap footwear. Typologically classified as a pattern, this specimen is a leather overshoe designed for the right foot, distinguished by an elongated, pointed toe indicative of its period's aesthetic tendencies. The artifact's construction exhibits a tripartite laminate sole, consisting of three distinct leather layers thonged together at the periphery to ensure structural integrity under duress. Extant fragments of the fastening system,specifically a heel strap equipped with a buckle and an ancillary ankle strap provide crucial evidence of its operational design.",
+            medium: "In the medieval context, patterns served a critical utilitarian function, elevating the wearer above the unsanitary substrate of urban thoroughfares and agrarian fields. Within the monastic sphere, the adoption of strap-and-buckle fastenings over traditional lacing was dictated by pragmatic exigencies; the buckle offered superior durability and ease of manipulation for monks engaged in the Labora (manual labor) of agriculture.",
+            long: "Consequently, this object functions as a material nexus connecting the ecclesiastical obligation of toil with the secular evolution of sartorial history. While the modern Monk shoe is valorized for its sleek silhouette, its progenitor is defined by the rigorous demands of survival. The buckle functions here not as ornamentation, but as a mechanical necessity for traction and retention. This invites a re-evaluation of the semiotics of luxury: the transition of the buckle from a fundamental implement of monastic toil to a decorative signifier of the gentleman's wardrobe illustrates a profound recontextualization of the object's cultural value."
         }
     },
     {
@@ -135,20 +135,20 @@ const galleryData = [
         evolution: "The Improvisation",
         mental: "The Echo",
 
-        shortDesc: "A live performance recording of Thelonious Monk performing his classic composition 'I Mean You'.",
-        mediumDesc: "In this video, we witness Monk's unique physical relationship with the piano—his percussive touch, his dancing, and his use of silence.",
-        longDesc: "This performance stands in direct opposition to the regulated chanting of the Benedictine monks. It represents the ultimate expression of identity unbound, where the rules of music are learned only to be broken.",
+        shortDesc: "The value of this 1969 live recording extends far beyond a simple concert document. From a musicological perspective, it serves as a critical dynamic slice for observing the evolution of Monk's artistic style. A comparative analysis between this live rendition of I Mean You and versions recorded by Monk's groups in the late 1940s or early 1950s reveals a clear path toward maturity and depth.",
+        mediumDesc: "The most pronounced characteristic is the overall handling of tempo and time. The pacing here is more deliberate, expansive, and breathable than in earlier, often frenetic, versions. Monk's piano solos have transformed from the densely packed, sharply percussive attacks of his youth into a more refined, spatially aware, and architectural form of expression. Each chord strike and every repeated melodic fragment appears deeply considered, embodying a wisdom. His musical dialogue with saxophonist Charlie Rouse—forged over a decade of partnership—has reached a state of profound telepathy. ",
+        longDesc: "  Furthermore, the context of the performance itself holds significance. That a dedicated jazz concert by Monk could take place in the Salle Pleyel, a venue with superb acoustics and a highbrow audience traditionally associated with classical music, signals the decisive elevation of jazz's social status and cultural recognition as a serious art form, both in Europe and globally.",
 
         simple: {
-            short: "A video of the jazz musician Thelonious Monk playing the piano.",
-            medium: "You can see his unique style: he hits the keys hard, dances around, and plays with a lot of energy.",
-            long: "This is very different from the quiet, strict monks of the past. It shows how the name 'Monk' eventually became associated with loud, free, and creative music."
+            short: "This invaluable video footage documents a complete performance from December 15, 1969, at the Salle Pleyel in Paris, France—a hall renowned as a sanctuary of classical music. The star of this concert is one of the most original and iconic figures in jazz history, pianist and composer Thelonious Monk.",
+            medium: "For this performance, Monk was joined by his long-standing classic quartet lineup: saxophonist Charlie Rouse, bassist Nate N.D. Gingrich, and drummer Frankie Dunlop. Together, they perform his composition I Mean You. While the piece originated from an earlier period, this rendition offers a clear view into the mature evolution of Monk's musical ideas in the later stage of his career.",
+            long: "Viewers are granted a direct experience of Monk's unique stage presence: his trademark angular piano attack, full of deliberate pauses and spaces; his physical swaying in sync with complex rhythms; and his occasional rise from the piano bench for a solitary dance, completely immersed in his own sonic world. The band exhibits profound cohesion, with saxophone and piano lines intertwining seamlessly, supported by a rhythm section that is both rock-solid and supple. This multi-minute performance is more than just a song."
         },
 
         complex: {
-            short: "Archival footage documenting the kinetic and auditory idiosyncrasies of Thelonious Monk's performance style.",
-            medium: "Monk's percussive attack and dissonant phrasing deconstruct the harmonic conventions of Western music, prioritizing rhythmic innovation over melodic fluidity.",
-            long: "The performance acts as a visual thesis on 'The Improvisation', demonstrating how the disciplined body of the ascetic monk has been transformed into the liberated, expressive body of the jazz virtuoso."
+            short: "This video segment can be regarded as a cultural meta-text concerning Rules and Freedom. It documents 1969, a period marking the twilight of Monk's artistic career, merely a few years before his complete retreat from public life due to health issues. Against this backdrop, the performance's very staging at the Salle Pleyel—a hall symbolizing the lofty tradition and Rules of European classical music—in itself constitutes a powerful cultural metaphor.",
+            medium: "On stage, Monk's performance is both an enactment of his personal mythology and a ritual exploring the very essence of jazz. The title of the piece he performs, I Mean You, can itself be interpreted as the artist's act of signifying and declaration toward the audience. The music's seemingly loose yet structurally rigorous improvisation perfectly embodies his lifelong aesthetic: carving out a boundless territory for free expression within the self-imposed, highly disciplined Rules of harmony and rhythm.",
+            long: "Therefore, this recording does not merely document a piece of music; it witnesses the moment a cultural symbol reached a state of crystallization in the late phase of its career. The monk who once challenged the musical establishment with dissonance has now been received and enshrined as an icon within the world's premier concert halls. The Monk is finally free, and his freedom is, at this very moment, eternally fixed into a classic form—one to be revered and listened to by generations to come."
         }
     },
     {
@@ -165,20 +165,20 @@ const galleryData = [
         evolution: "The Utility",
         mental: "The Identity",
 
-        shortDesc: "A contemporary pair of Double Monk Strap shoes, characterized by the absence of lacing and the use of dual buckles.",
-        mediumDesc: "Here, the 'Utility' of the medieval strap has completely transformed into aesthetic 'Identity'. The double buckle serves as a stylistic declaration of luxury.",
-        longDesc: "This item represents the modern liberation of style. The name 'Monk' no longer implies poverty or silence, but has become a symbol of sartorial elegance and individual choice in the 21st century.",
+        shortDesc: "This pair of Double Monk shoes by Louis Lampertsdörferr from World Championship of Shoemaking  2025 represents the pinnacle of craftsmanship and aesthetic of modern gentleman's footwear. ",
+        mediumDesc: "Once the choice of alpine friars, the monk shoe’s combination of formality and flair has an enduring sartorial appeal. The dual buckles, once purely functional, are now primarily aesthetic choices that add a touch of flair. Today, the Monk strap is considered a sign of sprezzatura—a studied carelessness. It is the choice of a man who respects tradition but chooses to assert his own style within the rules of formal dress.",
+        longDesc: "This pair of double monk shoes has a thin-walled horseshoe heel and a ridge back that continues up over the back of the upper, where the heel stiffener is made to keep this shape. Along the outlines of the top heel lift runs rows of very thin 0,5 mm nails. An insert made of the same leather as the upper with the same decorative stitching brings things together nicely. The upper consists of one seamless main piece. One of the most impressive features is the thin soleold-sper fine, well-made sole stitching at 30 spi (stitches per inch). Simple but exquisite shoe buckles and toe taps also made by specialized artisan. ",
 
         simple: {
-            short: "A modern pair of fancy men's shoes with two buckles instead of shoelaces.",
-            medium: "These buckles are mostly for style, to look good. They show how the old monk strap changed into something rich and fashionable.",
-            long: "Now, wearing 'Monk' shoes doesn't mean you are poor or religious. It means you have style and money. The meaning of the word has completely flipped."
+            short: "This pair of Double Monk shoes was made by Louis Lampertsdörfer for the 2025 World Championship of Shoemaking. It represents the highest level of skill and modern style. ",
+            medium: "In the past, this style was worn by simple monks in the mountains. Today, the two buckles are not just for holding the shoe tight; they are a fashion choice. This style is now a sign of sprezzatura, which means looking stylish in a relaxed and natural way.",
+            long: "The construction of this shoe is incredibly detailed. The main part of the shoe (the upper) is made from one single, seamless piece of leather. The heel is shaped like a horseshoe with thin walls, and it has a special ridge on the back that continues up the shoe to help it keep its shape. If you look closely at the top of the heel, there are rows of very tiny nails, only 0.5 mm wide. An extra piece of leather matches the rest of the shoe and is joined with decorative stitching. The most amazing feature is the sole stitching. It is extremely fine, with 30 stitches in every inch (30 spi). Even the simple buckles and the metal plates on the toes (toe taps) were made by special experts."
         },
 
         complex: {
-            short: "A contemporary iteration of the Double Monk Strap, representing the apex of bespoke shoemaking craftsmanship.",
-            medium: "The gemination of the buckle serves a purely semiotic function, signaling status and aesthetic discernment rather than functional necessity.",
-            long: "This artifact concludes the 'Utility' narrative arc, demonstrating the complete commodification and gentrification of the monastic aesthetic within the luxury fashion ecosystem."
+            short: "This artifact, crafted by Louis Lampertsdörfer for the 2025 World Championship of Shoemaking, epitomizes the pinnacle of contemporary craftsmanship. ",
+            medium: "It illustrates the typological evolution of the Monk shoe: once the utilitarian choice of alpine friars, it has been recontextualized as a symbol of sprezzatura — a studied carelessness where the functional duality of the buckles serves primarily as a sartorial affectation for the modern gentleman.",
+            long: "Technically, the shoe is a marvel of structural complexity. The upper is executed as a seamless wholecut, formed from a single continuous hide without joinery. The heel architecture features a thin-walled horseshoe design with a dorsal ridge that extends vertically up the counter, reinforced by a shaped stiffener to maintain its silhouette. The top lift is secured by a precision array of microscopic 0.5 mm nails. Perhaps most notably, the sole stitching achieves a density of 30 stitches per inch (spi), a feat of manual dexterity that transcends structural necessity to become a display of pure artisanal capability. An insert of matching leather with decorative stitching integrates the components seamlessly. Augmented by bespoke hardware—exquisite buckles and toe taps by specialized artisans—this object redefines the material limits of the Monk shoe."
         }
     },
     {
@@ -186,7 +186,7 @@ const galleryData = [
         title: "Benedictine Antiphonary",
         image: "images/07.jpg",
         creator: "Belbello da Pavia and collaborators",
-        year: "1467-70",
+        year: "ca. 1467–70",
         type: "Manuscript",
         origin: "Italy",
         source: "The Metropolitan Museum of Art",
@@ -195,20 +195,20 @@ const galleryData = [
         evolution: "The Rule",
         mental: "The Echo",
 
-        shortDesc: "A large choir book containing the antiphons sung during the Divine Office by a monastic community.",
-        mediumDesc: "This artifact represents the collective voice. In the monastery, individual identity was suppressed in favor of the communal chant dictated by the notes on the page.",
-        longDesc: "The rigorous notation stands in stark contrast to the improvisational freedom seen in Thelonious Monk's music. Here, the voice is a tool for order, not personal expression.",
+        shortDesc: "This big, colorful book is a special singing book used by monks. It shows them which songs to sing during prayers throughout the year.",
+        mediumDesc: "Monks gathered together in the church to sing these chants at different times, from the weeks before Christmas to the days of fasting before Easter. A talented artist decorated the letters with bright colors to make the book beautiful and easy to follow.",
+        longDesc: "When monks sang from this book, their voices became one single sound. It reminds us that in a monastery, singing is not just music — it is how monks pray together and become a community.It tells them which chants to sing at different times of the year, from the weeks before Christmas to the time of fasting before Easter. A famous artist painted the bright letters and decorations so that the prayers would look as special as they sound. When the monks opened this book in the choir, all their voices joined together in one long song to God.",
 
         simple: {
-            short: "A huge music book used by a whole group of monks to sing together.",
-            medium: "The monks all sang the same words at the same time. No one was allowed to sing their own song.",
-            long: "This shows how monks did everything as a group. Unlike jazz musicians who play solos, these monks used their voices to follow strict rules."
+            short: "This Benedictine antiphonary contains the chants sung in daily prayer from Advent to Lent. It is both a liturgical tool and a work of art.",
+            medium: "Created by the painter Belbello da Pavia in 15th-century Venice, the book reflects a vibrant artistic tradition within monastic life. Its brilliant pinks and greens, elaborate initials, and carefully ruled musical staves reveal how seriously a community invested in its liturgical books. The antiphonary structured moments of communal singing, guiding monks as they performed the Divine Office throughout the seasons.",
+            long: "Where the Rule prescribes the rhythm of each day, the antiphonary shapes the sound of monastic life. Its pages transform individual voices into a collective chant, dissolving the self into the harmony of the community. Even its beauty serves the ascetic ideal: the decoration does not celebrate personal expression but elevates the shared act of prayer."
         },
 
         complex: {
-            short: "An illuminated antiphonal manuscript designed for the communal performance of the Divine Office.",
-            medium: "The artifact facilitates the dissolution of individual vocal agency into a unified, liturgical sonic body, governed by strict neumal notation.",
-            long: "It creates a sonic architecture of compliance, diametrically opposed to the improvisational agency of jazz. The Antiphonary creates an 'Echo' of discipline that reverberates through the halls of the monastery."
+            short: "This illuminated antiphonary, part of a choir-book ensemble for San Giorgio Maggiore in Venice, records the chants for the Divine Office from Advent to Lent. It represents a mature intersection of monastic liturgy and late medieval illumination.",
+            medium: "Executed by Belbello da Pavia after his departure from Mantua, the manuscript integrates courtly visual idioms into monastic practice. Its saturated palette, sharply defined initials, and disciplined page layout reflect both artistic virtuosity and liturgical precision. As a functional book, it mediated the communal recitation of psalms, readings, and antiphons, embedding the rhythm of sacred time within a material object.",
+            long: "Placed alongside the Regula Benedicti, the antiphonary illustrates how monastic identity was formed through both textual regulation and sonic discipline. The manuscript materializes a transformation of the individual voice into collective liturgical sound. Its sumptuous decoration, far from undermining asceticism, reveals a theological logic in which beauty is permissible when directed entirely toward the praise of God and the cohesion of the monastic community."
         }
     },
     {
@@ -225,20 +225,20 @@ const galleryData = [
         evolution: "The Utility",
         mental: "The Identity",
 
-        shortDesc: "Mid-20th-century footwear that adopted the monastic strap for general gentleman's wear.",
-        mediumDesc: "This transitional object marks the moment the 'Monk' shoe left the cloister and entered the secular world, bridging the gap between utility and fashion.",
-        longDesc: "Produced during the war years, it retains a sense of utility but signals the beginning of the strap's journey into popular culture, eventually leading to the high-fashion versions we see today.",
+        shortDesc: "This oil painting of a shoemaker is by David Teniers and dates to about 1650. It depicts the workshop of a traditional shoemaker. ",
+        mediumDesc: "Unlike the monastery, where labor was a form of prayer, the shoemaker's workshop was a place of commerce and specialized craft. The shoemaker is sitting on a low stool with his tools on a small bench near him. You can see some of the tools of his trade including a shoemaker's knife and the stirrup (leather strap) that was used to hold the boot or shoe securely on the knee when he was lasting and sewing. The block under his foot raises up his knee to a more comfortable height for working. The creation of a Monk shoe requires precise cutting and stitching, representing a secular discipline: the pursuit of material perfection rather than spiritual purity.",
+        longDesc: "This painting offers a rare glimpse into the daily reality of 17th-century craftsmanship. Teniers, a master of genre painting, elevates the humble cobbler to a subject of dignity. Unlike the monk in the cloister, whose labor was a silent service to God, this artisan is engaged in the noise and clutter of production. His workshop is filled with the debris of his trade—scraps of leather, wooden lasts, and various vessels—creating a scene of focused, worldly industry. Here, 'discipline' is redefined: it is no longer about obeying a religious Rule, but about mastering a difficult trade to survive in a commercial world.",
 
         simple: {
-            short: "A pair of shoes from the 1940s that uses a strap instead of laces.",
-            medium: "This is when normal people started wearing 'monk' style shoes, not just religious people.",
-            long: "It connects the old muddy shoes of the past to the fancy shoes of today. It shows the word 'Monk' starting to become a fashion word."
+            short: "This oil painting was made by the artist David Teniers around 1650. It shows us inside the workshop of a traditional shoemaker.",
+            medium: "Unlike a monastery, where work was a way to pray, this workshop is a place of business and skilled craft. The shoemaker sits on a low stool. He keeps his tools close to him on a small bench. You can see the special tools he uses for his job, including a sharp knife and a stirrup. This is a leather strap used to hold the boot or shoe tightly against his knee while he sews it. There is a wooden block under his foot which lifts his knee up to make his work easier and more comfortable. Making a shoe requires careful cutting and stitching. This represents a different kind of discipline: it is not about being spiritually pure for church, but about creating a perfect object for the real world.",
+            long: "This painting gives us a rare look at what daily work was really like in the 17th century. The artist, Teniers, was famous for painting scenes of everyday life, and he shows this simple shoemaker as a person worthy of respect. Unlike a monk who worked quietly to serve God, this worker is surrounded by the noise and mess of making things. His room is full of the leftovers from his trade—scraps of leather, wooden shoe molds, and various pots—creating a picture of hard work and industry. Here, the idea of discipline changes. It is no longer about obeying religious rules. Instead, it is about mastering a difficult skill to earn a living."
         },
 
         complex: {
-            short: "A mid-century specimen of the single-strap shoe, illustrating the secular appropriation of monastic attire.",
-            medium: "Chronologically situated between the utilitarian patten and the luxury double-strap, this artifact embodies the transition from function to form.",
-            long: "It signifies the democratization of the 'Monk' silhouette, detaching the signifier from its religious signified and recontextualizing it within the wardrobe of the modern civilian."
+            short: "This oil painting by David Teniers the Younger (c. 1650) serves as a quintessential exemplar of Flemish genre painting, a style that prioritized the verisimilitude of the mundane over the idealization of the sacred. The canvas provides an anthropological survey of a mid-17th-century cobble's workshop, offering a sharp dialectical contrast to the monastic scriptorium or cloister.",
+            medium: "Where monastic labor (Labora) was conceptually framed as a devotional extension of prayer—silent, communal, and self-effacing—the environment depicted here is explicitly transactional and individualized. Teniers meticulously renders the technical apparatus of the trade: the paring knife, the ergonomic knee-block, and the stirrup strap used to secure the leather upper against the last. These tools are not instruments of penance, but of techne (craftsmanship).",
+            long: "The workshop, cluttered with the detritus of production—leather offcuts, wooden lasts, and earthenware vessels—visualizes the shift from a theocentric economy to a mercantilist one. The shoemaker’s posture suggests a focus on material precision rather than spiritual purity. Consequently, this image captures a critical juncture in the genealogy of the Monk shoe: the moment when footwear production decoupled from the context of religious necessity (the protective patten) and re-emerged as a specialized, secular discipline driven by market demand and artisanal expertise."
         }
     },
     {
@@ -255,20 +255,20 @@ const galleryData = [
         evolution: "The Rule",
         mental: "The Identity",
 
-        shortDesc: "A portrait depicting a monk in deep contemplation, adhering to the vow of silence.",
-        mediumDesc: "The cowl obscures the face and the posture suggests submission, highlighting the erasure of individual identity within the monastic order.",
-        longDesc: "It serves as a baseline for our exhibition: this is where the Monk started—silent, anonymous, and bound by the Rule, before the explosion of identity in the modern era.",
+        shortDesc: "This painting shows a monk wearing a simple robe and a special haircut called a tonsure.",
+        mediumDesc: "The monk is looking down, as if he is praying quietly. Monks often tried to stay humble and calm, and the artist painted him in a very peaceful way.",
+        longDesc: "Even though we don't know exactly who he is, the picture shows what monks wanted to be like — thoughtful, quiet, and focused on God.",
 
         simple: {
-            short: "A painting of a serious monk looking down.",
-            medium: "He is wearing a hood that hides his hair and ears. He looks quiet and obedient.",
-            long: "This picture shows us what a 'Monk' originally was: someone who didn't want to be famous, who just wanted to follow the rules and pray."
+            short: "This panel depicts a Benedictine monk identifiable by his habit and tonsure. His lowered gaze and restrained posture create a contemplative presence.",
+            medium: "Attributed to the late work of Hugo van der Goes or his circle, the painting was likely once part of a larger altarpiece or devotional scene. Its soft modeling, elongated head, and downward-turned eyes exemplify the introspective aesthetic of Netherlandish devotional art. The trimmed edges suggest that the work once belonged to a more complex narrative or liturgical structure.",
+            long: "After encountering the books that impose monastic discipline, this image presents the person formed by those rules. His silence, his posture, and even his avoidance of eye contact reveal the shaping power of obedience and humility. The portrait is less a record of an individual and more an emblem of the monastic ideal."
         },
 
         complex: {
-            short: "A devotional portrait attributed to the circle of Hugo van der Goes, capturing the interiority of the monastic subject.",
-            medium: "The compositional focus on the downcast gaze and the obscuring cowl visually reinforces the theological imperative of self-abnegation.",
-            long: "This image provides the visual thesis for 'The Rule': the suppression of the ego. It stands as the historic antithesis to the celebrity and individuality of the jazz musician featured later in the collection."
+            short: "This late 15th-century Netherlandish panel portrays a Benedictine monk in prayerful introspection. Its formal features situate it within the devotional idiom associated with Hugo van der Goes.The panel’s cropped edges point to its original placement within a polyptych or multi-figure composition. The sitter’s downward gaze, attenuated cranial proportions, and subtle tonal transitions align with van der Goes’s mature style. As with many donor and monastic portraits of the period, the work mediates between individual likeness and typological representation, embedding the subject within a larger spiritual narrative.",
+            medium: "For this exhibition, the panel serves as a visual corollary to textual norms such as the Regula Benedicti. It demonstrates how monastic identity was inscribed into the body through posture, clothing, and gesture. The monk’s refusal of reciprocal gaze underscores a key Benedictine virtue: the discipline of turning inward, subordinating the self to the communal and divine order.This panel, attributed to the late work of Hugo van der Goes or his circle, presents a Benedictine monk in half-length profile, his identity marked by the dark habit and clerical tonsure. The panel has been trimmed on several sides, a fate shared by many Netherlandish works once embedded in larger polyptychs or composite structures. As a result, the figure’s original iconographic and liturgical context has been lost; whether he functioned as a donor portrait, a monastic exemplar, or a generic supplicant remains uncertain.",
+            long: "Stylistically, the painting displays features associated with van der Goes’s mature production: an attenuated cranial structure, subtle transitions of flesh tones, and an emphasis on inward-turned affect. The sitter’s downcast eyes and compressed hands refuse the mutual gaze typical of some contemporaneous portraiture, redirecting attention from social status to spiritual disposition. In this sense, the image both participates in and resists the emergent culture of individual portraiture in the Burgundian Netherlands.For the purposes of this exhibition section, the panel serves as a visual counterpoint to normative texts like the Regula Benedicti. It demonstrates how monastic identity is inscribed onto the body: through dress, hair, and gesture, the monk becomes legible as a particular kind of subject. At the same time, the painting’s cropped format and de-contextualisation remind us that such identities are historically contingent, subject to later acts of fragmentation, collection, and reinterpretation."
         }
     },
     {
@@ -285,20 +285,20 @@ const galleryData = [
         evolution: "The Rule",
         mental: "The Identity",
 
-        shortDesc: "One of the famous 'Mourners' from a ducal tomb, depicted in a heavy, hooded cloak.",
-        mediumDesc: "The ultimate symbol of anonymity. The monk's face is completely hidden inside the hood, erasing identity to focus solely on the emotion of grief.",
-        longDesc: "This contrasts sharply with the 'Portrait of Thelonious Monk', where the individual's face is the focal point. It questions what we lose when we hide our face, and what we gain in spiritual weight.",
+        shortDesc: "This small statue shows a person wrapped in a heavy cloak, quietly mourning someone who died.",
+        mediumDesc: "It once stood on the tomb of a French duke and was part of a long line of figures who seemed to walk around the tomb in sorrow.",
+        longDesc: "The hidden face and big cloak show sadness in a calm way, reminding us that in the Middle Ages, grief was shown with silence, not big gestures.",
 
         simple: {
-            short: "A statue of a person crying, completely covered by a heavy hood.",
-            medium: "You can't see the person's face at all. It shows that who they are doesn't matter, only their sadness matters.",
-            long: "This is the opposite of a selfie or a portrait. The person is hiding themselves completely, becoming just a shape of sorrow."
+            short: "This figure is one of the mourning statuettes that encircled the tomb of Jean, duke of Berry, in Bourges. Wrapped in deep drapery, the mourner embodies quiet grief.",
+            medium: "Originally part of a procession of forty figures, the mourner stood in niches beneath the duke’s effigy. Their faces largely concealed, they represent members of the ducal household or clergy responsible for praying for the duke's soul. The tomb was damaged during the French Revolution, scattering the sculptures; only a fraction survive today.",
+            long: "In the context of monastic culture, these mourners echo the monk’s role in intercessory prayer. Their bowed heads and enveloping cloaks mirror the discipline of humility. The sculpture captures a vision of grief that aligns with monastic spirituality: restrained, contemplative, and oriented toward the hope of eternal life."
         },
 
         complex: {
-            short: "An alabaster pleurant (mourner) from the Burgundian school, characterized by the dramatic drapery of the cowl.",
-            medium: "The total obfuscation of the facial features radicalizes the concept of anonymity, reducing the human subject to a vessel for communal mourning.",
-            long: "It creates a powerful visual metaphor for the erasure of the 'Self' demanded by the Rule. The identity is subsumed by the fabric of the institution, leaving only the performative act of prayer."
+            short: "This pleurant belongs to the ensemble of mourning figures from the tomb of Jean de France, duc de Berry, produced by Jean de Cambrai and later collaborators. It exemplifies Burgundian funerary sculpture’s distinctive treatment of emotion.",
+            medium: "The mourner's voluminous mantle, tubular folds, and recessed head reflect a sculptural language in which affect is displaced from facial expression to drapery. Positioned beneath the gisant, the pleurants constituted a perpetual cortège charged with memorial intercession. Their dispersal after the Revolution complicates their original liturgical and spatial meanings.",
+            long: "For this exhibition, the figure resonates with monastic practices of commemoration. It stands as a sculptural analogue to the continuous prayer enjoined upon monastic communities. The anonymity, repetition, and enveloping drapery parallel the discipline of the cloister, where individuality yields to ritualized roles shaped by humility and eschatological hope."
         }
     },
     {
@@ -315,20 +315,20 @@ const galleryData = [
         evolution: "The Utility",
         mental: "The Identity",
 
-        shortDesc: "A genre painting illustrating the workshop of a cobbler, showing the tools and craft of shoemaking.",
-        mediumDesc: "This artwork contextualizes the 'Utility' narrative by showing the labor required to create the straps and buckles that monks (and gentlemen) would wear.",
-        longDesc: "It highlights the material reality and craftsmanship behind the metaphorical concept of the 'Monk' shoe, reminding us that every artifact has a maker and a process.",
+        shortDesc: "This oil painting of a shoemaker is by David Teniers and dates to about 1650. It depicts the workshop of a traditional shoemaker. ",
+        mediumDesc: "Unlike the monastery, where labor was a form of prayer, the shoemaker's workshop was a place of commerce and specialized craft. The shoemaker is sitting on a low stool with his tools on a small bench near him. You can see some of the tools of his trade including a shoemaker's knife and the stirrup (leather strap) that was used to hold the boot or shoe securely on the knee when he was lasting and sewing. The block under his foot raises up his knee to a more comfortable height for working. The creation of a Monk shoe requires precise cutting and stitching, representing a secular discipline: the pursuit of material perfection rather than spiritual purity.",
+        longDesc: "This painting offers a rare glimpse into the daily reality of 17th-century craftsmanship. Teniers, a master of genre painting, elevates the humble cobbler to a subject of dignity. Unlike the monk in the cloister, whose labor was a silent service to God, this artisan is engaged in the noise and clutter of production. His workshop is filled with the debris of his trade—scraps of leather, wooden lasts, and various vessels—creating a scene of focused, worldly industry. Here, 'discipline' is redefined: it is no longer about obeying a religious Rule, but about mastering a difficult trade to survive in a commercial world.",
 
         simple: {
-            short: "A painting of a man making shoes in his messy shop.",
-            medium: "It shows all his tools and the hard work it takes to make leather shoes.",
-            long: "We often forget that someone has to make the things we wear. This picture reminds us of the workers behind the 'Monk' shoes."
+            short: "This oil painting was made by the artist David Teniers around 1650. It shows us inside the workshop of a traditional shoemaker. ",
+            medium: "Unlike a monastery, where work was a way to pray, this workshop is a place of business and skilled craft. The shoemaker sits on a low stool. He keeps his tools close to him on a small bench. You can see the special tools he uses for his job, including a sharp knife and a stirrup. This is a leather strap used to hold the boot or shoe tightly against his knee while he sews it. There is a wooden block under his foot which lifts his knee up to make his work easier and more comfortable. Making a shoe requires careful cutting and stitching. This represents a different kind of discipline: it is not about being spiritually pure for church, but about creating a perfect object for the real world.",
+            long: "This painting gives us a rare look at what daily work was really like in the 17th century. The artist, Teniers, was famous for painting scenes of everyday life, and he shows this simple shoemaker as a person worthy of respect. Unlike a monk who worked quietly to serve God, this worker is surrounded by the noise and mess of making things. His room is full of the leftovers from his trade—scraps of leather, wooden shoe molds, and various pots—creating a picture of hard work and industry. Here, the idea of discipline changes. It is no longer about obeying religious rules. Instead, it is about mastering a difficult skill to earn a living."
         },
 
         complex: {
-            short: "A genre scene by Teniers depicting the artisanal production of footwear within a 17th-century interior.",
-            medium: "The painting foregrounds the materiality of leather and the manual labor of the cobbler, grounding the 'Utility' narrative in economic reality.",
-            long: "It serves to demystify the artifact, shifting focus from the consumer of the monk strap to the producer. It emphasizes the techne (craft) required to produce the functional objects of the order."
+            short: "This oil painting by David Teniers the Younger (c. 1650) serves as a quintessential exemplar of Flemish genre painting, a style that prioritized the verisimilitude of the mundane over the idealization of the sacred. The canvas provides an anthropological survey of a mid-17th-century cobbler’s workshop, offering a sharp dialectical contrast to the monastic scriptorium or cloister.",
+            medium: "Where monastic labor (Labora) was conceptually framed as a devotional extension of prayer—silent, communal, and self-effacing—the environment depicted here is explicitly transactional and individualized. Teniers meticulously renders the technical apparatus of the trade: the paring knife, the ergonomic knee-block, and the stirrup strap used to secure the leather upper against the last. These tools are not instruments of penance, but of techne (craftsmanship).",
+            long: "The workshop, cluttered with the detritus of production—leather offcuts, wooden lasts, and earthenware vessels—visualizes the shift from a theocentric economy to a mercantilist one. The shoemaker’s posture suggests a focus on material precision rather than spiritual purity. Consequently, this image captures a critical juncture in the genealogy of the Monk shoe: the moment when footwear production decoupled from the context of religious necessity (the protective patten) and re-emerged as a specialized, secular discipline driven by market demand and artisanal expertise."
         }
     },
     {
@@ -345,20 +345,20 @@ const galleryData = [
         evolution: "The Improvisation",
         mental: "The Spirit",
 
-        shortDesc: "An intimate photograph of jazz pianist Thelonious Monk, capturing him in a moment of reflection or performance.",
-        mediumDesc: "Here, the 'Monk' is no longer anonymous. He is the center of attention, a unique genius. The composition highlights his individual style and presence.",
-        longDesc: "This image is the antithesis of the 'Mourner Sculpture'. It celebrates the singular 'Spirit' of the jazz age, where the rule is to break the rule and the goal is to be distinct.",
+        shortDesc: "This 1957 portrait of Thelonious Monk by Lee Friedlander can be seen as the foundational visual document of the High Priest of Bebop. As a gelatin silver print measuring 32.8 x 21.7 cm, it permanently fixes a posture of historical confrontation, announcing the arrival of a monk who challenged the established laws of music.",
+        mediumDesc: "In the photograph, Monk's iconic rounded hat and dark sunglasses form a modernist version of the monastic cowl. Its function, however, is fundamentally reversed: it is not for concealment but serves as a highly stylized declaration, directing the viewer's full attention to his contemplative face and hands poised over invisible keys. Friedlander deliberately avoids a dramatic moment of performance, choosing instead a static, inter-motional instant charged with latent tension. This capture of interstice and silence precisely echoes the core of Monk's musical aesthetics—those meticulously constructed, suspenseful pauses within a rigorous harmonic framework (Rule) are themselves the most expressive form of Improvisation. ",
+        longDesc: "This work forges a profound link between sacred labor and secular creation. While the medieval monk's garb implied an isolation from worldly sound, Monk's attire symbolizes the active intervention and reconstruction of the auditory order. The photograph's cool, high-contrast tonality and classical rule-of-thirds composition are themselves a manifestation of rigorous freedom in the visual realm; it illustrates how Monk transformed the historical discipline of music into an unprecedented rigorous freedom. ",
 
         simple: {
-            short: "A photo of the famous jazz musician Thelonious Monk.",
-            medium: "He looks cool and unique. The photo shows him as a star, someone special.",
-            long: "Unlike the hidden monks of the past, Thelonious Monk wanted to be seen. This photo captures his unique personality."
+            short: "This picture from 1957 shows the great jazz piano player Thelonious Monk. It is like the first and most important picture of him. Made with black-and-white photo paper, it forever captures the moment he arrived, ready to question all the old rules of music.",
+            medium: "In the photo, Monk's special round hat and dark glasses are like a modern monk's hood. But they are not for hiding. They are a strong statement. They make us look only at his thoughtful face and his hands, which seem ready to play a silent piano. The photographer did not catch him in the middle of playing. Instead, he chose a quiet moment between actions, full of hidden energy. This picture does more than show us a man; it shows us a new way of thinking about art.",
+            long: "So, this picture does two things: it saves the image of a musician, and it saves the idea of the monk — no longer a follower of old rules, but someone who makes new ones. His freedom is now fixed here, in this picture, for us to see."
         },
 
         complex: {
-            short: "A gelatin silver print by Lee Friedlander capturing the jazz icon Thelonious Monk.",
-            medium: "The portrait privileges the subjectivity of the artist, framing Monk not as a generic type but as a singular cultural force.",
-            long: "It visualizes the transition from the collective anonymity of the cloister to the hyper-individuality of the jazz stage. The lens focuses on the 'aura' of the artist, marking the full liberation of the name 'Monk'."
+            short: "This gelatin silver print from 1957, created by Lee Friedlander, constitutes a seminal visual document in the iconography of Thelonious Monk. Executed within the precise dimensions of 32.8 × 21.7 cm, the work functions not merely as a portrait but as a critical artifact that encapsulates the emergent ethos of an artist positioned to systematically interrogate and dismantle prevailing musical conventions.",
+            medium: "Friedlander’s composition strategically employs Monk’s signature sartorial elements—the rounded hat and opaque sunglasses—as a recoded visual lexicon. Far from serving as mere concealment, these elements operate as deliberate semiotic markers, focusing interpretive attention on the subject’s contemplative visage and his hands, which are suspended in a state of poised potential. The photographer’s decision to eschew a depictive moment of performance in favor of a liminal, inter-motional stasis generates a resonant formal analogy to Monk’s own musical praxis. In this suspended silence—a carefully calibrated negation within the harmonic taxonomy (Rule)—lies the very essence of creative autogenesis (Improvisation). Thus, the portrait transcends documentary function to become a meta-textual meditation on artistic intentionality.",
+            long: "This work establishes a profound discursive link between ascetic tradition and modernist aesthetic production. Whereas the monastic habit historically denoted withdrawal from worldly sensory engagement, Monk’s curated appearance signifies an aggressive intervention into and reconfiguration of the auditory field. The photograph’s arresting chiaroscuro and rigorously architectonic composition materially instantiate the dialectic of structured liberty."
         }
     },
     {
@@ -375,20 +375,20 @@ const galleryData = [
         evolution: "The Improvisation",
         mental: "The Identity",
 
-        shortDesc: "The original artwork for the cover of TIME magazine, featuring Thelonious Monk.",
-        mediumDesc: "Appearing on the cover of TIME signified that Monk had conquered the cultural mainstream. The 'Name of the Monk' had traveled from secluded cloisters to the pinnacle of pop culture.",
-        longDesc: "It represents the triumph of 'The Improvisation'. The face is not hidden; it is broadcast to the world, marking the completion of our narrative journey from anonymity to celebrity.",
+        shortDesc: "This 1964 oil portrait by Time magazine cover artist Boris Chaliapin constitutes an authoritative visual coronation of Thelonious Monk's cultural stature. As a key work within the National Portrait Gallery's Time Collection, which documents shapers of American culture, it employs the classical medium of oil on canvas to enshrine a breaker of musical rules permanently within the sanctum of the nation's historical narrative, marking the ultimate orthodox acceptance of a rebellious spirit.",
+        mediumDesc: "In the photograph, Monk's iconic rounded hat and dark sunglasses form a modernist version of the monastic cowl. Its function, however, is fundamentally reversed: it is not for concealment but serves as a highly stylized declaration, directing the viewer's full attention to his contemplative face and hands poised over invisible keys. Friedlander deliberately avoids a dramatic moment of performance, choosing instead a static, inter-motional instant charged with latent tension. This capture of interstice and silence precisely echoes the core of Monk's musical aesthetics—those meticulously constructed, suspenseful pauses within a rigorous harmonic framework (Rule) are themselves the most expressive form of Improvisation. ",
+        longDesc: "This work forges a profound link between sacred labor and secular creation. While the medieval monk's garb implied an isolation from worldly sound, Monk's attire symbolizes the active intervention and reconstruction of the auditory order. The photograph's cool, high-contrast tonality and classical rule-of-thirds composition are themselves a manifestation of rigorous freedom in the visual realm; it illustrates how Monk transformed the historical discipline of music into an unprecedented rigorous freedom. ",
 
         simple: {
-            short: "A colorful painting of Thelonious Monk used for the cover of a famous magazine.",
-            medium: "Being on this cover meant he was one of the most famous people in America.",
-            long: "The word 'Monk' used to mean a quiet person hiding away. Now, it is the name of a superstar everyone knows."
+            short: "This picture from 1957 shows the great jazz piano player Thelonious Monk. It is like the first and most important picture of him. Made with black-and-white photo paper, it forever captures the moment he arrived, ready to question all the old rules of music.",
+            medium: "In the photo, Monk's special round hat and dark glasses are like a modern monk's hood. But they are not for hiding. They are a strong statement. They make us look only at his thoughtful face and his hands, which seem ready to play a silent piano. The photographer did not catch him in the middle of playing. Instead, he chose a quiet moment between actions, full of hidden energy. This picture does more than show us a man; it shows us a new way of thinking about art.",
+            long: "So, this picture does two things: it saves the image of a musician, and it saves the idea of the monk — no longer a follower of old rules, but someone who makes new ones. His freedom is now fixed here, in this picture, for us to see."
         },
 
         complex: {
-            short: "The original gouache painting for the TIME magazine cover, establishing Monk as a canonical figure in American culture.",
-            medium: "The portrait canonizes the jazz musician, placing him within the pantheon of significant historical figures.",
-            long: "It represents the ultimate inversion of the Benedictine ideal: rather than erasing the self for God, the 'Monk' here asserts the self for Art. It is the apotheosis of identity."
+            short: "This gelatin silver print from 1957, created by Lee Friedlander, constitutes a seminal visual document in the iconography of Thelonious Monk. Executed within the precise dimensions of 32.8 × 21.7 cm, the work functions not merely as a portrait but as a critical artifact that encapsulates the emergent ethos of an artist positioned to systematically interrogate and dismantle prevailing musical conventions.",
+            medium: "Friedlander's composition strategically employs Monk's signature sartorial elements—the rounded hat and opaque sunglasses—as a recoded visual lexicon. Far from serving as mere concealment, these elements operate as deliberate semiotic markers, focusing interpretive attention on the subject’s contemplative visage and his hands, which are suspended in a state of poised potential. The photographer’s decision to eschew a depictive moment of performance in favor of a liminal, inter-motional stasis generates a resonant formal analogy to Monk’s own musical praxis. In this suspended silence—a carefully calibrated negation within the harmonic taxonomy (Rule)—lies the very essence of creative autogenesis (Improvisation). Thus, the portrait transcends documentary function to become a meta-textual meditation on artistic intentionality.",
+            long: "This work establishes a profound discursive link between ascetic tradition and modernist aesthetic production. Whereas the monastic habit historically denoted withdrawal from worldly sensory engagement, Monk’s curated appearance signifies an aggressive intervention into and reconfiguration of the auditory field. The photograph’s arresting chiaroscuro and rigorously architectonic composition materially instantiate the dialectic of structured liberty."
         }
     },
     {
@@ -405,20 +405,20 @@ const galleryData = [
         evolution: "The Utility",
         mental: "The Spirit",
 
-        shortDesc: "An ornate shoe buckle used to fasten footwear before the invention of modern laces.",
-        mediumDesc: "In the 18th century, the functional strap of the monk evolved into a platform for jewelry. This buckle is purely decorative, signaling wealth rather than humility.",
-        longDesc: "It marks a key point in our 'Utility' timeline where function began to surrender to form, setting the stage for the modern luxury shoe and the aestheticization of the monk strap.",
+        shortDesc: "This shoe buckle is one of a pair. It features bright-cutting – a method of engraving popular in the late 18th century whereby shallow curved grooves were cut with sides of varying steepness to create facets that give a reflective, sparkling effect.",
+        mediumDesc: "By the 18th century, the buckle had transformed from a utilitarian fastener into a piece of jewelry. Gold or silver buckles for shoes were in fashion for most of the 18th century. They gave the finishing touches to elegant dress and were one of the few pieces of jewellery worn by men as well as women. Making buckles became a highly skilled craft at which English silversmiths and jewellers excelled. Exquisitely wrought designs, glittering pastes and precious stones reflected the status of the wearer as well as the occasion. Cheaper and plainer versions were made of steel, brass and other metal alloys. Gentlemen wore matching shoes and knee buckles. This artifact marks a turning point where the strap and buckle—originally associated with humble monastic labor—was appropriated by the aristocracy as a symbol of status and wealth.",
+        longDesc: "The technique of 'bright-cutting' seen here was specifically designed to catch the candlelight of ballrooms and salons, mimicking the sparkle of diamonds. In this context, the buckle serves as a clear indicator of social transformation. While the medieval monk sought to remain invisible within his hood, the 18th-century gentleman used such accessories to demand attention. Here, the essential trait of 'Monk' straps has evolved from a mechanism of restraint into a vehicle for display, signaling a world where personal style began to supersede religious humility.",
 
         simple: {
-            short: "A shiny, fancy buckle for old-fashioned shoes.",
-            medium: "Long ago, buckles were like jewelry for your feet. They showed that you were rich.",
-            long: "This buckle isn't just for holding a shoe tight; it's for showing off. It shows how a simple shoe part became a fashion statement."
+            short: "This shoe buckle is one of a pair. It uses a special style of carving called bright-cutting. This method was popular in the late 1700s. It involved cutting shallow, curved lines into the metal at different angles. This created small surfaces that acted like mirrors to make the buckle sparkle.",
+            medium: "By the 18th century, the buckle had changed from a simple tool into a piece of jewelry. Gold or silver buckles were fashionable for most of this time. They were the final touch for a fancy outfit and were one of the few pieces of jewelry worn by both men and women. Making these buckles was a difficult skill, and English jewelry makers were very good at it. Beautiful designs, shiny glass stones, and real jewels showed how rich the owner was and what kind of event they were attending. Cheaper and simpler versions were made of steel, brass, and other mixed metals. Gentlemen often wore matching buckles on their shoes and their knees.",
+            long: "This object shows a major turning point. The strap and buckle started as a simple tool for humble monks working in the fields. But here, it has been adopted by rich people to show off their wealth/status. The bright-cutting style seen here was made on purpose to catch the light of candles in ballrooms and parties. It was meant to look like sparkling diamonds. In this way, the buckle clearly shows how society was changing. A medieval monk tried to hide inside his hood and be invisible. In contrast, an 18th-century gentleman used shiny items like this to get attention. Here, the Monk strap is no longer just about holding a shoe tight; it has become a way to show off. This signals a world where personal style was beginning to be more important than being religious and humble."
         },
 
         complex: {
-            short: "An 18th-century silver shoe buckle, representative of Georgian sartorial excess.",
-            medium: "The object transforms the fastening mechanism into a site of conspicuous consumption, prioritizing ornamentation over mere utility.",
-            long: "It signifies the 'baroque' phase of the utility narrative, where the humble strap is embellished to the point of opulence, distancing the wearer from the vows of poverty associated with the original monastic order."
+            short: "This artifact constitutes a paradigmatic exemplar of late 18th-century dress accessories, distinguished by the specific engraving technique known as bright-cutting. This method involves the precise gouging of shallow, angled grooves into the metal substrate to generate multi-faceted surfaces. The resulting geometric topography maximizes light refraction, mimicking the optical properties of brilliant-cut gemstones without the requisite cost.",
+            medium: "By the 18th century, the shoe buckle had undergone a complete functional metamorphosis. It transcended its origins as a utilitarian fastener to become a primary locus of conspicuous consumption. As one of the few gender-neutral jewelry items of the period, the buckle served as a critical index of socio-economic status. The hierarchy of materials—ranging from the sterling silver and paste stones seen in elite examples to the cut steel and brass alloys of the lower gentry—strictly delineated class boundaries. The production of these items demanded a high degree of specialized craftsmanship, particularly among English silversmiths who dominated the market.",
+            long: "Thematically, this object materializes the semiotic appropriation of the strap and buckle motif. Originally rooted in the Labora of the monastic tradition—where it signified durability, poverty, and pragmatic restraint—the form is here recontextualized by the aristocracy as a vehicle for vanity. The optical mechanics of bright-cutting were deliberately engineered for the specific lighting conditions of the salon and ballroom (candlelight), enhancing the performative aspect of the wearer. This stands in diametric opposition to the medieval monastic ideal of self-effacement and invisibility. Thus, the buckle signals the triumph of Enlightenment-era individualism and the politics of display over the archaic ethos of religious humility."
         }
     },
     {
@@ -435,20 +435,20 @@ const galleryData = [
         evolution: "The Improvisation",
         mental: "The Echo",
 
-        shortDesc: "The cover art for the album 'Monk's Music', featuring Thelonious Monk sitting in a red wagon.",
-        mediumDesc: "This image encapsulates the playfulness and rule-breaking nature of the 'Spirit' narrative. A grown man in a suit sitting in a child's wagon—it is absurd, provocative, and distinct.",
-        longDesc: "It shows that the 'Rule' of seriousness established by St. Benedict has been completely dismantled by the jazz artist, who finds wisdom in play and absurdity.",
+        shortDesc: "This album can be regarded as a pivotal genealogical welding in jazz history. It brought together Coleman Hawkins, representing jazz's past, and John Coltrane, heralding its future, within the unique musical framework of Thelonious Monk. The opening track, Abide With Me, performed solely by the horn section, acts both as a homage to tradition and a resetting of listening expectations.",
+        mediumDesc: "The album's structure is itself a practice in Rule and Freedom. The moment in Well, You Needn't where Monk calls out, Coltrane! Coltrane! to usher in his solo transcends a musical cue, becoming an auditory symbol of the passing of the creative torch between eras. Furthermore, as Riverside's first jazz album released in both mono and early stereo, its two distinct mixes (the direct mono and the spacious, bass-attenuated stereo) stand as early evidence of how recording technology aesthetics shape musical perception.",
+        longDesc: "Thus, this record is a cultural crucible. It melds the sacred and the secular, history and the future, technical limitations and artistic exploration. It perfectly exemplifies how Monk forged the disciplines of past music (Rule) into a personal, rigorous freedom. That call to Coltrane is the clarion call of this freedom. Ultimately, the album itself completed its evolution from a utilitarian recording to an enduring art form, becoming a bridge connecting musical sanctity with cultural history.",
 
         simple: {
-            short: "A funny album cover showing Thelonious Monk sitting in a little red wagon.",
-            medium: "Monk is wearing sunglasses and a suit but sitting in a kid's toy. He is being silly on purpose.",
-            long: "This shows he didn't care about looking 'proper' or 'serious'. He broke the rules to be himself, which is what jazz is all about."
+            short: "This album is very important in jazz history. It is like a bridge that connects jazz's past and future. It brought together the older Coleman Hawkins and the new-sounding John Coltrane to have a musical conversation inside Thelonious Monk's songs. The first song, Abide With Me, is played only by the horns. This is both a way to honor old traditions and a way to tell listeners: get ready to hear something different",
+            medium: "The way the album is put together tells a story about rules and freedom.This shout is more than just a musical signal; it is like two different jazz eras passing the creative torch to each other. Also, this was Riverside Records' first jazz album released in both mono and stereo sound. The two versions sound very different: the mono version is direct and powerful, while the stereo version feels more spacious but has quieter bass. This difference shows us that the recording technology itself quietly changes how we experience the music.",
+            long: "So, this record is a cultural melting pot.It mixes a holy hymn with blues, echoes of history with sounds of the future, and the limits of technology with artistic exploration. It perfectly shows how Monk turned the strict rules of old-fashioned music into a new kind of music that was both carefully organized and free—and all his own. That call to Coltrane was the loud announcement of this spirit of freedom. In the end, the album itself went through a change: from a regular recording session, it became a lasting piece of art, a bridge connecting music's special power with the story of our culture."
         },
 
         complex: {
-            short: "The iconic album cover depicting Monk in a red Flyer wagon, defying jazz iconography norms.",
-            medium: "The juxtaposition of the formal suit and the infantile prop creates a Dadaist sense of absurdity, challenging the seriousness expected of a 'High Art' composer.",
-            long: "It visualizes the concept of 'serious play'. The Monk archetype is re-coded from one of solemnity to one of subversive humor, proving that true liberation involves the freedom to be absurd."
+            short: "This album functions as a pivotal genealogical nexus within jazz historiography, effectively bridging the idiom's foundational past with its avant-garde future. It convenes Coleman Hawkins, a paragon of the swing era, and John Coltrane, an emergent voice of modernist exploration, within the distinctive architectonic framework of Thelonious Monk. The disc commences with Abide With Me, a hymn rendered exclusively by the brass section—a gesture that simultaneously acknowledges liturgical tradition and performs a conceptual clearing of the auditory palate for the innovative discourse to follow.",
+            medium: "The album's very structure constitutes a meta-commentary on the dialectic of prescriptive form and spontaneous invention.  Furthermore, as Riverside's inaugural jazz release issued concurrently in monophonic and stereophonic formats, the album presents two ontologically distinct sonic artifacts. The monaural mix offers proximate, texturally dense immediacy, whereas the stereophonic rendition yields an ambient, spatially articulated soundstage at the cost of low-frequency definition. This duality provides prima facie evidence for the constitutive role of recording technology in mediating aesthetic perception.",
+            long: "Consequently, this work operates as a cultural alembic. It distills and synthesizes sacred and profane musical elements, historical resonance with futuristic aspiration, and the material constraints of contemporaneous technology with unbounded artistic inquiry. The album stands as a definitive illustration of Monk's alchemical process: the transmutation of received musical disciplines (Rule) into a profoundly personal, internally coherent system of rigorous artistic liberty. The exhortation to Coltrane serves as the programmatic declaration of this emancipation. Ultimately, the recording undergoes its own teleological transformation—from a documentary chronicle of a studio event into an enduring aesthetic form, thereby constituting a discursive ligament between the sacral dimensions of musical practice and the broader continuum of cultural history."
         }
     },
     {
@@ -465,20 +465,20 @@ const galleryData = [
         evolution: "The Improvisation",
         mental: "The Echo",
 
-        shortDesc: "A seminal jazz record featuring Thelonious Monk's most famous composition, 'Round Midnight'.",
-        mediumDesc: "'Round Midnight' is the most recorded jazz standard composed by a jazz musician. It represents the 'Echo'—how the voice of one Monk has reverberated through history.",
-        longDesc: "It closes our exhibition by showing how a name becomes a legacy. The Monk is no longer a person or a rule, but a sound that belongs to everyone, echoing through time.",
+        shortDesc: "This 78 rpm shellac disc (catalog number 543), pressed by Blue Note Records in 1947, can be regarded as the material origin and site of auditory archaeology for Thelonious Monk's musical revolution. It is among the earliest objects to encapsulate Monk's angular melodies and jarring clusters as a distributable commodity. Like a time capsule, it solidifies the sonic uprising of bebop's dawn within a fragile, 10-inch black disc spinning at 78 revolutions per minute.",
+        mediumDesc: "The record's A/B side structure is itself a musical declaration: Side A's quintet rendition of 'Round About Midnight reveals the dusky lyricism in Monk's compositions, while Side B's trio version of Well You Needn't strips down to the core, highlighting the radical architecture of his rhythm and harmony. Its shellac material, 78 rpm speed, and monaural recording represent the practical rules of 1940s sound technology. This medium imposed constraints on playing time per side, demanding musical conciseness, and shaped the initial listening experience with its characteristic surface noise and frequency response.",
+        longDesc: "Today, preserved within the Smithsonian collections, this fragile shellac disc holds value far beyond its playability. It serves as a silent witness, demonstrating how the most subversive art emerges from a specific, historically conditioned material and ultimately transcends time to become an enduring classic—solemnly collected by museums and emblematic of American cultural identity. The monk's labor is here sublimated into a cornerstone of national history.",
 
         simple: {
-            short: "A record of Monk's most famous song, 'Round Midnight'.",
-            medium: "Many, many musicians have played this song. It is a classic.",
-            long: "This record shows how Monk's music spread all over the world. His voice is now an 'echo' that we can still hear today."
+            short: "This is a very old record from 1947, made by a company called Blue Note. It's number 543 in their collection. You play it on a special record player that spins it 78 times every minute, and it's made from a material called shellac, which is hard and can break easily. It's like a fossil for music—it captured brand new sounds at the very beginning of a music revolution led by Thelonious Monk, saving them inside its grooves for us to find today.",
+            medium: "The record has two sides, just like a coin. Side A has a song by a five-person band, and Side B has a song by a three-person band. This shows two different sides of Monk's music: one more moody and the other more wild and direct. Back in 1947, the rules of technology meant records could only hold a few minutes of music per side and had a lot of crackling noise. But Monk didn't let those rules stop him. ",
+            long: "The record has two sides, just like a coin. Side A has a song by a five-person band, and Side B has a song by a three-person band. This shows two different sides of Monk's music: one more moody and the other more wild and direct. Back in 1947, the rules of technology meant records could only hold a few minutes of music per side and had a lot of crackling noise. "
         },
 
         complex: {
-            short: "The shellac recording of 'Round Midnight', arguably the most significant standard in the jazz canon.",
-            medium: "This artifact represents the dissemination of Monk's harmonic language into the broader musical lexicon. It is the point where individual improvisation becomes collective tradition.",
-            long: "The 'Echo' narrative concludes here: the solitary voice of the monk (whether in a cell or at a piano) resonates outwards, becoming a shared cultural heritage that transcends the individual creator."
+            short: "This 78 rpm shellac disc, catalogued as Blue Note 543 and manufactured in 1947, functions as a foundational sonic arche and material substrate of Thelonious Monk's modernist intervention. It represents the primary commodified instantiation of his angular melodies and dissonant clusters, effectively entombing the nascent auditory revolution of bebop within the specific material constraints of a 10-inch, 78-revolution-per-minute phonographic object. The artifact thus serves as the ur-text in the discographic genealogy of Monk's recorded oeuvre.",
+            medium: "The disc's bifurcated A/B dialectic is a deliberate curatorial statement within the medium itself. The quintet formulation on Side A offers a exposition of Monk's brooding, compositional lyricism in 'Round About Midnight, while the pared-down trio on Side B performs a reductionist analysis of the rhythmic and harmonic radicalism inherent in Well You Needn't. The artifact's material facticity—its shellac composition, 78 rpm rotational velocity, and monophonic audio inscription—encodes the period's technological regime (Rule). These parameters dictated temporal brevity, imposed a specific signal-to-noise ratio, and defined the era's acoustic horizon. It is within and against this very framework of techno-material determinism that Monk's structured improvisations (Improvisation) were not merely recorded but constituted, transforming the disc from a passive storage medium into an active agent of aesthetic provocation.",
+            long: "This object traces a critical trajectory from functional artifact within a commercial industry to a canonical relic within the museological complex. Its original purpose—as a durable good for the dissemination of novel auditory patterns in the field of post-war popular culture—mirrors the utilitarian origins of the monastic strap. Today, its preserved state in the Smithsonian’s collection signals a complete transubstantiation of value. The disc no longer operates within a circulatory economy of playback but within an economy of cultural signification and historical testimony. It stands as tangible evidence of the alchemical process wherein radical artistic praxis, born from and constrained by contemporaneous material rules, undergoes institutional consecration. Thus, the labor of the musical monk is eternally re-contextualized, his transformative toil now serving as a cornerstone in the architectonic narrative of national cultural heritage."
         }
     }
 ];
