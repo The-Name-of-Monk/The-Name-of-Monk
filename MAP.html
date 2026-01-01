@@ -159,7 +159,7 @@
 
                             <p class="info-desc" id="d-desc">Description text goes here.</p>
                             
-                            <a href="#" class="btn btn-custom-outline btn-sm mt-4 px-4">View Details</a>
+                            <a href="#" id="d-link" class="btn btn-custom-outline btn-sm mt-4 px-4">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -196,29 +196,35 @@
             document.body.setAttribute('data-theme', themeName);
         }
 
+        // ★★★ Updated Data with Gallery IDs ★★★
         const data = {
             // --- ROOM 1 (The Rule) ---
             'rule': { 
+                galleryId: 1, // ID for Rule of St. Benedict
                 title: "Rule of St. Benedict", room: "room1", theme: "spirit",
                 desc: "The manuscript establishing the strict rules of discipline and silence.",
                 image: "images/01.jpg"
             },
             'antiphonary': { 
+                galleryId: 7, // ID for Benedictine Antiphonary
                 title: "Benedictine Antiphonary", room: "room1", theme: "echo",
                 desc: "A choir book used for communal prayer and chanting.",
                 image: "images/07.jpg"
             },
             'statue': { 
+                galleryId: 9, // ID for A Benedictine Monk
                 title: "A Benedictine Monk", room: "room1", theme: "identity",
                 desc: "A painting of a monk in vow.",
                 image: "images/09.jpg"
             },
             'misericord': { 
+                galleryId: 3, // ID for The Misericord
                 title: "The Misericord", room: "room1", theme: "spirit",
                 desc: "The 'Mercy Seat' used by monks during long prayers.",
                 image: "images/03.jpg"
             },
             'mourner': { 
+                galleryId: 10, // ID for The Mourner Sculpture
                 title: "The Mourner Sculpture", room: "room1", theme: "identity",
                 desc: "A figure hidden beneath a cowl, symbolizing the erasure of identity.",
                 image: "images/10.jpg"
@@ -226,26 +232,31 @@
 
             // --- ROOM 2 (The Utility) ---
             'patten': { 
+                galleryId: 4, // ID for Medieval Leather Patten
                 title: "Medieval Leather Patten", room: "room2", theme: "echo",
                 desc: "Practical overshoes for mud, the ancestor of the monk strap.",
                 image: "images/04.jpg"
             },
             'shoemaker': { 
+                galleryId: 11, // ID for The Shoemaker
                 title: "The Shoemaker", room: "room2", theme: "identity",
                 desc: "A painting depicting the workshop of a traditional shoemaker.",
                 image: "images/11.jpg"
             },
             'buckles': { 
+                galleryId: 14, // ID for Shoe Buckle
                 title: "Shoe Buckle", room: "room2", theme: "spirit",
                 desc: "Functional fasteners evolving into jewelry.",
                 image: "images/14.jpg"
             },
             'monk_shoes': { 
+                galleryId: 8, // ID for Monk Shoes
                 title: "Monk Shoes", room: "room2", theme: "identity",
                 desc: "1940s footwear marking the transition to fashion.",
                 image: "images/08.jpg"
             },
             'double_monk': { 
+                galleryId: 6, // ID for Double Monk Straps
                 title: "Double Monk Straps", room: "room2", theme: "identity",
                 desc: "Modern craftsmanship representing style over utility.",
                 image: "images/06.jpg"
@@ -253,31 +264,37 @@
 
             // --- ROOM 3 (The Improvisation) ---
             'photo': { 
+                galleryId: 12, // ID for Photography of Thelonious Monk
                 title: "Photography of Thelonious Monk", room: "room3", theme: "spirit",
                 desc: "Thelonious Monk breaking musical rules.",
                 image: "images/12.jpg"
             },
             'portrait': { 
+                galleryId: 13, // ID for Portrait of Thelonious Monk
                 title: "Portrait of Thelonious Monk", room: "room3", theme: "spirit", 
                 desc: "The face revealed, celebrating individual identity.",
                 image: "images/13.jpg"
             },
             'album_round': {
+                galleryId: 16, // ID for Album "Round About Midnight"
                 title: "Album 'Round About Midnight'", room: "room3", theme: "echo",
                 desc: "A seminal jazz album defining the era.",
                 image: "images/16.jpg"
             },
             'matisse': { 
+                galleryId: 2, // ID for Matisse's Jazz
                 title: "Matisse's Jazz", room: "room3", theme: "spirit",
                 desc: "Visual improvisation cutting through color.",
                 image: "images/02.jpg"
             },
             'album_music': { 
+                galleryId: 15, // ID for Album "Monk's Music"
                 title: "Album 'Monk's Music'", room: "room3", theme: "echo",
                 desc: "The iconic album cover featuring the red wagon.",
                 image: "images/15.jpg"
             },
             'video': { 
+                galleryId: 5, // ID for Video
                 title: "Video: I Mean You", room: "room3", theme: "echo",
                 desc: "Live performance footage.",
                 image: "images/05.jpg"
@@ -303,13 +320,18 @@
             document.getElementById('d-room').innerText = item.room === 'room1' ? "The Rule" : 
                                                           item.room === 'room2' ? "The Utility" : "The Improvisation";
             document.getElementById('d-title').innerText = item.title;
-            // Removed source text assignment
             document.getElementById('d-desc').innerText = item.desc;
             
             // Image
             const imgEl = document.getElementById('d-image');
-            imgEl.src = item.image || 'image_49e926.jpg'; 
+            imgEl.src = item.image; 
             imgEl.alt = item.title;
+
+            // ★★★ Set Dynamic Link ★★★
+            const linkBtn = document.getElementById('d-link');
+            if(linkBtn) {
+                linkBtn.href = `gallery.html?id=${item.galleryId}`;
+            }
         }
 
         function filterMap(filter) {
@@ -361,4 +383,3 @@
     </script>
 </body>
 </html>
-
