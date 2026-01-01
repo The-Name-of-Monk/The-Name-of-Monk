@@ -63,6 +63,13 @@ body {
 
 .accent-text { color: var(--accent-red); }
 
+.page-header-section {
+    padding: 60px 0 40px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
 /* =========================================
    3. Navbar Styles (导航栏)
    ========================================= */
@@ -96,7 +103,6 @@ body {
     color: var(--cyan-grey) !important; 
 }
 
-/* 下拉菜单 */
 .dropdown-menu {
     background-color: #FDFCF5;
     border: 1px solid rgba(0,0,0,0.05);
@@ -131,7 +137,6 @@ body {
     padding-left: 30px;
 }
 
-/* 样式切换按钮 */
 .btn-style-toggle {
     border: 1px solid var(--text-color);
     color: var(--text-color);
@@ -157,6 +162,9 @@ body {
     font-size: 0.95rem;
     font-weight: 500;
     transition: all 0.3s ease;
+    padding: 10px 30px;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .btn-custom-primary:hover {
@@ -175,6 +183,9 @@ body {
     font-size: 0.95rem;
     font-weight: 500;
     transition: all 0.3s ease;
+    padding: 10px 30px;
+    text-decoration: none;
+    display: inline-block;
 }
 
 .btn-custom-outline:hover {
@@ -194,7 +205,7 @@ body {
 #btn-back-to-top:hover { background-color: var(--accent-red); transform: translateY(-5px); }
 
 /* =========================================
-   5. Home Page Specifics (首页独有)
+   5. Home Page Specifics
    ========================================= */
 .anim-element { opacity: 0; transition: all cubic-bezier(0.2, 1, 0.3, 1); }
 .anim-up { transform: translateY(60px); transition-duration: 2.5s; }
@@ -228,9 +239,7 @@ body {
     object-fit: cover;
 }
 
-.carousel-link-area {
-    display: block; position: relative; cursor: pointer;
-}
+.carousel-link-area { display: block; position: relative; cursor: pointer; }
 
 .hover-overlay {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
@@ -272,10 +281,8 @@ body {
 
 
 /* =========================================
-   6. Map Page Specifics (地图页独有)
+   6. Map Page Specifics
    ========================================= */
-
-/* 地图容器 */
 .map-wrapper {
     background-color: #fff;
     border: 1px solid rgba(0,0,0,0.05); 
@@ -285,15 +292,12 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.03);
 }
 
-/* SVG 基础 */
 svg { width: 100%; height: auto; max-height: 400px; overflow: visible; }
 
-/* 房间线条 */
 .room-outline { fill: none; stroke: var(--cyan-grey); stroke-width: 1.5; opacity: 0.3; transition: all 0.3s ease; }
 .path-line { stroke: var(--cyan-grey); stroke-width: 1; stroke-dasharray: 5, 5; opacity: 0.2; }
 .room-text { font-family: var(--font-body); font-size: 14px; fill: var(--cyan-grey); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
 
-/* 交互点 (Dots) */
 .map-point { cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); stroke: #fff; stroke-width: 2px; }
 .point-room1 { fill: var(--cyan-grey); }
 .point-room2 { fill: #8D6E63; }
@@ -302,111 +306,47 @@ svg { width: 100%; height: auto; max-height: 400px; overflow: visible; }
 .map-point:hover { r: 10; opacity: 0.8; }
 .map-point.active { r: 14; stroke: var(--text-color); stroke-width: 3px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)); }
 
-/* 信息面板 */
 .info-panel { padding-left: 40px; display: flex; flex-direction: column; justify-content: center; height: 100%; border-left: 1px solid rgba(0,0,0,0.05); }
 .info-category { font-family: var(--font-body); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--cyan-grey); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
 .info-category::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent-red); }
 .info-title { font-family: var(--font-heading); font-size: 2.2rem; margin-bottom: 10px; line-height: 1.1; }
 .info-desc { font-size: 1rem; line-height: 1.6; color: #444; font-weight: 300; }
 
-/* --- Map Info Image Wrapper (Updated Height - Smaller) --- */
 .info-image-wrapper {
     width: 100%;
-    height: 180px; /* 保持您之前确认过的紧凑高度 */
+    height: 180px; 
     overflow: hidden;
     border-radius: 4px;
     margin-bottom: 20px; 
-    
-    /* [关键修改 1] 背景设为白色或浅灰，
-       这样竖图左右留白时会有像相框一样的底色，不显突兀 */
-    background-color: #ffffff; 
-    
+    background-color: #ffffff;
     position: relative;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    
-    /* [关键修改 2] 使用 Flex 布局让图片绝对居中 */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
 }
 
 .info-image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
+    width: 100%; height: 100%; object-fit: contain; object-position: center;
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: 5px;
 }
+.info-image-wrapper:hover img { transform: scale(1.05); }
 
-.info-image-wrapper:hover img {
-    transform: scale(1.05);
-}
-
-/* --- Filter Styles --- */
 .narrative-toggle {
-    background: none;
-    border: none;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-weight: 700; 
-    color: var(--cyan-grey);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 8px 0;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: color 0.3s;
+    background: none; border: none; font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; 
+    color: var(--cyan-grey); text-transform: uppercase; letter-spacing: 1px; padding: 8px 0;
+    display: inline-flex; align-items: center; gap: 6px; transition: color 0.3s;
 }
 .narrative-toggle::after { content: '▾'; color: var(--accent-red); font-size: 1.2em; line-height: 0; margin-top: -2px; }
 .narrative-toggle:hover { color: var(--accent-red); }
 
-.filter-menu {
-    border: none;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-    border-radius: 0;
-    padding: 15px 0;
-    margin-top: 10px !important;
-    min-width: 220px;
-}
+.filter-menu { border: none; box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-radius: 0; padding: 15px 0; margin-top: 10px !important; min-width: 220px; }
+.filter-header { font-family: var(--font-body); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #adb5bd; padding: 10px 24px 5px 24px; background: transparent; }
+.filter-item { font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; color: var(--cyan-grey); padding: 8px 24px; transition: all 0.2s; position: relative; }
+.filter-item:hover { background-color: transparent; color: var(--accent-red); padding-left: 30px; }
 
-.filter-header {
-    font-family: var(--font-body);
-    font-size: 0.7rem;             
-    font-weight: 700;              
-    text-transform: uppercase;     
-    letter-spacing: 1.5px;         
-    color: #adb5bd;                
-    padding: 10px 24px 5px 24px;   
-    background: transparent;
-}
-
-.filter-item {
-    font-family: var(--font-body); 
-    font-size: 0.95rem;            
-    font-weight: 500;              
-    color: var(--cyan-grey);
-    padding: 8px 24px;
-    transition: all 0.2s;
-    position: relative;
-}
-
-.filter-item:hover {
-    background-color: transparent;
-    color: var(--accent-red);
-    padding-left: 30px; 
-}
-
-.btn-view-all {
-    border: none; background: none; font-size: 0.8rem; color: #999;
-    text-transform: uppercase; letter-spacing: 1px; padding: 0; margin-right: 15px;
-    border-bottom: 1px solid transparent; transition: all 0.3s;
-}
+.btn-view-all { border: none; background: none; font-size: 0.8rem; color: #999; text-transform: uppercase; letter-spacing: 1px; padding: 0; margin-right: 15px; border-bottom: 1px solid transparent; transition: all 0.3s; }
 .btn-view-all:hover { color: var(--cyan-grey); border-bottom-color: var(--accent-red); }
-
-.filter-label {
-    font-family: var(--font-heading); font-style: italic; color: #888; font-size: 0.95rem; margin-right: 10px;
-}
+.filter-label { font-family: var(--font-heading); font-style: italic; color: #888; font-size: 0.95rem; margin-right: 10px; }
 
 /* =========================================
    7. Footer (页脚)
@@ -423,7 +363,7 @@ svg { width: 100%; height: auto; max-height: 400px; overflow: visible; }
 .footer-text .small { font-size: 0.8rem; opacity: 0.5; margin-top: 1rem; }
 
 /* =========================================
-   8. Responsive Adjustments (移动端适配)
+   8. Responsive Adjustments
    ========================================= */
 @media (max-width: 991px) {
     .lead-text { text-align: left; }
@@ -435,20 +375,231 @@ svg { width: 100%; height: auto; max-height: 400px; overflow: visible; }
         border-radius: 4px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     }
-    
-    /* Map Page Mobile */
     .info-panel { border-left: none; padding-left: 0; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.05); }
     .main-title { margin-bottom: 2rem; }
-    
-    /* [修改点] 移动端图片框更小 */
-    .info-image-wrapper {
-        height: 150px; 
-        margin-top: 10px;
-    }
+    .info-image-wrapper { height: 150px; margin-top: 10px; }
+    .gallery-column:last-child { display: none; }
 }
 
 @media (max-width: 768px) {
     .welcome-msg { font-size: 2.2rem; }
     .carousel-item img { height: 350px; }
     .site-footer { text-align: center; } 
+    .gallery-column { flex: 100%; }
 }
+
+/* =========================================
+   9. COLLECTION PAGE Styles (Checkerboard Rhythm)
+   ========================================= */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-column {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.03);
+}
+
+/* --- [MAIN STYLE] Cyan-Grey BG / Red Button --- */
+.item-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(47, 72, 88, 0.95); /* Deep Cyan Grey */
+    color: white;
+    padding: 20px 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-item:hover .item-overlay { opacity: 1; }
+
+.item-overlay h5 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+/* Default Button */
+.view-more-btn {
+    background-color: var(--accent-red) !important;
+    border: 1px solid var(--accent-red) !important;
+    padding: 5px 20px;
+    font-size: 0.8rem;
+    color: white !important;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.view-more-btn:hover {
+    background-color: #a00d25 !important;
+    border-color: #a00d25 !important;
+}
+
+/* --- [ACCENT STYLE] Red BG / Cyan Button (Checkerboard Pattern) --- */
+/*
+   Logic for high contrast rhythm:
+   - Columns 1 & 3: Every EVEN item (2nd, 4th...) gets the Red BG.
+   - Column 2: Every ODD item (1st, 3rd...) gets the Red BG.
+   This creates a zig-zag / checkerboard effect across the grid.
+*/
+
+/* Selector: Odd columns (1,3) -> Even items; Even column (2) -> Odd items */
+.gallery-column:nth-child(odd) .gallery-item:nth-child(even) .item-overlay,
+.gallery-column:nth-child(even) .gallery-item:nth-child(odd) .item-overlay {
+    background: rgba(200, 16, 46, 0.95); /* Accent Red BG */
+}
+
+/* Button override for accent items: Cyan BG */
+.gallery-column:nth-child(odd) .gallery-item:nth-child(even) .item-overlay .view-more-btn,
+.gallery-column:nth-child(even) .gallery-item:nth-child(odd) .item-overlay .view-more-btn {
+    background-color: var(--cyan-grey) !important;
+    border-color: var(--cyan-grey) !important;
+}
+
+.gallery-column:nth-child(odd) .gallery-item:nth-child(even) .item-overlay .view-more-btn:hover,
+.gallery-column:nth-child(even) .gallery-item:nth-child(odd) .item-overlay .view-more-btn:hover {
+    background-color: #1e333e !important; /* Darker Cyan Hover */
+    border-color: #1e333e !important;
+}
+
+
+/* =========================================
+   10. GALLERY DETAIL PAGE Styles 
+   ========================================= */
+.gallery-card {
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.gallery-image-frame {
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 10px;
+    border-radius: 4px;
+    height: 400px; 
+    overflow: hidden; 
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+}
+
+.gallery-image-frame img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; 
+    border-radius: 2px;
+    transition: transform 0.1s ease-out; 
+    transform-origin: center center;
+}
+
+@media (max-width: 991px) {
+    .gallery-image-frame { height: 300px; }
+}
+
+.table th {
+    font-weight: 600;
+    color: var(--cyan-grey);
+    font-family: var(--font-body);
+    width: 35%;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+.table td {
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: #555;
+}
+.table a {
+    color: var(--accent-red);
+    font-weight: 500;
+    text-decoration: none;
+}
+.table a:hover { text-decoration: underline; }
+
+.description-section h4 {
+    font-family: var(--font-heading);
+    color: var(--cyan-grey);
+    margin-bottom: 1rem;
+}
+
+/* Gallery Navigation & UI */
+.gallery-nav-btn {
+    background-color: var(--cyan-grey);
+    border: 1px solid var(--cyan-grey);
+    color: #fff;
+    border-radius: 50px;
+    padding: 8px 24px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.gallery-nav-btn:hover {
+    background-color: var(--accent-red);
+    border-color: var(--accent-red);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.gallery-counter {
+    font-family: var(--font-body);
+    letter-spacing: 2px;
+    color: var(--cyan-grey);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* =========================================
+   11. Utility Classes (No Inline Styles)
+   ========================================= */
+.mw-700-center { max-width: 700px; margin: 0 auto; }
+.ls-1 { letter-spacing: 1px; }
+.ls-2 { letter-spacing: 2px; }
+.fs-07 { font-size: 0.7rem; }
+.fs-075 { font-size: 0.75rem; }
+.btn-xs-custom { font-size: 0.75rem; padding: 0 0.5rem; }
+.bg-light-red { background-color: #fff5f5; }
