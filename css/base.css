@@ -1,0 +1,596 @@
+/* base.css - 网站骨架与布局 (Structure Only) */
+
+/* =========================================
+   1. Global Layout & Structure
+   ========================================= */
+/* 基础重置与盒模型已由 Bootstrap 处理，这里只处理自定义结构 */
+
+/* 文本容器布局 */
+.lead-text {
+    /* 仅保留对齐方式和行高结构，字号/颜色移至主题 */
+    text-align: justify;
+    line-height: 1.7; 
+}
+
+.lead-text p {
+    margin-bottom: 1rem;
+}
+
+/* 页面顶部标题区结构 */
+.page-header-section {
+    padding: 60px 0 40px 0;
+    text-align: center;
+    margin-bottom: 40px;
+    /* 边框颜色移至主题 */
+    border-bottom: 1px solid transparent; 
+}
+
+/* 装饰性标签结构（左侧线条布局） */
+.section-label {
+    padding-left: 12px;
+    border-left: 3px solid transparent; /* 颜色由主题定义 */
+    display: inline-block;
+}
+
+/* =========================================
+   2. Navbar Structure
+   ========================================= */
+.navbar {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid transparent;
+}
+
+/* 导航链接布局 */
+.nav-link {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    transition: color 0.3s ease; /* 过渡效果属于交互体验，可留在此处或移至主题 */
+}
+
+.dropdown-menu {
+    padding: 15px 0;
+    margin-top: 10px;
+    min-width: 180px;
+    border: 1px solid transparent;
+}
+
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.4em;
+    vertical-align: 0.1em;
+    content: "▾";
+    border: none;
+    font-size: 0.8em;
+}
+
+.dropdown-item {
+    padding: 8px 24px;
+    transition: all 0.2s ease;
+}
+
+/* =========================================
+   3. Component Layouts (Buttons, Cards)
+   ========================================= */
+/* 按钮基础结构：内边距、行内块显示 */
+.btn-custom-primary,
+.btn-custom-outline,
+.btn-browse-custom,
+.view-more-btn,
+.gallery-nav-btn {
+    padding: 10px 30px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: 1px solid transparent; /* 占位，颜色由主题定 */
+}
+
+/* 浏览收藏按钮特殊布局 */
+.btn-browse-custom {
+    padding: 12px 28px;
+}
+
+/* 返回顶部按钮定位 */
+#btn-back-to-top {
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px; 
+    display: none; 
+    z-index: 1000;
+    width: 50px; 
+    height: 50px; 
+    align-items: center; 
+    justify-content: center; 
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+/* =========================================
+   4. Image & Gallery Structure
+   ========================================= */
+/* 首页图片框结构 */
+.image-frame {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 520px; 
+    object-fit: cover;
+    transition: transform 0.8s ease; /* 动画属性也可以移至主题，视需求而定 */
+}
+
+.carousel-link-area { 
+    display: block; 
+    position: relative; 
+    cursor: pointer; 
+}
+
+/* 悬停遮罩层定位 */
+.hover-overlay {
+    position: absolute; 
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    opacity: 0; 
+    transition: opacity 0.4s ease; 
+    z-index: 2;
+}
+
+/* 轮播箭头定位 */
+.carousel-control-prev, .carousel-control-next {
+    width: 10%; 
+    opacity: 0; 
+    transition: opacity 0.3s; 
+    z-index: 10;
+}
+
+/* Collection 页面网格结构 */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-column {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.5s ease;
+    
+}
+/* --- 补充缺失的 Overlay 结构 --- */
+.item-overlay {
+    position: absolute; /* 关键：让它浮在图片上，而不是排在下面 */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 15px;
+    
+    /* 默认隐藏 */
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    
+    /* 内容居中布局 */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    /* 确保层级高于图片 */
+    z-index: 2; 
+}
+
+/* 鼠标悬停时显示 */
+.gallery-item:hover .item-overlay {
+    opacity: 1;
+}
+
+/* Gallery 详情页图片框结构 */
+.gallery-image-frame {
+    padding: 10px;
+    height: 400px; 
+    overflow: hidden; 
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    border: 1px solid transparent;
+}
+
+.gallery-image-frame img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; 
+    transition: transform 0.1s ease-out; 
+    transform-origin: center center;
+}
+
+/* 表格结构 */
+.table th { width: 35%; }
+
+/* =========================================
+   5. Map Page Structure
+   ========================================= */
+.map-wrapper {
+    padding: 40px 20px;
+    position: relative;
+    border: 1px solid transparent;
+}
+
+svg { width: 100%; height: auto; max-height: 400px; overflow: visible; }
+
+.map-point { cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+
+.info-panel { 
+    padding-left: 40px; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    height: 100%; 
+    border-left: 1px solid transparent; 
+}
+
+.info-category { 
+    margin-bottom: 15px; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+}
+.info-category::before { 
+    content: ''; 
+    display: block; 
+    width: 20px; 
+    height: 1px; 
+}
+
+.info-image-wrapper {
+    width: 100%;
+    height: 180px; 
+    overflow: hidden;
+    margin-bottom: 20px; 
+    position: relative;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+.info-image-wrapper img {
+    width: 100%; height: 100%; 
+    object-fit: contain; object-position: center;
+    padding: 5px;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.narrative-toggle {
+    background: none; border: none; padding: 8px 0;
+    display: inline-flex; align-items: center; gap: 6px; 
+    transition: color 0.3s;
+}
+
+.filter-menu { padding: 15px 0; margin-top: 10px !important; min-width: 220px; border: none; }
+.filter-header { padding: 10px 24px 5px 24px; background: transparent; }
+.filter-item { padding: 8px 24px; transition: all 0.2s; position: relative; }
+.btn-view-all { border: none; background: none; padding: 0; margin-right: 15px; border-bottom: 1px solid transparent; transition: all 0.3s; }
+
+/* =========================================
+   6. Footer Structure
+   ========================================= */
+.site-footer {
+    padding: 4rem 0; 
+    margin-top: 6rem;
+    border-top: 1px solid transparent;
+}
+.footer-logo img { max-height: 90px; width: auto; }
+.footer-text .small { margin-top: 1rem; }
+
+/* =========================================
+   7. Utility Classes (Structure)
+   ========================================= */
+.mw-700-center { max-width: 700px; margin: 0 auto; }
+
+/* 响应式布局调整 */
+@media (max-width: 991px) {
+    .navbar-collapse { padding: 20px; margin-top: 10px; }
+    .info-panel { border-left: none; padding-left: 0; margin-top: 40px; padding-top: 20px; border-top: 1px solid transparent; }
+    .gallery-image-frame { height: 300px; }
+}
+@media (max-width: 768px) {
+    .site-footer { text-align: center; } 
+    .gallery-column { flex: 100%; }
+}
+/* base.css - 网站骨架与布局 (Structure Only) */
+
+/* ... (保留原有的 Section 1-7 内容) ... */
+
+/* =========================================
+   8. About Us Page Structure
+   ========================================= */
+
+.about-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 30px; 
+}
+
+.member-card {
+    width: 280px; 
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid transparent; 
+    /* 关键：限制图片放大溢出 */
+    overflow: hidden; 
+}
+
+.member-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1; 
+    object-fit: cover;
+    display: block;
+    /* 动画在 theme 里定义 */
+}
+
+.member-info {
+    padding: 25px 20px;
+    text-align: left; 
+    position: relative; 
+    z-index: 1;
+}
+
+.member-info h3 {
+    margin-top: 0;
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
+}
+
+.member-info p {
+    margin-bottom: 0;
+}
+
+/* 链接区域布局 */
+.member-info .links {
+    margin-top: 15px; 
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* =========================================
+   9. Disclaimer Page Structure
+   ========================================= */
+
+.source-list {
+    list-style: disc; 
+    padding-left: 20px; 
+    margin: 0;
+}
+
+.source-list li {
+    margin-bottom: 8px; 
+    border: none;
+    padding-bottom: 0;
+}
+
+.source-link {
+    display: inline;
+    text-decoration: underline;
+}
+
+/* ★★★ 新增：版权声明结构 ★★★ */
+.copyright-notice {
+    margin-top: 3rem;      /* 顶部大间距 */
+    padding-top: 1.5rem;   /* 分割线到文字的距离 */
+    border-top: 1px solid transparent; /* 边框结构，颜色由主题定 */
+}
+
+/* =========================================
+   10. Documentation Page Structure
+   ========================================= */
+
+/* 侧边栏布局 */
+.doc-sidebar {
+    top: 100px; /* 距离顶部导航栏的距离 */
+    padding-right: 20px;
+}
+
+/* 侧边栏链接结构 */
+.doc-nav-link {
+    display: block;
+    padding: 8px 0;
+    text-decoration: none;
+    border-left: 2px solid transparent; /* 左侧指示条占位 */
+    padding-left: 15px;
+}
+
+.doc-nav-sublink {
+    display: block;
+    padding: 5px 0;
+    text-decoration: none;
+    font-size: 0.9em;
+    border-left: 2px solid transparent;
+    padding-left: 15px;
+}
+
+/* 内容区域分割线 */
+.doc-divider {
+    margin: 3rem 0;
+    border: 0;
+    border-top: 1px solid transparent; /* 颜色由主题定 */
+    opacity: 0.1;
+}
+
+/* =========================================
+   1. Global Layout & Structure (微调)
+   ========================================= */
+.lead-text {
+    /* ★★★ 统一调整：增加行高，提升阅读舒适度 ★★★ */
+    text-align: justify;
+    line-height: 1.8; 
+    margin-bottom: 1.5rem;
+}
+
+.lead-text p {
+    margin-bottom: 1rem;
+}
+
+/* Narratives 页面头部描述专用容器 (继承 lead-text 但可微调) */
+.page-header-section .lead-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center; /* 头部通常居中 */
+}
+
+
+
+/* =========================================
+   11. NARRATIVES PAGE SPECIAL STYLES
+   ========================================= */
+
+/* 1. 时间轴布局 */
+.timeline-container {
+    position: relative;
+    padding: 10px 0;
+    margin-left: 180px; 
+    border-left: 4px solid transparent; /* 颜色由主题定 */
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 50px;
+    padding-bottom: 100px; 
+    margin: 0;
+}
+.timeline-item:last-child { padding-bottom: 20px; }
+
+/* 节点圆点 */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -14px; top: 12px; /* 保持与标题对齐 */
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    z-index: 5;
+}
+
+/* 年份/阶段标题 (The Rule...) */
+.timeline-year {
+    position: absolute;
+    left: -190px; 
+    top: 8px; /* 垂直定位，与图片顶部视觉对齐 */
+    width: 160px; 
+    text-align: right;
+    line-height: 1.2;
+}
+
+/* --- 2. 卡片与图片修复 --- */
+.narrative-card {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+.narrative-card a { text-decoration: none !important; color: inherit; }
+
+.card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    /* ★★★ 微调：让图片整体下移一点，与左侧标题对齐 ★★★ */
+    margin-top: 5px; 
+}
+
+/* 图片尺寸控制 (4:3) */
+.narrative-card .carousel-item img {
+    width: 100%;
+    height: 400px; 
+    object-fit: cover; 
+    object-position: center center;
+}
+
+/* --- 3. 遮罩链接层级 --- */
+.carousel-item { position: relative; }
+
+.item-link-overlay {
+    position: absolute;
+    inset: 0;           
+    z-index: 15;        
+    display: block;
+    cursor: pointer;
+}
+
+/* 遮罩条布局 */
+.overlay-bar {
+    position: absolute;
+    left: 0;
+    bottom: -100%;      
+    width: 100%;
+    height: auto;       
+    min-height: 30%;    
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; 
+}
+
+.carousel-item:hover .overlay-bar { bottom: 0; }
+
+/* 轮播控制按钮 */
+.carousel-control-prev, 
+.carousel-control-next { z-index: 25 !important; }
+
+.card-img-wrapper .carousel-control-prev,
+.card-img-wrapper .carousel-control-next {
+  opacity: 0;
+  width: 12%; 
+}
+
+.card-img-wrapper:hover .carousel-control-prev,
+.card-img-wrapper:hover .carousel-control-next {
+  opacity: 1;
+}
+
+/* 下划线装饰布局 */
+.theme-subtitle {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+.theme-subtitle::after {
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width: 40px;
+    height: 3px;
+    border-radius: 2px;
+}

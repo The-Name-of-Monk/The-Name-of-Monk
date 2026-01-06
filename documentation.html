@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Name of Monk</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/base.css">
+    <link id="theme-css" rel="stylesheet" href="css/theme-modern.css">
+</head>
+<body data-theme="modern">
+
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container-fluid px-4 px-lg-5">
+            <a class="navbar-brand logo-text" href="#">THE NAME OF MONK</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-4">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="map.html">Map</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Exhibition</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="narratives.html">Narratives</a></li>
+                            <li><a class="dropdown-item" href="collection.html">Collections</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">About</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="documentation.html">Documentation</a></li>
+                            <li><a class="dropdown-item" href="disclaimer.html">Disclaimer</a></li>
+                            <li><a class="dropdown-item" href="aboutus.html">About Us</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown ms-lg-2">
+                        <a class="btn btn-style-toggle rounded-pill btn-sm px-3 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            CHANGE STYLES
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('css/theme-modern.css', 'modern')">Modern (Default)</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('css/theme-jazz.css', 'jazz')">Jazz</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('css/theme-medieval.css', 'medieval')">Medieval</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('css/theme-gothic.css', 'gothic')">Gothic</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('css/theme-abstract.css', 'abstract')">Abstract</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('css/theme-future.css', 'future')">Future</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+<main class="container-fluid mt-5 pt-5 pb-5">
+        <div class="page-header-section mb-5">
+            <h1 class="main-title">Project Documentation</h1>
+            <p class="text-muted small text-uppercase ls-2">Design Choices & Technical Implementation</p>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-3 d-none d-lg-block">
+                    <nav id="doc-sidebar" class="doc-sidebar sticky-top">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link doc-nav-link" href="#section-scope">1. General Scope</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link doc-nav-link" href="#section-content">2. Content Strategy</a>
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item"><a class="nav-link doc-nav-sublink" href="#content-theme">2.1 Exhibition Theme</a></li>
+                                    <li class="nav-item"><a class="nav-link doc-nav-sublink" href="#content-items">2.2 Items & Metadata</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link doc-nav-link" href="#section-design">3. Design & Layout</a>
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item"><a class="nav-link doc-nav-sublink" href="#design-structure">3.1 HTML Structure</a></li>
+                                    <li class="nav-item"><a class="nav-link doc-nav-sublink" href="#design-css">3.2 CSS Architecture</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link doc-nav-link" href="#section-tech">4. Technical Implementation</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="col-lg-9 doc-content">
+                    
+                    <section id="section-scope" class="mb-5">
+                        <h2 class="doc-heading">1. General Scope and Purpose</h2>
+                        <div class="lead-text">
+                            <p>
+                                The virtual exhibition <strong>"The Name of Monk"</strong> is developed as a "Multimedia Museum Meta Mirror" project. 
+                                The primary goal is to create a digital companion that not only displays physical artifacts but also guides the visitor through a curated narrative journey.
+                            </p>
+                            <p>
+                                This project fulfills the requirement of creating a meaningful representation of a cultural phenomenon—in this case, the semantic evolution of the word "Monk" from medieval asceticism to modern jazz improvisation. The application is designed to help visitors explore these connections through interactive maps, detailed item views, and thematic storytelling.
+                            </p>
+                        </div>
+                    </section>
+
+                    <hr class="doc-divider">
+
+                    <section id="section-content" class="mb-5">
+                        <h2 class="doc-heading">2. Content Strategy</h2>
+                        
+                        <div id="content-theme" class="mt-4">
+                            <h3 class="doc-subheading">2.1 Exhibition Theme</h3>
+                            <div class="lead-text">
+                                <p>
+                                    The exhibition explores the polysemy of the word "Monk". We identified three distinct phases in history where this name holds significant cultural weight:
+                                </p>
+                                <ul>
+                                    <li><strong>The Rule (Asceticism):</strong> The original meaning, rooted in the Benedictine order, discipline, and silence.</li>
+                                    <li><strong>The Utility (Function):</strong> The transition of the "monk strap" from a practical shoe for muddy roads to a high-fashion accessory.</li>
+                                    <li><strong>The Improvisation (Jazz):</strong> The figure of Thelonious Monk, representing the liberation of the name from rules into pure artistic expression.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div id="content-items" class="mt-4">
+                            <h3 class="doc-subheading">2.2 Items & Metadata</h3>
+                            <div class="lead-text">
+                                <p>
+                                    The collection consists of 16 carefully selected items, ranging from medieval manuscripts (Rule of St. Benedict) to audio-visual material (Video of "I Mean You").
+                                    Each item is described using a custom metadata schema stored in a central JSON array (<code>galleryData</code>). This ensures that data is consistent across the Collection, Gallery, and Map pages.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <hr class="doc-divider">
+
+                    <section id="section-design" class="mb-5">
+                        <h2 class="doc-heading">3. Design & Layout</h2>
+                        
+                        <div id="design-structure" class="mt-4">
+                            <h3 class="doc-subheading">3.1 HTML Structure</h3>
+                            <div class="lead-text">
+                                <p>
+                                    All pages are built using <strong>HTML5</strong> semantics. We utilize Bootstrap 5's grid system for responsive layout control. 
+                                    Common elements like the Navigation Bar and Footer are consistent across all pages to ensure a seamless user experience.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="design-css" class="mt-4">
+                            <h3 class="doc-subheading">3.2 CSS Architecture (Base + Theme)</h3>
+                            <div class="lead-text">
+                                <p>
+                                    A key requirement of the project is the ability to switch visual themes dynamically. To achieve this efficiently, we separated our CSS into two distinct layers:
+                                </p>
+                                <ul>
+                                    <li><strong>base.css (The Skeleton):</strong> Contains all layout definitions, spacing (padding/margin), grid alignment, and structural positioning. This file never changes when switching themes.</li>
+                                    <li><strong>theme-*.css (The Skin):</strong> Contains all visual properties such as colors, fonts, border-radius, shadows, and animations. By swapping this single file, the entire look and feel of the website changes (e.g., from Modern to Medieval) without breaking the layout.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <hr class="doc-divider">
+
+                    <section id="section-tech" class="mb-5">
+                        <h2 class="doc-heading">4. Technical Implementation</h2>
+                        <div class="lead-text">
+                            <p>
+                                The project relies on vanilla <strong>JavaScript</strong> for dynamic interactions. Key technical features include:
+                            </p>
+                            <ul>
+                                <li><strong>Dynamic Data Loading:</strong> The Gallery and Map pages read from a central JavaScript object to populate content, meaning changes to data are reflected instantly across the site.</li>
+                                <li><strong>Theme Switcher:</strong> A JS function <code>setTheme()</code> swaps the stylesheet link in the HTML head and updates a <code>data-theme</code> attribute on the body tag.</li>
+                                <li><strong>Interactive Map:</strong> An SVG-based map system where clicking on room nodes dynamically updates the information panel without reloading the page.</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-4">
+                
+                <div class="footer-logo">
+                    <img src="images/LOGO_white.png" alt="University of Bologna" class="img-fluid">
+                </div>
+
+                <div class="footer-text text-center text-md-start">
+                    <p class="mb-1 text-uppercase fw-bold" style="letter-spacing: 1px;">A Linked Open Data Project</p>
+                    <p class="mb-1">MA "Digital Humanities and Digital Knowledge", University of Bologna</p>
+                    <p class="mb-3">Course "Information Modeling and Web Technologies"</p>
+                    
+                    <div class="small">
+                        <p class="mb-0">All copyrights and related rights on the content remain with their original owners.</p>
+                        <p class="mb-0">All copyright on the typographic and layout choices are 2026 © The Name of Monk</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <button type="button" id="btn-back-to-top">↑</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function setTheme(cssFile, themeName) {
+            document.getElementById('theme-css').href = cssFile;
+            document.body.setAttribute('data-theme', themeName);
+        }
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('is-visible');
+                else entry.target.classList.remove('is-visible');
+            });
+        }, observerOptions);
+        document.querySelectorAll('.anim-element').forEach((el) => observer.observe(el));
+        let mybutton = document.getElementById("btn-back-to-top");
+        window.onscroll = function () {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) mybutton.style.display = "flex";
+            else mybutton.style.display = "none";
+        };
+        mybutton.addEventListener("click", () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    </script>
+</body>
+</html>

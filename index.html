@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Name of Monk</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/base.css">
+    <link id="theme-css" rel="stylesheet" href="css/theme-modern.css">
+</head>
+<body data-theme="modern">
+
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container-fluid px-4 px-lg-5">
+            <a class="navbar-brand logo-text" href="#">THE NAME OF MONK</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-4">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="map.html">Map</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Exhibition</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="narratives.html">Narratives</a></li>
+                            <li><a class="dropdown-item" href="collection.html">Collections</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">About</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="documentation.html">Documentation</a></li>
+                            <li><a class="dropdown-item" href="disclaimer.html">Disclaimer</a></li>
+                            <li><a class="dropdown-item" href="aboutus.html">About Us</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown ms-lg-2">
+                        <a class="btn btn-style-toggle rounded-pill btn-sm px-3 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            CHANGE STYLES
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('css/theme-modern.css', 'modern')">Modern (Default)</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('css/theme-jazz.css', 'jazz')">Jazz</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('css/theme-medieval.css', 'medieval')">Medieval</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('css/theme-gothic.css', 'gothic')">Gothic</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('css/theme-abstract.css', 'abstract')">Abstract</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setTheme('css/theme-future.css', 'future')">Future</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container-fluid min-vh-100 d-flex align-items-center position-relative">
+        <div class="container py-5 mt-5">
+            <div class="row align-items-start gx-lg-5">
+                <div class="col-lg-7 mb-5 mb-lg-0">
+                    <div class="content-wrapper pe-lg-5">
+                        <div class="mb-5">
+                            <h5 class="section-label mb-3">ABOUT THE EXHIBITION</h5>
+                            <h1 class="display-3 mb-4 main-title anim-element anim-up">
+                                What is in a <br>
+                                <span class="accent-text fst-italic">Name?</span>
+                            </h1>
+                            <div class="lead-text">
+                                <p>The word <strong>"Monk"</strong> has traveled a long distance through history. It began in the stone cloisters of the Middle Ages, signifying a life of absolute discipline, silence, and withdrawal from the world. Yet, centuries later, we find the same name stamped on the leather soles of gentleman’s footwear and spinning on the turntables of smoky jazz clubs in New York.</p>
+                                <p>This exhibition, <em class="serif-font">"The Name of Monk"</em>, uses the polysemy of “Monk” to trace a trajectory from <span class="highlight">asceticism</span>, to <span class="highlight">utility</span>, to <span class="highlight">liberalism</span>—three modes through which human beings have regulated, shaped, and ultimately released the body, knowledge, sound, and identity.</p>
+                            </div>
+                        </div>
+                        <hr class="my-5" style="border-color: var(--cyan-grey); opacity: 0.1;">
+                        <div class="mb-5">
+                            <h5 class="section-label mb-3">ABOUT THE PROJECT</h5>
+                            <div class="lead-text">
+                                <p>This website is a <strong>Multimedia Museum Meta Mirror (MMMM)</strong>—a digital companion designed to guide you through a curated collection of physical artifacts.</p>
+                                <p><strong class="highlight" style="color:var(--cyan-grey);">How to Visit:</strong> Unlike a traditional museum where you might stroll randomly, this digital experience allows you to choose your own path. We have organized the 16 exhibition items into two distinct <strong>Narratives</strong>.</p>
+                                <p class="welcome-msg anim-element anim-left">Welcome to the evolution of the Monk.</p>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-3 mt-4">
+                            <a href="narratives.html" class="btn btn-custom-primary btn-lg px-4">Start the Exhibition</a>
+                            <a href="map.html" class="btn btn-custom-outline btn-lg px-4">Go to the Map</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 text-center position-relative sticky-lg-top" style="top: 160px; z-index: 1;">
+                    <div class="image-frame shadow-lg">
+                        <div id="heroCarousel" class="carousel slide carousel-fade">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+                                <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a href="collection.html" class="carousel-link-area">
+                                        <img src="images/12.jpg" class="d-block w-100" alt="Thelonious Monk">
+                                        <div class="hover-overlay"><span class="btn-browse-custom">BROWSE COLLECTIONS</span></div>
+                                    </a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href="collection.html" class="carousel-link-area">
+                                        <img src="images/06.jpg" class="d-block w-100" alt="Double Monk Straps"> 
+                                        <div class="hover-overlay"><span class="btn-browse-custom">BROWSE COLLECTIONS</span></div>
+                                    </a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href="collection.html" class="carousel-link-area">
+                                        <img src="images/10.jpg" class="d-block w-100" alt="Manuscript">
+                                        <div class="hover-overlay"><span class="btn-browse-custom">BROWSE COLLECTIONS</span></div>
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-3 small fst-italic text-center">Highlights from the Collection (Switch to view)</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-4">
+                
+                <div class="footer-logo">
+                    <img src="images/LOGO_white.png" alt="University of Bologna" class="img-fluid">
+                </div>
+
+                <div class="footer-text text-center text-md-start">
+                    <p class="mb-1 text-uppercase fw-bold" style="letter-spacing: 1px;">A Linked Open Data Project</p>
+                    <p class="mb-1">MA "Digital Humanities and Digital Knowledge", University of Bologna</p>
+                    <p class="mb-3">Course "Information Modeling and Web Technologies"</p>
+                    
+                    <div class="small">
+                        <p class="mb-0">All copyrights and related rights on the content remain with their original owners.</p>
+                        <p class="mb-0">All copyright on the typographic and layout choices are 2026 © The Name of Monk</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <button type="button" id="btn-back-to-top">↑</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function setTheme(cssFile, themeName) {
+            document.getElementById('theme-css').href = cssFile;
+            document.body.setAttribute('data-theme', themeName);
+        }
+        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('is-visible');
+                else entry.target.classList.remove('is-visible');
+            });
+        }, observerOptions);
+        document.querySelectorAll('.anim-element').forEach((el) => observer.observe(el));
+        let mybutton = document.getElementById("btn-back-to-top");
+        window.onscroll = function () {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) mybutton.style.display = "flex";
+            else mybutton.style.display = "none";
+        };
+        mybutton.addEventListener("click", () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    </script>
+</body>
+</html>
