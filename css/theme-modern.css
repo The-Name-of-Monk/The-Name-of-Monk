@@ -41,6 +41,13 @@
     --br-pill: 50px;   /* Button radius */
     --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
     --shadow-hard: 0 15px 40px rgba(0,0,0,0.15);
+
+    /* theme-modern.css :root */
+    --overlay-font: var(--font-heading);
+    --overlay-fs: 0.9rem;
+    --overlay-ls: 1px;
+    --overlay-fw: 600;
+
 }
 
 /* =========================================
@@ -688,7 +695,7 @@ body {
     transition: bottom 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* 遮罩文字样式 */
+/* 遮罩文字样式 
 .overlay-text {
     color: #fff;
     font-family: var(--font-body); 

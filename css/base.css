@@ -563,6 +563,16 @@ svg { width: 100%; height: auto; max-height: 400px; overflow: visible; }
 
 .carousel-item:hover .overlay-bar { bottom: 0; }
 
+/* base.css */
+.overlay-text{
+  color: var(--overlay-text, #fff) !important;
+  font-family: var(--overlay-font, var(--font-heading));
+  font-size: var(--overlay-fs, 0.9rem);
+  letter-spacing: var(--overlay-ls, 1px);
+  font-weight: var(--overlay-fw, 600);
+  text-align: center;
+}
+
 /* 轮播控制按钮 */
 .carousel-control-prev, 
 .carousel-control-next { z-index: 25 !important; }
@@ -594,3 +604,4 @@ svg { width: 100%; height: auto; max-height: 400px; overflow: visible; }
     height: 3px;
     border-radius: 2px;
 }
+
