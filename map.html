@@ -169,7 +169,7 @@
         </div>
     </main>
 
-    <footer class="site-footer">
+<footer class="site-footer">
         <div class="container">
             <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-4">
                 <div class="footer-logo">
@@ -191,41 +191,40 @@
     <button type="button" id="btn-back-to-top">↑</button>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        function setTheme(cssFile, themeName) {
-            document.getElementById('theme-css').href = cssFile;
-            document.body.setAttribute('data-theme', themeName);
-        }
+    
+    <script src="js/theme-manager.js"></script>
 
-        // ★★★ Updated Data with Gallery IDs ★★★
+    <script>
+        // 注意：setTheme 函数和 Back-to-top 逻辑已被移除，由 theme-manager.js 接管
+
         const data = {
             // --- ROOM 1 (The Rule) ---
             'rule': { 
-                galleryId: 1, // ID for Rule of St. Benedict
+                galleryId: 1, 
                 title: "Rule of St. Benedict", room: "room1", theme: "spirit",
                 desc: "The manuscript establishing the strict rules of discipline and silence.",
                 image: "images/01.jpg"
             },
             'antiphonary': { 
-                galleryId: 7, // ID for Benedictine Antiphonary
+                galleryId: 7, 
                 title: "Benedictine Antiphonary", room: "room1", theme: "echo",
                 desc: "A choir book used for communal prayer and chanting.",
                 image: "images/07.jpg"
             },
             'statue': { 
-                galleryId: 9, // ID for A Benedictine Monk
+                galleryId: 9, 
                 title: "A Benedictine Monk", room: "room1", theme: "identity",
                 desc: "A painting of a monk in vow.",
                 image: "images/09.jpg"
             },
             'misericord': { 
-                galleryId: 3, // ID for The Misericord
+                galleryId: 3, 
                 title: "The Misericord", room: "room1", theme: "spirit",
                 desc: "The 'Mercy Seat' used by monks during long prayers.",
                 image: "images/03.jpg"
             },
             'mourner': { 
-                galleryId: 10, // ID for The Mourner Sculpture
+                galleryId: 10, 
                 title: "The Mourner Sculpture", room: "room1", theme: "identity",
                 desc: "A figure hidden beneath a cowl, symbolizing the erasure of identity.",
                 image: "images/10.jpg"
@@ -233,31 +232,31 @@
 
             // --- ROOM 2 (The Utility) ---
             'patten': { 
-                galleryId: 4, // ID for Medieval Leather Patten
+                galleryId: 4, 
                 title: "Medieval Leather Patten", room: "room2", theme: "echo",
                 desc: "Practical overshoes for mud, the ancestor of the monk strap.",
                 image: "images/04.jpg"
             },
             'shoemaker': { 
-                galleryId: 11, // ID for The Shoemaker
+                galleryId: 11, 
                 title: "The Shoemaker", room: "room2", theme: "identity",
                 desc: "A painting depicting the workshop of a traditional shoemaker.",
                 image: "images/11.jpg"
             },
             'buckles': { 
-                galleryId: 14, // ID for Shoe Buckle
+                galleryId: 14, 
                 title: "Shoe Buckle", room: "room2", theme: "spirit",
                 desc: "Functional fasteners evolving into jewelry.",
                 image: "images/14.jpg"
             },
             'monk_shoes': { 
-                galleryId: 8, // ID for Monk Shoes
+                galleryId: 8, 
                 title: "Monk Shoes", room: "room2", theme: "identity",
                 desc: "1940s footwear marking the transition to fashion.",
                 image: "images/08.jpg"
             },
             'double_monk': { 
-                galleryId: 6, // ID for Double Monk Straps
+                galleryId: 6, 
                 title: "Double Monk Straps", room: "room2", theme: "identity",
                 desc: "Modern craftsmanship representing style over utility.",
                 image: "images/06.jpg"
@@ -265,37 +264,37 @@
 
             // --- ROOM 3 (The Improvisation) ---
             'photo': { 
-                galleryId: 12, // ID for Photography of Thelonious Monk
+                galleryId: 12, 
                 title: "Photography of Thelonious Monk", room: "room3", theme: "spirit",
                 desc: "Thelonious Monk breaking musical rules.",
                 image: "images/12.jpg"
             },
             'portrait': { 
-                galleryId: 13, // ID for Portrait of Thelonious Monk
+                galleryId: 13, 
                 title: "Portrait of Thelonious Monk", room: "room3", theme: "spirit", 
                 desc: "The face revealed, celebrating individual identity.",
                 image: "images/13.jpg"
             },
             'album_round': {
-                galleryId: 16, // ID for Album "Round About Midnight"
+                galleryId: 16, 
                 title: "Album 'Round About Midnight'", room: "room3", theme: "echo",
                 desc: "A seminal jazz album defining the era.",
                 image: "images/16.jpg"
             },
             'matisse': { 
-                galleryId: 2, // ID for Matisse's Jazz
+                galleryId: 2, 
                 title: "Matisse's Jazz", room: "room3", theme: "spirit",
                 desc: "Visual improvisation cutting through color.",
                 image: "images/02.jpg"
             },
             'album_music': { 
-                galleryId: 15, // ID for Album "Monk's Music"
+                galleryId: 15, 
                 title: "Album 'Monk's Music'", room: "room3", theme: "echo",
                 desc: "The iconic album cover featuring the red wagon.",
                 image: "images/15.jpg"
             },
             'video': { 
-                galleryId: 5, // ID for Video
+                galleryId: 5, 
                 title: "Video: I Mean You", room: "room3", theme: "echo",
                 desc: "Live performance footage.",
                 image: "images/05.jpg"
@@ -328,7 +327,7 @@
             imgEl.src = item.image; 
             imgEl.alt = item.title;
 
-            // ★★★ Set Dynamic Link ★★★
+            // Set Dynamic Link
             const linkBtn = document.getElementById('d-link');
             if(linkBtn) {
                 linkBtn.href = `gallery.html?id=${item.galleryId}`;
@@ -369,18 +368,6 @@
                 });
             }
         }
-
-        let mybutton = document.getElementById("btn-back-to-top");
-        window.onscroll = function () {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                mybutton.style.display = "flex";
-            } else {
-                mybutton.style.display = "none";
-            }
-        };
-        mybutton.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
     </script>
 </body>
 </html>
