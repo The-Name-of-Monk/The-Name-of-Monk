@@ -565,8 +565,6 @@ svg { width: 100%; height: auto; max-height: 400px; overflow: visible; }
 
 /* base.css */
 .overlay-text{
-  color: var(--overlay-text, #fff) !important;
-  font-family: var(--overlay-font, var(--font-heading));
   font-size: var(--overlay-fs, 0.9rem);
   letter-spacing: var(--overlay-ls, 1px);
   font-weight: var(--overlay-fw, 600);

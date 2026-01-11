@@ -695,14 +695,10 @@ body {
     transition: bottom 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* 遮罩文字样式 
-.overlay-text {
-    color: #fff;
-    font-family: var(--font-body); 
-    font-size: 0.95rem;
-    line-height: 1.5;
-    font-weight: 400;
-    text-align: center;
+/* 遮罩文字样式 */
+.overlay-text{
+  color: var(--overlay-text, #fff) !important;
+  font-family: var(--overlay-font, var(--font-heading));
 }
 
 /* 轮播箭头样式 */
