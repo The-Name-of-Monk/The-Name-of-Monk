@@ -1,0 +1,495 @@
+/* =========================================================
+   THEME: MEDIEVAL (Scriptorium / Carved Order)
+   Asset: images/medievalbackground.jpg
+   Notes:
+   - Distinct from "Jazz": NO sticker/offset-block look as primary language.
+   - Visual language: parchment page + manuscript frames + restrained gold-leaf.
+   - Works with existing base.css structure (no base changes required).
+   ========================================================= */
+
+/* Fonts: keep it bold & recognisable */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=UnifrakturMaguntia&display=swap');
+
+:root{
+  /* ---------------------------
+     Core palette (<=3 theme colors)
+     --------------------------- */
+  --bg-color: #E9E4D6;         /* parchment wash fallback (behind the image) */
+  --surface: rgb(239, 232, 216); /* parchment panel */
+  --accent: #D9B85A;          /* gold leaf base (not used as solid blocks) */
+
+  /* Helpers (1-2 extra) */
+  --ink: #171A1B;             /* ink black (not pure) */
+  --ink-soft: rgba(23,26,27,0.72);
+  --rule: rgba(23,26,27,0.35); /* manuscript rule line */
+  --paper-edge: rgba(255,255,255,0.35);
+
+  /* Gold foil variations (still accent-family) */
+  --gold-deep: #9B7425;
+  --gold-light: #F2E6B1;
+  --gold-glow: rgba(217,184,90,0.25);
+
+  /* Typography */
+  --font-heading: "Cinzel", serif;
+  --font-body: "Cormorant Garamond", serif;
+
+  /* Radii/shadows (avoid Jazz block offset) */
+  --br-md: 2px;
+  --shadow-soft: 0 14px 30px rgba(0,0,0,0.10);
+  --shadow-inset: inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.06);
+
+  /* Overlay contract used by base.css */
+  --overlay-bg-main: rgba(23,26,27,0.90);
+  --overlay-bg-accent: rgba(23,26,27,0.76);
+  --overlay-text: rgba(246,241,231,0.96);
+  --overlay-font: var(--font-heading);
+  --overlay-fs: 0.92rem;
+  --overlay-ls: 1.8px;
+  --overlay-fw: 700;
+
+  /* For subtle texture without external noise files */
+  --micro-noise: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.10'/%3E%3C/svg%3E");
+}
+
+/* =========================================================
+   1) Global background: use your parchment image everywhere
+   ========================================================= */
+body{
+  font-family: var(--font-body);
+  color: var(--ink);
+
+  /* ✅ YOUR ASSET */
+  background-image:
+    linear-gradient(0deg, rgba(233,228,214,0.42), rgba(233,228,214,0.42)),
+    var(--micro-noise),
+    url("images/medievalbackground.jpg");
+  background-size: cover, 260px 260px, cover;
+  background-position: center, center, center;
+  background-attachment: fixed, fixed, fixed;
+  background-repeat: no-repeat, repeat, no-repeat;
+  background-color: var(--bg-color);
+}
+
+/* Make long reading calmer */
+.lead-text{
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+.lead-text p{
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+/* Headings: carved / inscription-like */
+.main-title{
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  line-height: 1.15;
+  color: var(--ink);
+}
+.main-title::after{ display:none !important; }
+
+/* Section labels: manuscript rubric WITHOUT using red */
+.section-label{
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 2.6px;
+  font-weight: 700;
+  color: rgba(23,26,27,0.78);
+  border-left: 4px solid rgba(217,184,90,0.75);
+  padding-left: 14px;
+}
+
+/* You asked for “italic special design” similar to base expectations:
+   Bootstrap uses .fst-italic; we turn it into a "marginal note" tone */
+.fst-italic{
+  font-family: var(--font-body);
+  font-style: italic;
+  color: rgba(23,26,27,0.78);
+  letter-spacing: 0.2px;
+}
+
+/* highlight: like a carefully underlined gloss */
+.highlight{
+  font-style: italic;
+  font-weight: 600;
+  color: rgba(23,26,27,0.92);
+  text-decoration: none;
+  background:
+    linear-gradient(transparent 62%, rgba(217,184,90,0.22) 62%, rgba(217,184,90,0.22) 88%, transparent 88%);
+  padding: 0 2px;
+}
+
+/* Accent text: gold foil (NOT a flat mustard) */
+.accent-text{
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
+  font-weight: 700;
+  background:
+    linear-gradient(120deg, var(--gold-deep), var(--gold-light), var(--accent), var(--gold-deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+}
+
+/* =========================================================
+   2) NAVBAR (should be parchment, not black)
+   ========================================================= */
+.navbar{
+  /* ✅ parchment bar */
+  background-image:
+    linear-gradient(0deg, rgba(239,232,216,0.92), rgba(239,232,216,0.92)),
+    var(--micro-noise),
+    url("images/medievalbackground.jpg");
+  background-size: auto, 220px 220px, cover;
+  background-position: center, center, center;
+  background-repeat: no-repeat, repeat, no-repeat;
+
+  border-bottom: 1px solid rgba(23,26,27,0.42);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.12), var(--shadow-inset);
+  backdrop-filter: blur(2px);
+}
+
+/* Fix inner "boxed" background (Bootstrap container/collapse) */
+.navbar .container,
+.navbar .container-fluid{
+  background: transparent !important;
+}
+.navbar-collapse{
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.navbar-nav{
+  background: transparent !important;
+}
+
+/* Logo */
+.logo-text{
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+  font-weight: 700;
+  color: var(--ink);
+  position: relative;
+}
+.logo-text::after{
+  content:"";
+  display:block;
+  height: 1px;
+  width: 100%;
+  margin-top: 6px;
+  background:
+    linear-gradient(90deg,
+      rgba(217,184,90,0),
+      rgba(217,184,90,0.90),
+      rgba(217,184,90,0)
+    );
+}
+
+/* Nav links: ink with gold-foil hover underline */
+.nav-link{
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  font-size: 0.88rem;
+  color: rgba(23,26,27,0.86);
+  position: relative;
+}
+.nav-link::after{
+  content:"";
+  position:absolute;
+  left: 12%;
+  right: 12%;
+  bottom: -7px;
+  height: 1px;
+  background: rgba(217,184,90,0);
+  transition: background 0.2s ease;
+}
+.nav-link:hover,
+.nav-link.active,
+.navbar-nav .nav-link.show{
+  color: rgba(23,26,27,0.98) !important;
+}
+.nav-link:hover::after,
+.nav-link.active::after{
+  background: rgba(217,184,90,0.85);
+  box-shadow: 0 0 10px var(--gold-glow);
+}
+
+/* Dropdown: parchment sheet */
+.dropdown-menu{
+  background-image:
+    linear-gradient(0deg, rgba(239,232,216,0.96), rgba(239,232,216,0.96)),
+    var(--micro-noise),
+    url("images/medievalbackground.jpg");
+  background-size: auto, 220px 220px, cover;
+  background-position: center, center, center;
+  background-repeat: no-repeat, repeat, no-repeat;
+
+  border: 1px solid rgba(23,26,27,0.50);
+  outline: 2px double rgba(217,184,90,0.45);
+  outline-offset: -6px;
+  border-radius: 0;
+  box-shadow: var(--shadow-soft);
+}
+.dropdown-item{
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  color: rgba(23,26,27,0.92);
+}
+.dropdown-item:hover{
+  background: rgba(217,184,90,0.18);
+  color: rgba(23,26,27,0.98);
+}
+
+/* Toggler: visible on parchment */
+.navbar-toggler{
+  border: 1px solid rgba(23,26,27,0.55);
+  border-radius: 0;
+}
+.navbar-toggler:focus{
+  box-shadow: 0 0 0 0.15rem rgba(217,184,90,0.25);
+}
+
+/* =========================================================
+   3) BUTTONS (distinct: embossed + manuscript frame)
+   ========================================================= */
+.btn-style-toggle,
+.btn-browse-custom,
+.btn-custom-primary,
+.btn-custom-outline,
+.view-more-btn,
+.gallery-nav-btn,
+#btn-back-to-top{
+  border-radius: 0 !important;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Theme toggle button */
+.btn-style-toggle{
+  background: rgba(239,232,216,0.75);
+  border: 1px solid rgba(23,26,27,0.55);
+  outline: 1px solid rgba(217,184,90,0.55);
+  outline-offset: 2px;
+  color: rgba(23,26,27,0.92);
+}
+.btn-style-toggle:hover{
+  background: rgba(217,184,90,0.16);
+  box-shadow: 0 0 16px var(--gold-glow);
+}
+
+/* Browse: parchment plaque */
+.btn-browse-custom{
+  background-image:
+    linear-gradient(0deg, rgba(239,232,216,0.94), rgba(239,232,216,0.94)),
+    var(--micro-noise),
+    url("images/medievalbackground.jpg");
+  background-size: auto, 200px 200px, cover;
+  background-repeat: no-repeat, repeat, no-repeat;
+
+  border: 1px solid rgba(23,26,27,0.55);
+  outline: 2px double rgba(23,26,27,0.35);
+  outline-offset: -6px;
+  box-shadow: var(--shadow-inset), 0 12px 24px rgba(0,0,0,0.10);
+  color: rgba(23,26,27,0.95) !important;
+}
+.btn-browse-custom:hover{
+  outline-color: rgba(217,184,90,0.55);
+  transform: translateY(-1px);
+}
+
+/* Primary: ink seal with gold edge (no gold block) */
+.btn-custom-primary,
+.gallery-nav-btn{
+  background: rgba(23,26,27,0.92);
+  border: 1px solid rgba(217,184,90,0.55);
+  box-shadow: 0 14px 26px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.06);
+  color: rgba(246,241,231,0.95);
+}
+.btn-custom-primary:hover,
+.gallery-nav-btn:hover{
+  border-color: rgba(217,184,90,0.95);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.22), 0 0 18px var(--gold-glow);
+  transform: translateY(-1px);
+}
+
+/* Outline: carved frame */
+.btn-custom-outline{
+  background: rgba(239,232,216,0.35);
+  border: 1px solid rgba(23,26,27,0.55);
+  outline: 2px double rgba(23,26,27,0.35);
+  outline-offset: -6px;
+  color: rgba(23,26,27,0.92);
+}
+.btn-custom-outline:hover{
+  background: rgba(217,184,90,0.12);
+  outline-color: rgba(217,184,90,0.45);
+}
+
+/* View more: small label button */
+.view-more-btn{
+  background: rgba(239,232,216,0.92) !important;
+  border: 1px solid rgba(23,26,27,0.70) !important;
+  outline: 1px solid rgba(217,184,90,0.55);
+  outline-offset: 2px;
+  color: rgba(23,26,27,0.95) !important;
+}
+.view-more-btn:hover{
+  background: rgba(217,184,90,0.18) !important;
+}
+
+/* Back to top */
+#btn-back-to-top{
+  background: rgba(23,26,27,0.92);
+  border: 1px solid rgba(217,184,90,0.65);
+  color: rgba(246,241,231,0.95);
+  box-shadow: 0 18px 30px rgba(0,0,0,0.18);
+}
+#btn-back-to-top:hover{
+  box-shadow: 0 18px 30px rgba(0,0,0,0.22), 0 0 18px var(--gold-glow);
+}
+
+/* =========================================================
+   4) CARDS / PANELS (use parchment background image subtly)
+   ========================================================= */
+.map-wrapper,
+.gallery-card,
+.member-card,
+.info-image-wrapper{
+  background-image:
+    linear-gradient(0deg, rgba(239,232,216,0.90), rgba(239,232,216,0.90)),
+    var(--micro-noise),
+    url("images/medievalbackground.jpg");
+  background-size: auto, 220px 220px, cover;
+  background-position: center, center, center;
+  background-repeat: no-repeat, repeat, no-repeat;
+
+  border-radius: 0;
+  border: 1px solid rgba(23,26,27,0.22);
+  box-shadow: var(--shadow-soft), var(--shadow-inset);
+}
+
+/* Image frames: manuscript frame feel */
+.image-frame{
+  border-radius: 0;
+  border: 6px solid rgba(23,26,27,0.88);
+  outline: 2px double rgba(217,184,90,0.55);
+  outline-offset: -10px;
+  box-shadow: 0 18px 34px rgba(0,0,0,0.18);
+}
+
+/* =========================================================
+   5) COLLECTION overlays (keep readable; gold as detail only)
+   ========================================================= */
+.item-overlay{
+  background: var(--overlay-bg-main);
+  color: var(--overlay-text);
+  border-top: 1px solid rgba(217,184,90,0.55);
+}
+.item-overlay h5{
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+}
+
+/* =========================================================
+   6) MAP controls (narrative + filter menu)
+   ========================================================= */
+.narrative-toggle,
+.btn-view-all{
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 0;
+  background: rgba(239,232,216,0.85);
+  border: 1px solid rgba(23,26,27,0.55);
+  outline: 1px solid rgba(217,184,90,0.45);
+  outline-offset: 2px;
+  color: rgba(23,26,27,0.92);
+}
+.narrative-toggle:hover,
+.btn-view-all:hover{
+  background: rgba(217,184,90,0.14);
+  box-shadow: 0 0 16px var(--gold-glow);
+}
+
+.filter-menu.dropdown-menu{
+  background-image:
+    linear-gradient(0deg, rgba(239,232,216,0.96), rgba(239,232,216,0.96)),
+    var(--micro-noise),
+    url("images/medievalbackground.jpg");
+  background-size: auto, 220px 220px, cover;
+  background-repeat: no-repeat, repeat, no-repeat;
+
+  border: 1px solid rgba(23,26,27,0.55);
+  outline: 2px double rgba(217,184,90,0.35);
+  outline-offset: -6px;
+}
+
+.filter-menu .filter-item.dropdown-item:hover{
+  background: rgba(217,184,90,0.16);
+}
+
+/* =========================================================
+   7) TABLES & LINKS (curatorial reading)
+   ========================================================= */
+.table th{
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(23,26,27,0.88);
+}
+.table td{
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: rgba(23,26,27,0.90);
+}
+.table a{
+  color: var(--gold-deep);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(217,184,90,0.55);
+}
+.table a:hover{
+  color: rgba(23,26,27,0.95);
+  border-bottom-color: rgba(23,26,27,0.65);
+}
+
+/* =========================================================
+   8) FOOTER (quiet, not gothic)
+   ========================================================= */
+.site-footer{
+  background: rgba(23,26,27,0.92);
+  border-top: 1px solid rgba(217,184,90,0.55);
+  color: rgba(246,241,231,0.92);
+}
+.footer-text p{ color: rgba(246,241,231,0.72); }
+
+/* =========================================================
+   9) MOBILE navbar: collapse becomes parchment sheet
+   ========================================================= */
+@media (max-width: 991px){
+  .navbar-collapse{
+    margin-top: 12px;
+    padding: 14px 14px;
+
+    background-image:
+      linear-gradient(0deg, rgba(239,232,216,0.96), rgba(239,232,216,0.96)),
+      var(--micro-noise),
+      url("images/medievalbackground.jpg");
+    background-size: auto, 220px 220px, cover;
+    background-repeat: no-repeat, repeat, no-repeat;
+
+    border: 1px solid rgba(23,26,27,0.55);
+    outline: 2px double rgba(217,184,90,0.45);
+    outline-offset: -6px;
+    box-shadow: var(--shadow-soft);
+  }
+}
