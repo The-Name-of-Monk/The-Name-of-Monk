@@ -1,5 +1,30 @@
 /* base.css - 网站骨架与布局 (Structure Only) */
 
+/* base.css */
+
+/* ... (原有头部注释) ... */
+
+/* =========================================
+   0. SMOOTH TRANSITION (防卡顿优化)
+   ========================================= */
+body, 
+.navbar, 
+.card, 
+.gallery-item, 
+.footer-text,
+.main-title,
+a, 
+p, 
+h1, h2, h3, h4, h5, h6,
+div {
+    /* 让颜色和背景色的变化产生 0.4秒 的平滑过渡 */
+    transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* 注意：某些特定元素（如图片悬停、轮播图）的 transition 可能会被这个覆盖，
+   但我们在 theme-jazz.css 里定义的具体 transition 优先级更高，所以没问题。 */
+
+/* ... (保留原来 Section 1 Global Layout 及之后的所有内容) ... */
 /* =========================================
    1. Global Layout & Structure
    ========================================= */
@@ -298,7 +323,7 @@ svg { width: 100%; height: auto; max-height: 400px; overflow: visible; }
    ========================================= */
 .site-footer {
     padding: 4rem 0; 
-    margin-top: 6rem;
+    margin-top: 8rem;
     border-top: 1px solid transparent;
 }
 .footer-logo img { max-height: 90px; width: auto; }
@@ -316,9 +341,22 @@ svg { width: 100%; height: auto; max-height: 400px; overflow: visible; }
     .gallery-image-frame { height: 300px; }
 }
 @media (max-width: 768px) {
-    .site-footer { text-align: center; } 
-    .gallery-column { flex: 100%; }
+    .site-footer { 
+        text-align: center; 
+        margin-top: 10rem !important; /* ★★★ 强制在窄屏下把 footer 往更下面推 ★★★ */
+        padding-top: 3rem;
+    } 
+    
+    .gallery-column { 
+        flex: 100%; 
+    }
+
+    /* 之前加的这个也可以保留，双重保险 */
+    .gallery-container {
+        margin-bottom: 80px; 
+    }
 }
+
 /* base.css - 网站骨架与布局 (Structure Only) */
 
 /* ... (保留原有的 Section 1-7 内容) ... */
@@ -565,6 +603,8 @@ svg { width: 100%; height: auto; max-height: 400px; overflow: visible; }
 
 /* base.css */
 .overlay-text{
+  color: var(--overlay-text, #fff) !important;
+  font-family: var(--overlay-font, var(--font-heading));
   font-size: var(--overlay-fs, 0.9rem);
   letter-spacing: var(--overlay-ls, 1px);
   font-weight: var(--overlay-fw, 600);
@@ -624,4 +664,5 @@ svg { width: 100%; height: auto; max-height: 400px; overflow: visible; }
     width: 300px; /* 根据需要调整大小 */
     height: 300px;
 }
+
 
