@@ -1,0 +1,233 @@
+/* theme-modernist-ultimate.css 
+   风格：现代主义画廊 / 蒙德里安撞色
+   特点：三色不规则背景、标题滑入特效、极粗字体、高对比度页脚
+*/
+
+/* 1. 字体引入：确保所有字重可用 */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@900&family=Space+Mono:wght@700&display=swap');
+
+:root {
+    --clr-red: #FF3B30;
+    --clr-blue: #0057FF;
+    --clr-yellow: #FFD600;
+    --clr-white: #FFFFFF;
+    --clr-black: #1A1A1A;
+    --font-huge: 'Archivo Black', sans-serif;
+    --font-body: 'Montserrat', sans-serif; 
+    --font-mono: 'Space Mono', monospace;
+}
+
+/* =========================================
+   1. 背景布局：红蓝黄三原色块 (全自动化实现)
+   ========================================= */
+body {
+    background-color: var(--clr-white);
+    color: var(--clr-black);
+    font-family: var(--font-body);
+    font-weight: 900;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    
+    /* 红色块：通过背景渐变直接生成在右下角，不占位，不遮挡文字 */
+    background-image: 
+        linear-gradient(155deg, transparent 82%, var(--clr-red) 82.1%);
+    background-attachment: fixed;
+}
+
+/* 黄色色块：右上角固定，不规则锐利切割 */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; 
+    right: 0;
+    width: 38vw; 
+    height: 42vh;
+    background: var(--clr-yellow);
+    z-index: -2;
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 80%);
+}
+
+/* 蓝色色块：左侧中部固定，不规则锐利切割 */
+body::after {
+    content: "";
+    position: fixed;
+    top: 25vh; 
+    left: 0;
+    width: 16vw; 
+    height: 48vh;
+    background: var(--clr-blue);
+    z-index: -2;
+    clip-path: polygon(0 0, 100% 20%, 80% 100%, 0 90%);
+}
+
+/* =========================================
+   2. 标题特效：0.8s 优雅滑入动画 + 悬停重影
+   ========================================= */
+.main-title {
+    font-family: var(--font-huge);
+    font-size: clamp(3rem, 10vw, 7.5rem);
+    text-transform: uppercase;
+    position: relative;
+    margin: 15vh 8% 5vh;
+    display: inline-block;
+    color: var(--clr-black);
+    letter-spacing: -3px;
+    z-index: 1;
+
+    /* 初始状态：向下偏移并透明 */
+    opacity: 0;
+    transform: translateY(50px);
+    /* 动画控制 */
+    animation: titleEntrance 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes titleEntrance {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 鼠标悬停：红蓝双重影特效 */
+.main-title:hover {
+    text-shadow: -12px -12px 0px var(--clr-red), 12px 12px 0px var(--clr-blue);
+    transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* 标题下方的黄色装饰横条 */
+.main-title::after {
+    content: "";
+    position: absolute;
+    left: -4%; 
+    bottom: 12px;
+    width: 108%; 
+    height: 22px;
+    background: var(--clr-yellow);
+    z-index: -1;
+    transform: skewX(-25deg);
+}
+
+/* =========================================
+   3. 地图 (Map) 样式强化：确保显示与交互
+   ========================================= */
+.map-wrapper {
+    background: var(--clr-white);
+    border: 8px solid var(--clr-black);
+    padding: 30px;
+    box-shadow: 25px 25px 0px var(--clr-black);
+    margin: 2rem auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* 地图房间轮廓：极粗黑色描边，确保在白墙背景可见 */
+.room-outline { 
+    stroke: var(--clr-black) !important; 
+    stroke-width: 4px !important;
+    fill: #FAFAFA !important; 
+    transition: 0.2s ease;
+    opacity: 1 !important;
+}
+
+/* 悬停交互变色 */
+.room-outline:hover { 
+    fill: var(--clr-yellow) !important;
+    cursor: crosshair;
+}
+
+/* 点击/激活变色 */
+.room-outline:active {
+    fill: var(--clr-blue) !important;
+}
+
+/* =========================================
+   4. 底部标志 (Logo) 与页脚：极致对比度
+   ========================================= */
+.site-footer {
+    background: var(--clr-black) !important;
+    color: var(--clr-white) !important;
+    padding: 80px 10%;
+    margin-top: 150px;
+    border-top: 20px solid var(--clr-yellow);
+    position: relative;
+    z-index: 5;
+}
+
+/* 解决标志看不清的问题：黑底白字 + 红色描边 */
+.footer-logo {
+    font-family: var(--font-huge);
+    font-size: 3.5rem;
+    color: var(--clr-white) !important;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 10px;
+    -webkit-text-stroke: 1.5px var(--clr-red);
+}
+
+.site-footer p {
+    font-family: var(--font-mono);
+    color: #888;
+    font-weight: 700;
+}
+
+/* =========================================
+   5. 通用组件：导航、链接与按钮
+   ========================================= */
+.navbar {
+    background: var(--clr-white) !important;
+    border-bottom: 8px solid var(--clr-black) !important;
+    padding: 2rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-link {
+    font-family: var(--font-huge);
+    font-size: 1rem;
+    color: var(--clr-black) !important;
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--clr-blue) !important;
+    background-color: var(--clr-yellow);
+}
+
+.btn-custom-primary {
+    font-family: var(--font-huge);
+    background: var(--clr-black) !important;
+    color: var(--clr-white) !important;
+    border: none;
+    padding: 20px 50px;
+    border-radius: 0;
+    box-shadow: 12px 12px 0px var(--clr-red);
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+.btn-custom-primary:hover {
+    background: var(--clr-blue) !important;
+    box-shadow: 8px 8px 0px var(--clr-yellow);
+    transform: translate(4px, 4px);
+}
+
+/* 面板/卡片：增强实心色块阴影 */
+.glass-panel, .card {
+    background: var(--clr-white) !important;
+    border: 5px solid var(--clr-black) !important;
+    box-shadow: 20px 20px 0px var(--clr-blue);
+    padding: 40px;
+    border-radius: 0;
+}
+
+.data-label {
+    font-family: var(--font-mono);
+    background: var(--clr-black);
+    color: var(--clr-white);
+    padding: 5px 12px;
+    display: inline-block;
+}
