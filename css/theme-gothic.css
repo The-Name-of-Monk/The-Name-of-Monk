@@ -1,7 +1,7 @@
 /* theme-gothic.css */
 @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=UnifrakturMaguntia&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=MedievalSharp&family=UnifrakturMaguntia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=MedievalSharp&family=Pirata+One&family=UnifrakturMaguntia&display=swap');
 
 :root {
     /* --- 1. Color Palette --- */
@@ -32,7 +32,7 @@
     /* --- 2. Typography --- */
     --font-heading: 'UnifrakturMaguntia', cursive;
     --font-body: 'Almendra', serif;
-    --font-script: 'MedievalSharp'; /*小标题：MedievalSharp*/
+    --font-script: 'Pirata One'; 
 
 
     /* Specific Font Sizes (Previously in base) */
@@ -132,8 +132,8 @@ body {
    3. Navbar Visuals
    ========================================= */
 .navbar {
-    background-color: var(--nav-bg);
-    border-bottom-color: rgba(0, 0, 0, 0.03); 
+    background-color: rgba(243,244,242,1);
+    border-bottom-color: rgba(0, 0, 0, 0.1); 
 }
 
 .logo-text {
