@@ -1,23 +1,18 @@
-/* =========================================================
+/* 
    THEME: MEDIEVAL (Scriptorium / Carved Order)
-   Asset: images/medievalbackground.jpg
-   Notes:
-   - Distinct from "Jazz": NO sticker/offset-block look as primary language.
-   - Visual language: parchment page + manuscript frames + restrained gold-leaf.
-   - Works with existing base.css structure (no base changes required).
-   ========================================================= */
+   Asset: images/medievalbackground.jpg*/
 
-/* Fonts: keep it bold & recognisable */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=UnifrakturMaguntia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=MedievalSharp&family=UnifrakturMaguntia&display=swap');
 
 :root{
   /* ---------------------------
      Core palette (<=3 theme colors)
      --------------------------- */
-  --bg-color: #E9E4D6;         /* parchment wash fallback (behind the image) */
+  --bg-color: /*#E9E4D6*/#FAEBD7;         /* parchment wash fallback (behind the image) */
   --surface: rgb(239, 232, 216); /* parchment panel */
-  --accent: #D9B85A;          /* gold leaf base (not used as solid blocks) */
+  --accent: #ead7a3;          /* gold leaf base (not used as solid blocks) */
 
   /* Helpers (1-2 extra) */
   --ink: #171A1B;             /* ink black (not pure) */
@@ -26,13 +21,14 @@
   --paper-edge: rgba(255,255,255,0.35);
 
   /* Gold foil variations (still accent-family) */
-  --gold-deep: #9B7425;
+  --gold-deep: #D9B85A;
   --gold-light: #F2E6B1;
   --gold-glow: rgba(217,184,90,0.25);
 
   /* Typography */
   --font-heading: "Cinzel", serif;
   --font-body: "Cormorant Garamond", serif;
+  --font-script:"MedievalSharp"
 
   /* Radii/shadows (avoid Jazz block offset) */
   --br-md: 2px;
@@ -40,8 +36,8 @@
   --shadow-inset: inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(0,0,0,0.06);
 
   /* Overlay contract used by base.css */
-  --overlay-bg-main: rgba(23,26,27,0.90);
-  --overlay-bg-accent: rgba(23,26,27,0.76);
+  --overlay-bg-main: rgba(100,149,237,0.95);/*6495ed*/
+  --overlay-bg-accent: rgba(255,215,0,0.95);/*FFD700*/
   --overlay-text: rgba(246,241,231,0.96);
   --overlay-font: var(--font-heading);
   --overlay-fs: 0.92rem;
@@ -63,12 +59,12 @@ body{
   background-image:
     linear-gradient(0deg, rgba(233,228,214,0.42), rgba(233,228,214,0.42)),
     var(--micro-noise),
-    url("images/medievalbackground.jpg");
+    url("../images/medievalbackground.jpg");
   background-size: cover, 260px 260px, cover;
   background-position: center, center, center;
   background-attachment: fixed, fixed, fixed;
   background-repeat: no-repeat, repeat, no-repeat;
-  background-color: var(--bg-color);
+  /*background-color: var(--bg-color);*/
 }
 
 /* Make long reading calmer */
@@ -94,7 +90,7 @@ body{
 
 /* Section labels: manuscript rubric WITHOUT using red */
 .section-label{
-  font-family: var(--font-heading);
+  font-family: var(--font-script);
   text-transform: uppercase;
   letter-spacing: 2.6px;
   font-weight: 700;
@@ -144,13 +140,13 @@ body{
   background-image:
     linear-gradient(0deg, rgba(239,232,216,0.92), rgba(239,232,216,0.92)),
     var(--micro-noise),
-    url("images/medievalbackground.jpg");
+    url("../images/medievalbackground.jpg");
   background-size: auto, 220px 220px, cover;
   background-position: center, center, center;
   background-repeat: no-repeat, repeat, no-repeat;
 
-  border-bottom: 1px solid rgba(23,26,27,0.42);
-  box-shadow: 0 12px 26px rgba(0,0,0,0.12), var(--shadow-inset);
+  border-bottom: 1px solid rgba(23,26,27,0.62);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.42), var(--shadow-inset);
   backdrop-filter: blur(2px);
 }
 
