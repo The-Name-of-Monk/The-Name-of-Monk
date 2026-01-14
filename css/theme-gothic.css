@@ -1,15 +1,15 @@
 /* theme-gothic.css */
 @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=UnifrakturMaguntia&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=MedievalSharp&family=Pirata+One&family=UnifrakturMaguntia&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=MedievalSharp&family=UnifrakturMaguntia&display=swap');
 
 :root {
     /* --- 1. Color Palette --- */
     --bg-color: #F3F4F2/*#ECE5D4*/;       
     --text-color: #2c2c2c;     
-    --text-muted: #333;       
-    
-    --accent-red: /*#F3F4F2*/#8B0000;     
+    --text-muted: #333;
+
+    --accent-red: /*#F3F4F2*//*#8B0000;*/#4a0404;
     --cyan-grey: #0C0F12;
     --line-color:#9AA3AE      
     
@@ -32,7 +32,7 @@
     /* --- 2. Typography --- */
     --font-heading: 'UnifrakturMaguntia', cursive;
     --font-body: 'Almendra', serif;
-    --font-script: 'Pirata One'; 
+    --font-script: 'MedievalSharp'; 
 
 
     /* Specific Font Sizes (Previously in base) */
@@ -80,8 +80,12 @@ body {
     color: var(--cyan-grey);
 }
 
-.accent-text { color: var(--accent-red); }
-
+.accent-text { 
+    color: transparent;
+    position: relative; 
+    display: inline-block;
+    animation: bloodSinking 6s ease-out forwards;
+}
 .main-title {
     font-family: var(--font-heading);
     font-weight: 400;
@@ -126,6 +130,30 @@ body {
     font-weight: 600; 
     font-style: italic; 
     letter-spacing: 0.5px; 
+}
+
+@keyframes bloodSinking { 
+    0% { /* 初始：完全不可见 */ 
+        color: transparent; 
+        text-shadow: 0 0 0 rgba(255, 0, 0, 0); 
+        filter: blur(5px); 
+    } 
+    20% { /* 开始渗入：鲜红色的点*/ 
+        color: rgba(180, 0, 0, 0.2); 
+        text-shadow: 0 0 5px rgba(255, 0, 0, 0.8);
+        filter: blur(2px);
+    }
+    60% { /* 晕染阶段：颜色变深，扩散范围最大（模拟浸透感） */
+        color: rgba(138, 3, 3, 0.8);
+        text-shadow: 0 0 15px rgba(138, 3, 3, 0.9), 0 0 25px rgba(138, 3, 3, 0.4);
+        filter: blur(1px);
+    }
+    100% { /* 干涸阶段：变成你要求的 #4a0404，边缘变清晰 */
+        color: #4a0404;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05), /* 增加一点立体感，像干了的血痂 */
+        0 0 1px rgba(74, 4, 4, 0.5);
+        filter: blur(0);
+    }
 }
 
 /* =========================================
