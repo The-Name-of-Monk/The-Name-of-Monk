@@ -82,14 +82,12 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link doc-nav-link" href="#section-design">3. Design & Layout</a>
+                                <a class="nav-link doc-nav-link" href="#section-design">3. HTML & Layout</a>
                                 <ul class="nav flex-column ms-3">
                                     <li class="nav-item"><a class="nav-link doc-nav-sublink" href="#design-structure">3.1 HTML Structure</a></li>
                                     <li class="nav-item"><a class="nav-link doc-nav-sublink" href="#design-css">3.2 CSS Architecture</a></li>
+                                    <li class="nav-item"><a class="nav-link doc-nav-sublink" href="#design-layout">3.3 Layout Design & Themes</a></li>
                                 </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link doc-nav-link" href="#section-tech">4. Technical Implementation</a>
                             </li>
                         </ul>
                     </nav>
@@ -119,43 +117,132 @@
                             <h3 class="doc-subheading">2.1 Exhibition Theme</h3>
                             <div class="lead-text">
                                 <p>
-                                    The exhibition explores the polysemy of the word "Monk". We identified three distinct phases in history where this name holds significant cultural weight:
+                                    The exhibition explores the polysemy of the word "Monk". We designed two narratives. 
                                 </p>
-                                <ul>
-                                    <li><strong>The Rule (Asceticism):</strong> The original meaning, rooted in the Benedictine order, discipline, and silence.</li>
-                                    <li><strong>The Utility (Function):</strong> The transition of the "monk strap" from a practical shoe for muddy roads to a high-fashion accessory.</li>
-                                    <li><strong>The Improvisation (Jazz):</strong> The figure of Thelonious Monk, representing the liberation of the name from rules into pure artistic expression.</li>
-                                </ul>
+                                <h5 class="mt-4 mb-3">The Evolution</h5>
+                                <p>
+                                    The first narrative is chronological, tracing the historical evolution of the term through three distinct phases:
+                                </p>
+                                    <ul>
+                                        <li><strong>The Rule (Asceticism):</strong> The original meaning, rooted in the Benedictine order, discipline, and silence.</li>
+                                        <li><strong>The Utility (Function):</strong> The transition of the "monk strap" from a practical shoe for muddy roads to a high-fashion accessory.</li>
+                                        <li><strong>The Improvisation (Jazz):</strong> The figure of Thelonious Monk, representing the liberation of the name from rules into pure artistic expression.</li>
+                                    </ul>
+                                <h5 class="mt-4 mb-3">Mental Discourse</h5>
+                                <p>
+                                    The second narrative is thematic, we focused on the inner philosophical resonance in all 16 chosen items and grouped them into three sections:
+                                </p>
+                                    <ul>
+                                        <li><strong>The Identity:</strong> Exploring how the concept of "Monk" reflects individual identity and self-perception.</li>
+                                        <li><strong>The Echo:</strong> Examining the relational aspect of "Monk" in society and culture.</li>
+                                        <li><strong>The Spirit:</strong> Delving into the transcendental and spiritual connotations associated with "Monk".</li>
                             </div>
                         </div>
 
                         <div id="content-items" class="mt-4">
-                            <h3 class="doc-subheading">2.2 Items & Metadata</h3>
+                            <h3 class="doc-subheading">2.2 Items & Metadata Strategy</h3>
                             <div class="lead-text">
                                 <p>
-                                    The collection consists of 16 carefully selected items, ranging from medieval manuscripts (Rule of St. Benedict) to audio-visual material (Video of "I Mean You").
-                                    Each item is described using a custom metadata schema stored in a central JSON array (<code>galleryData</code>). This ensures that data is consistent across the Collection, Gallery, and Map pages.
+                                    The core of the exhibition is built upon a dataset of 16 carefully curated artifacts. To ensure interoperability and standardized description, the metadata model follows the <strong>Dublin Core Metadata Element Set (DCMES)</strong>, version 1.1.
+                                </p>
+                                <p>
+                                    The data is stored in a JSON-based structure within <code>js/data.js</code>, acting as a lightweight relational database. This separation of data and view allows for a "Single Source of Truth" architecture: updates to the metadata file are instantly reflected across the Map, Collections, and Item Detail pages without modifying HTML code.
+                                </p>
+
+                                <h5 class="mt-4 mb-3">Metadata Mapping (Dublin Core)</h5>
+                                <p>
+                                    To align with digital preservation standards, we strictly map our internal JSON keys to standard Dublin Core terms. The <code>title</code> field corresponds to <strong>dc:title</strong>, while <code>creator</code> and <code>year</code> map to <strong>dc:creator</strong> and <strong>dc:date</strong> respectively. The artifact's physical nature is defined in <code>type</code> (<strong>dc:type</strong>), and its geographical origin is captured in <code>origin</code> (<strong>dc:coverage</strong>). We also maintain a reference to the holding institution via <code>source</code> (<strong>dc:source</strong>) and a direct URI in <code>link</code> (<strong>dc:identifier</strong>). Finally, the content description is stored in <code>desc</code>, which serves as <strong>dc:description</strong> but is technically extended into three distinct levels (short, medium, long) to support the project's <em>Progressive Disclosure</em> feature.
+                                </p>
+
+                                <h5 class="mt-4 mb-3">Custom Taxonomy & JS Interaction</h5>
+                                <p>
+                                    Beyond standard metadata, we introduced custom taxonomic fields to support the project's specific narrative structure:
+                                </p>
+                                <ul>
+                                    <li><strong>Narrative Classification:</strong> The <code>evolution</code> field assigns items to chronological phases (e.g., "The Rule"), while the <code>mental</code> field assigns them to thematic concepts (e.g., "The Spirit").</li>
+                                </ul>
+                                <p>
+                                    <strong>Technical Implementation:</strong> The file <code>js/gallery-logic.js</code> initializes by parsing the URL query parameter (e.g., <code>?id=5</code>). It then queries the <code>galleryData</code> array in <code>data.js</code> to find the matching object. This mechanism allows the <code>gallery.html</code> file to serve as a dynamic template, rendering different content based on the user's selection while maintaining a consistent layout.
                                 </p>
                             </div>
-                        </div>
                     </section>
 
                     <hr class="doc-divider">
 
-                    <section id="section-design" class="mb-5">
-                        <h2 class="doc-heading">3. Design & Layout</h2>
+<section id="section-design" class="mb-5" style="scroll-margin-top: 100px;">
+                        <h2 class="doc-heading">3. HTML & Layout</h2>
                         
-                        <div id="design-structure" class="mt-4">
-                            <h3 class="doc-subheading">3.1 HTML Structure</h3>
+                        <div id="design-structure" class="mt-4" style="scroll-margin-top: 100px;">
+                            <h3 class="doc-subheading">3.1 HTML Structure & Implementation</h3>
                             <div class="lead-text">
                                 <p>
-                                    All pages are built using <strong>HTML5</strong> semantics. We utilize Bootstrap 5's grid system for responsive layout control. 
-                                    Common elements like the Navigation Bar and Footer are consistent across all pages to ensure a seamless user experience.
+                                    The project strictly adheres to <strong>Semantic HTML5</strong> standards to ensure accessibility, SEO optimization, and code maintainability. The layout infrastructure relies on the <strong>Bootstrap 5 grid system</strong> (Containers, Rows, Columns), customized with specific CSS classes to guarantee a responsive experience across all viewports.
+                                </p>
+                                <p>
+                                    The site architecture is composed of 8 core pages, each implementing specific structural patterns to serve its narrative function:
+                                </p>
+                                
+                                <ul class="list-group list-group-flush mt-3">
+                                    <li class="list-group-item bg-transparent">
+                                        <strong>1. Home (index.html):</strong>
+                                        <br>
+                                        The landing page utilizes a <strong>Split-Screen Layout</strong> (Bootstrap `col-lg-7` vs `col-lg-5`). The left panel houses the introductory manifesto, while the right panel features a "Hero Carousel" showcasing highlighted artifacts. This structure balances textual storytelling with visual engagement immediately upon entry.
+                                    </li>
+
+                                    <li class="list-group-item bg-transparent">
+                                        <strong>2. Interactive Map (map.html):</strong>
+                                        <br>
+                                        Unlike static image maps, this page utilizes <strong>Inline SVG (Scalable Vector Graphics)</strong> technology embedded directly in the HTML. The map structure is defined by semantic groups (`&lt;g&gt;`) representing rooms and interactive nodes (`&lt;circle&gt;`) representing artifacts. This DOM-accessible structure allows for direct JavaScript manipulation, triggering the side information panel updates without page reloads.
+                                    </li>
+                                    
+                                    <li class="list-group-item bg-transparent">
+                                        <strong>3. Narratives View (narratives.html):</strong>
+                                        <br>
+                                        Designed for linear storytelling, this page employs a complex nested structure. 
+                                        <em>Part I (The Evolution)</em> uses a custom <strong>Vertical Timeline</strong> layout where each historical node contains a nested Bootstrap Carousel, allowing users to browse multiple artifacts within a single era.
+                                        <em>Part II (Mental Discourse)</em> employs a <strong>Responsive Card Grid</strong> to group items conceptually.
+                                    </li>
+                                    
+                                    <li class="list-group-item bg-transparent">
+                                        <strong>4. Collections Catalog (collection.html):</strong>
+                                        <br>
+                                        To handle images of varying aspect ratios gracefully, this page implements a <strong>Masonry-style Layout</strong> using CSS Flexbox columns (`.gallery-column`). Unlike a rigid grid, this approach allows items to stack organically, maximizing vertical space. Each item is wrapped in a card structure with a CSS-based overlay that reveals details on hover.
+                                    </li>
+
+                                    <li class="list-group-item bg-transparent">
+                                        <strong>5. Item Detail Template (gallery.html):</strong>
+                                        <br>
+                                        This page functions as a <strong>Dynamic Single-Page Template</strong>. The HTML consists of empty structural placeholders with specific IDs (e.g., `&lt;h1 id="cardTitle"&gt;`). Upon loading, a client-side script parses the URL parameter (`?id=x`), fetches the corresponding data from the JSON store, and injects it into the DOM. This architecture significantly reduces code redundancy.
+                                    </li>
+
+                                    <li class="list-group-item bg-transparent">
+                                        <strong>6. About Us (aboutus.html):</strong>
+                                        <br>
+                                        Displays the project team using a <strong>Flexbox Grid</strong> (`.team-grid`). Each member is presented in a uniform `.member-card` component that encapsulates the image, biographical info, and contact links, ensuring visual consistency across different screen sizes.
+                                    </li>
+
+                                    <li class="list-group-item bg-transparent">
+                                        <strong>7. Disclaimer (disclaimer.html):</strong>
+                                        <br>
+                                        A text-heavy page structured for readability. It utilizes a semantic <strong>Unordered List</strong> (`&lt;ul class="source-list"&gt;`) to organize external references and citations clearly, followed by a distinct copyright notice section.
+                                    </li>
+
+                                    <li class="list-group-item bg-transparent">
+                                        <strong>8. Documentation (documentation.html):</strong>
+                                        <br>
+                                        Follows a classic technical documentation layout. It features a <strong>Sticky Sidebar Navigation</strong> (`position: sticky`) on the left for quick access to sections, and a long-form content area on the right, divided by semantic `&lt;section&gt;` tags with distinct IDs for anchor linking.
+                                    </li>
+                                </ul>
+                                
+                                <p class="mt-4">
+                                    <strong>Global Components:</strong> 
+                                    The <strong>Navigation Bar</strong> (`&lt;nav&gt;`) and <strong>Footer</strong> (`&lt;footer&gt;`) are structurally modular and consistent across all pages. The "Theme Switcher" is embedded directly in the navbar, utilizing `onclick` events to dynamically swap the main CSS file reference in the `&lt;head&gt;`, instantly transforming the visual identity of the entire site.
                                 </p>
                             </div>
                         </div>
+                                
 
-                        <div id="design-css" class="mt-4">
+                        <div id="design-css" class="mt-4" style="scroll-margin-top: 100px;">
                             <h3 class="doc-subheading">3.2 CSS Architecture (Base + Theme)</h3>
                             <div class="lead-text">
                                 <p>
@@ -167,23 +254,51 @@
                                 </ul>
                             </div>
                         </div>
-                    </section>
 
-                    <hr class="doc-divider">
+                        <div id="design-layout" class="mt-5" style="scroll-margin-top: 100px;">
+                            <h3 class="doc-subheading">3.3 Layout Design & Aesthetic Themes</h3>
+                            <div class="lead-text">
+                                <p>
+                                    The project employs a dynamic theming engine that allows the visual narrative to shift alongside the historical narrative. Rather than simple color swaps, each theme represents a distinct <strong>"Design Metaphor"</strong> derived from the art history periods associated with the artifacts.
+                                </p>
 
-                    <section id="section-tech" class="mb-5">
-                        <h2 class="doc-heading">4. Technical Implementation</h2>
-                        <div class="lead-text">
-                            <p>
-                                The project relies on vanilla <strong>JavaScript</strong> for dynamic interactions. Key technical features include:
-                            </p>
-                            <ul>
-                                <li><strong>Dynamic Data Loading:</strong> The Gallery and Map pages read from a central JavaScript object to populate content, meaning changes to data are reflected instantly across the site.</li>
-                                <li><strong>Theme Switcher:</strong> A JS function <code>setTheme()</code> swaps the stylesheet link in the HTML head and updates a <code>data-theme</code> attribute on the body tag.</li>
-                                <li><strong>Interactive Map:</strong> An SVG-based map system where clicking on room nodes dynamically updates the information panel without reloading the page.</li>
-                            </ul>
+                                <h5 class="mt-4 mb-3">1. The Modern Theme (Default)</h5>
+                                <p>
+                                    <strong>Metaphor: The "Monk's Music" Cover.</strong><br>
+                                    This theme is designed to be invisible. Like a contemporary art museum, it acts as a neutral container that allows the artifacts to stand out without stylistic interference. It draws inspiration from the <strong>cover of the album <italic>"Monk's Music"</italic></strong>, emphasizing cleanliness and readability with an easy chic aesthetic.
+                                </p>
+                                <ul class="list-unstyled ms-3">
+                                    <li class="mb-2">
+                                        <strong>Chromatics:</strong> The background is an off-white <code>#FDFCF5</code> (Cream Paper) rather than pure white to reduce eye strain. The accent color is a sharp <strong>International Red</strong> (<code>#C8102E</code>) and <strong>Grayish Blue</strong> (<code>#2F4858</code>), used sparingly for buttons and active states to guide user attention hierarchically.
+                                    </li>
+                                    <li class="mb-2">
+                                        <strong>Typography:</strong> A classic pairing of <strong>Playfair Display</strong> (Serif) for headings and <strong>Inter</strong> (Sans-serif) for body text. This combination balances the elegance of traditional curation with the utility of modern web interfaces.
+                                    </li>
+                                    <li>
+                                        <strong>Visual Language:</strong> Soft shadows (<code>box-shadow</code> with high blur radius), rounded corners (<code>border-radius: 4px</code>), and translucent glass-morphism effects on the navbar create a feeling of lightness and digital modernity.
+                                    </li>
+                                </ul>
+
+                                <h5 class="mt-4 mb-3">2. The Jazz Theme</h5>
+                                <p>
+                                    <strong>Metaphor: The "Jazz Era" Deco Art.</strong><br>
+                                    This theme transports the user to the 1920s and 30s. It draws heavy inspiration from <strong>Art Deco</strong> architecture and the <strong>Great Gatsby</strong>. The layout shifts from a neutral container to an immersive atmosphere of "Smoke and Gold."
+                                </p>
+                                <ul class="list-unstyled ms-3">
+                                    <li class="mb-2">
+                                        <strong>Chromatics:</strong> A high-contrast "Dark Mode" aesthetic. The navigation bars turn <strong>Charcoal Black</strong> (<code>#1A1A1A</code>), representing the night atmosphere of a jazz club. The accents are <strong>Matte Gold</strong> (<code>#C5A059</code>), symbolizing brass instruments, and a muted <strong>Vintage Red</strong> (<code>#A8332A</code>). The background features a subtle Art Deco geometric pattern SVG.
+                                    </li>
+                                    <li class="mb-2">
+                                        <strong>Typography:</strong> We utilize <strong>Cinzel</strong> for headings to evoke the chiseled, monumental look of Art Deco signage. <strong>Italianno</strong> (Script) is introduced for decorative elements, mimicking the handwritten signatures found on vintage vinyl liner notes.
+                                    </li>
+                                    <li>
+                                        <strong>Visual Language:</strong> "Hard" shadows (no blur) and sharp, right-angled corners (<code>border-radius: 0</code>) mimic the physicality of printed cardboard and ticket stubs. Images are framed with double-borders (Gold and White) to resemble framed photographs in a lounge.
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </section>
+
 
                 </div>
             </div>
