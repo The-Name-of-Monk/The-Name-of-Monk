@@ -10,18 +10,18 @@
 
     /* --- 1. Color Palette --- */
     --bg-color: url(../images/medievalbackground.jpg);       /* 香槟纸色背景 */
-    --text-color: #2c1806;     /* 炭黑色正文 */
-    --text-muted: #2d1f0bce;     
+    --text-color: #100903f0;     
+    --text-muted: #291d0dce;     
     
-    --accent-red: url(../images/gold2.jpg);     /* overlay, timeline,  */
-    --cyan-grey: #1e7bf4; /* 金色渐变 */     /* 向上的按钮，变色，等等 */
+    --accent-red: url(../images/gold21.jpg);     /* overlay, timeline,  */
+    --cyan-grey: #2D2926;  /*焦褐色 */     /* 向上的按钮，变色，等等 */
     
     --nav-bg: #D9B85A/*url(../images/gold1.jpg)*/;   
-    --footer-bg: url(../images/gold11.jpg);
+    --footer-bg: url(../images/gold21.jpg);
 
     /* Components */
     --card-bg: #FCF8F0;        
-    --border-color-light: #C5A059; 
+    --border-color-light: #FFD700; 
     
     /* Overlays */
     --overlay-bg-main: rgba(26, 26, 26, 0.95); 
@@ -29,8 +29,8 @@
     --overlay-text: #F2EAD3;
     
     /* Button Hover */
-    --btn-hover-dark-red: #7a231c;
-    --btn-hover-dark-cyan: #000; 
+    --btn-hover-dark-red: var(--accent-red);
+    --btn-hover-dark-cyan: var(var(--accent-red)); 
 
     /* --- 2. Typography --- */
     --font-body: "Eagle Lake";
@@ -75,35 +75,29 @@ body {
     color: #444;
 }
 
-/* 标题样式 - 移除所有下划线 */
+
 .main-title {
     font-family: var(--font-heading);
-    color: #1A1A1A;
+    color: var(--text-color);
     text-transform: uppercase;
     letter-spacing: 3px;
-    border-bottom: none; /* 移除 theme 里的边框 */
+    border-bottom: none;  
     display: inline-block;
     padding-bottom: 0;
     line-height: 1.2;
 }
 
-/* ★★★ 关键：隐藏 base.css 里定义的伪元素下划线 ★★★ */
-.main-title::after {
-    display: none !important;
-}
-
-/* 红色强调字 (NAME?) - 恢复摇摆 */
 .accent-text { 
     font-family: var(--font-script);
     color: var(--accent-red); 
-    font-size: 6rem; 
+    font-size: 5rem; 
     display: inline-block;
     line-height: 0.8;
-    margin-top: 10px;
-    text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
-    /* ★ 恢复动画 ★ */
-    animation: jazz-sway 4s ease-in-out infinite; 
+    margin-top: 6px;
 }
+
+
+
 
 /* 欢迎语 - 恢复更夸张的效果 */
 .welcome-msg {
@@ -118,22 +112,37 @@ body {
 }
 
 .section-label {
-    font-family: var(--font-heading);
-    font-size: 1.1rem; 
-    color: var(--text-color);
+    font-family: var(--font-script);
+    text-transform: uppercase;
     letter-spacing: 2px;
-    border-left: 4px solid var(--accent-red);
-    padding-left: 15px;
+    color: #2D2926; 
+    background: linear-gradient(90deg, transparent 0%, rgba(197, 160, 89, 0.1) 50%, transparent 100%);
 }
 
+/* 左右两边的纹章点缀 */
+.section-label::before, .section-label::after {
+    content: "◈"; /* 保持符号不变 */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url('../images/gold21.jpg');
+    background-size: cover;
+    background-position: center;
+    -webkit-background-clip: text; /* 将背景裁剪到符号形状上 */
+    background-clip: text;
+    color: transparent;           /* 必须让符号颜色透明 */
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.section-label::before { left: 10px; }
+.section-label::after { right: 10px; }
 .highlight {
     font-family: var(--font-script);
-    font-size: 2.2rem;
     color: var(--accent-red); 
     line-height: 0.8;
     padding: 0 5px;
     display: inline-block;
-    animation: jazz-sway 3s ease-in-out infinite;
+    animation: medieval-float 3s;
 }
 
 /* =========================================
@@ -147,6 +156,12 @@ body {
 .anim-up { transform: translateY(40px); }
 .anim-left { transform: translateX(-60px); }
 
+@keyframes medieval-float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
 /* =========================================
    3. Navbar Visuals
    ========================================= */
@@ -156,7 +171,11 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: bottom;
-} /*??阴影怎么办*/
+    box-shadow: 
+        0 5px 15px rgba(0, 0, 0, 0.4), 
+        0 10px 25px rgba(41, 29, 13, 0.2);
+} 
+
 
 .logo-text {
     font-family: var(--font-heading);
@@ -172,7 +191,18 @@ body {
     color: #F2EAD3;
     letter-spacing: 1px;
 }
-.nav-link:hover, .nav-link.active { color: var(--cyan-grey) !important; }
+.nav-link:hover, .btn:hover {
+    /* 模拟手稿被风吹动的轻微漂浮感 
+    transform: translateY(-3px) scale(1.02);
+    filter: brightness(1.1);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);*/
+    transform: scale(1.1) translateY(-2px) !important;
+    color: #b12a27 !important; /* 变成你说的干涸血红色 */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 带有弹性的反馈感 */    
+}
+
+
+.nav-link.active { color: var(--cyan-grey) !important; }
 
 .dropdown-menu {
     background-color: #F2EAD3;
@@ -181,6 +211,7 @@ body {
 }
 .dropdown-item { color: #1A1A1A; font-family: var(--font-heading); }
 .dropdown-item:hover { background-color: var(--accent-red); color: #fff; }
+.dropdown-toggle { font-family: var(--font-heading);}
 
 .btn-style-toggle {
     border-color: var(--cyan-grey);
@@ -192,16 +223,16 @@ body {
    4. Buttons Visuals
    ========================================= */
 /* Gallery 详情页导航按钮 (Previous/Next) */
-.gallery-nav-btn {
+/*.gallery-nav-btn {
     background-color: #1A1A1A;
     color: var(--cyan-grey);
     border: 1px solid var(--cyan-grey);
-    border-radius: 0; /* 直角 */
+    border-radius: 0;  直角 
     font-family: var(--font-heading);
     text-transform: uppercase;
     letter-spacing: 2px;
     padding: 8px 20px;
-    box-shadow: 4px 4px 0 rgba(0,0,0,0.2); /* 阴影 */
+    box-shadow: 4px 4px 0 rgba(0,0,0,0.2); /阴影 
     transition: all 0.2s ease;
 }
 .gallery-nav-btn:hover {
@@ -212,14 +243,14 @@ body {
 }
 
 .gallery-counter {
-    font-family: var(--font-script); /* 中间计数用花体 */
+    font-family: var(--font-script); 中间计数用花体 
     font-size: 2rem;
     color: var(--accent-red);
     font-weight: 400;
-}
+}*/
 
 /* Home Buttons */
-.btn-browse-custom {
+/*.btn-browse-custom {
     background-color: rgba(168, 51, 42, 0.95); 
     border: 2px solid #F2EAD3; 
     color: #F2EAD3 !important; 
@@ -274,21 +305,124 @@ body {
     color: #1A1A1A;
     border-radius: 0;
     border: 2px solid #1A1A1A;
+}*/
+
+
+/* =========================================================
+   3) BUTTONS (distinct: embossed + manuscript frame)
+   ========================================================= */
+.btn-style-toggle,
+.btn-browse-custom,
+.btn-custom-primary,
+.btn-custom-outline,
+.view-more-btn,
+.gallery-nav-btn{
+  border-radius: 0 !important;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}/*#btn-back-to-top*/
+
+/* Theme toggle button */
+.btn-style-toggle{
+  background: rgba(239,232,216,0.75);
+  border: 1px solid rgba(23,26,27,0.55);
+  outline: 1px solid rgba(217,184,90,0.55);
+  outline-offset: 2px;
+  color: rgba(23,26,27,0.92);
 }
+.btn-style-toggle:hover{
+  background: rgba(217,184,90,0.16);
+  box-shadow: 0 0 16px var(--gold-glow);
+}
+
+/* Browse ok*/
+.btn-browse-custom{
+  background-image:
+    linear-gradient(0deg, rgba(239,232,216,0.4), rgba(239,232,216,0.4));
+  background-size: auto, 200px 200px, cover;
+  background-repeat: no-repeat, repeat, no-repeat;
+
+  border: 1px solid var(--text-muted);
+  outline: 1px solid var(--text-muted);
+  outline-offset: -6px;
+  box-shadow: var(--shadow-inset), 0 12px 24px rgba(0,0,0,0.10);
+  color: rgba(23,26,27,0.95) !important;
+}
+.btn-browse-custom:hover{
+  background-image: url('../images/gold21.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  /*outline-color: var(--cyan-grey);*/
+  transform: translateY(-1px);
+}
+
+/* Primary: ink seal with gold edge (no gold block) */
+.btn-custom-primary,
+.gallery-nav-btn{
+  background: rgba(23,26,27,0.92);
+  border: 1px solid rgba(217,184,90,0.55);
+  box-shadow: 0 14px 26px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.06);
+  color: rgba(246,241,231,0.95);
+}
+.btn-custom-primary:hover,
+.gallery-nav-btn:hover{
+  border-color: rgba(217,184,90,0.95);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.22), 0 0 18px var(--gold-glow);
+  transform: translateY(-1px);
+}
+
+/* Outline: carved frame */
+.btn-custom-outline{
+  background: rgba(239,232,216,0.35);
+  border: 1px solid rgba(23,26,27,0.55);
+  outline: 2px double rgba(23,26,27,0.35);
+  outline-offset: -6px;
+  color: rgba(23,26,27,0.92);
+}
+.btn-custom-outline:hover{
+  background: rgba(217,184,90,0.12);
+  outline-color: rgba(217,184,90,0.45);
+}
+
+/* View more: small label button */
+.view-more-btn{
+  background: rgba(239,232,216,0.92) !important;
+  border: 1px solid rgba(23,26,27,0.70) !important;
+  outline: 1px solid rgba(217,184,90,0.55);
+  outline-offset: 2px;
+  color: rgba(23,26,27,0.95) !important;
+}
+.view-more-btn:hover{
+  background: rgba(217,184,90,0.18) !important;
+}
+
+/* Back to top */
+#btn-back-to-top {
+    background-image: url('../images/gold21.jpg');
+    color: var(--text-color) ;
+    border: 0.5px solid var(--cyan-grey) !important;
+    border-radius: 0; /* 改为方形或通过 mask 变为盾牌形 */
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    transition: all 0.3s;
+}
+
+#btn-back-to-top:hover {
+    transform: rotate(360deg); /* 旋转特效，像罗盘 */
+}
+
 
 /* =========================================
    5. GALLERY DETAIL PAGE (★ 重点优化 ★)
    ========================================= */
 /* 图片框：类似博物馆的画框 */
 .gallery-image-frame {
-    background-color: #fff;
-    border-radius: 0;
-    /* 三层边框模拟画框：内黑线 -> 白边 -> 外金框 */
-    border: 1px solid #000;
-    outline: 10px solid #fff;
-    box-shadow: 0 0 0 12px var(--cyan-grey), 10px 10px 20px rgba(0,0,0,0.2); 
-    margin: 20px; /* 给 outline 留空间 */
-    padding: 0; /* 移除内边距，让图片贴合内框 */
+    border: 10px solid #f4f1ea; /* 内层浅色衬纸 */
+    outline: 3px solid #4a2c11; /* 外层深色木质边框 */
+    box-shadow: 
+        inset 0 0 10px rgba(0,0,0,0.5), /* 内部阴影，增加深度 */
+        5px 5px 15px rgba(0,0,0,0.3);   /* 外部阴影 */
+    margin: 15px 0;
 }
 
 /* 详情页标题 */
@@ -354,11 +488,19 @@ body {
 }
 .image-frame:hover .hover-overlay { opacity: 1; }
 
-.gallery-item {
-    border-radius: 0;
-    background: var(--card-bg);
-    border: 1px solid #ddd;
-    box-shadow: 5px 5px 0 rgba(0,0,0,0.1);
+/* 应用于 gallery.html 里的图片 */
+.gallery-item img {
+    padding: 10px; /* 留出内衬白边的空间 */
+    background-color: #f4f1ea; /* 像卡纸一样的内衬 */
+    
+    /* 使用金箔图片做外框 */
+    border: 8px solid;
+    border-image-source: url('../images/gold21.jpg');
+    border-image-slice: 30;
+    
+    box-shadow: 
+        0 10px 20px rgba(0,0,0,0.5), /* 外部阴影 */
+        inset 0 0 5px rgba(0,0,0,0.2); /* 内部微弱压痕感 */
 }
 .gallery-item img {
     filter: sepia(0.3);
@@ -415,7 +557,7 @@ body {
 .map-point { stroke: var(--bg-color); stroke-width: 1px; }
 .point-room1 { fill: var(--text-color); }
 .point-room2 { fill: var(--cyan-grey); }
-.point-room3 { fill: var(--accent-red); }
+.point-room3 { fill: var(--text-color); }
 
 .info-panel { 
     border-left: 1px solid var(--text-color); 
@@ -523,14 +665,14 @@ body {
    ========================================= */
 .site-footer {
     background-image: var(--footer-bg); 
-    background-attachment: fixed;
+    /*background-attachment: followed;*/
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    border-top: 1.5px solid var(--text-color); 
+    /*border-top: 1.5px solid var(--text-color); */
     color: #F2EAD3; 
 }
-.footer-text p { color: #aaaaaa00; }
+.footer-text p { color: #ffffff; font-family: var(--font-body); }
 
 /* Documentation 爵士化 */
 .doc-sidebar {
@@ -643,6 +785,11 @@ body {
     text-decoration: underline;
     text-underline-offset: 4px;
 }
+/*.map-info-box {
+    color: var(--text-color) !important;
+    background-color: rgba(252, 248, 240, 0.9) !important;  强制半透明纸张背景 
+    border: 2px solid var(--border-color-light);
+}*/
 
 /* =========================================
    Navbar Dropdown Fix (Fix Invisible Title)
