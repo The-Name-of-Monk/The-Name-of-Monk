@@ -30,19 +30,19 @@
     
     /* Button Hover */
     --btn-hover-dark-red: var(--accent-red);
-    --btn-hover-dark-cyan: var(var(--accent-red)); 
+    --btn-hover-dark-cyan: var(--accent-red); 
 
     /* --- 2. Typography --- */
     --font-body: "Eagle Lake";
     --font-heading: "Cinzel Decorative";
-    --font-script:"Metamorphous";
+    --font-script: "Metamorphous";
     
     /* Sizes */
     --fs-lead: 1.15rem;
     --fs-p: 0.8rem;
     --fs-label: 0.9rem;
     --fs-logo: 1.6rem;
-    --fs-welcome: 3.5rem; 
+    --fs-welcome: 1.3rem; 
     
     /* --- 3. Decorative --- */
     --br-md: 0px;      
@@ -62,11 +62,9 @@
    1. Typography & Global Visuals
    ========================================= */
 body {
-    background-image: url('../images/medievalbackground.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
+    background: var(--bg-color) fixed no-repeat center center / cover;
+    color: var(--text-color);
+    filter: sepiz(0.15) contrast(1.05);
 }
 
 .lead-text {
@@ -75,7 +73,6 @@ body {
     color: #444;
 }
 
-
 .main-title {
     font-family: var(--font-heading);
     color: var(--text-color);
@@ -83,83 +80,80 @@ body {
     letter-spacing: 3px;
     border-bottom: none;  
     display: inline-block;
-    padding-bottom: 0;
+    padding-bottom: 20px;
     line-height: 1.2;
 }
 
 .accent-text { 
-    font-family: var(--font-script);
-    color: var(--accent-red); 
+    font-family: var(--font-heading);
     font-size: 5rem; 
     display: inline-block;
+    font-weight: 800;
     line-height: 0.8;
     margin-top: 6px;
 }
+.accent-text:hover {
+    filter: brightness(1.1) sepia(0.3);
+    background-image: var(--accent-red) !important;
+    background-size: cover;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
 
+.serif-font, .filter-label {font-family: var(--font-script);}
 
-
-
-/* 欢迎语 - 恢复更夸张的效果 */
 .welcome-msg {
-    font-family: var(--font-script);
-    color: var(--text-color);
-    text-transform: none; 
-    margin-top: 5px;
-    /* ★ 恢复 -3deg 和复古阴影 ★ */
-    transform: rotate(-15deg); 
-    display: block;
-    text-shadow: 4px 4px 0px rgba(197, 160, 89, 0.3);
+    font-family: var(--font-heading); 
+    font-size: var(--fs-welcome);
+    line-height: 0.8;
+    margin-left: 90px;
+    color: var(--text-muted);
+    font-weight: 600; 
+    font-style: italic; 
+    letter-spacing: 0.5px; 
+}
+.welcome-msg:hover {
+    filter: brightness(1.1) sepia(0.3);
+    background-image: var(--accent-red) !important;
+    background-size: cover;
 }
 
 .section-label {
     font-family: var(--font-script);
+    font-size: 1.3rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #2D2926; 
-    background: linear-gradient(90deg, transparent 0%, rgba(197, 160, 89, 0.1) 50%, transparent 100%);
+    color: var(--text-color); 
+    border-bottom: 2px solid;
+    border-image: var(--accent-red) 30 stretch;
+    background: transparent;
 }
 
 /* 左右两边的纹章点缀 */
 .section-label::before, .section-label::after {
-    content: "◈"; /* 保持符号不变 */
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-image: url('../images/gold21.jpg');
+    background-image: var(--accent-red) !important;
     background-size: cover;
-    background-position: center;
-    -webkit-background-clip: text; /* 将背景裁剪到符号形状上 */
-    background-clip: text;
-    color: transparent;           /* 必须让符号颜色透明 */
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    content: "◈";
     font-size: 1.5rem;
     font-weight: bold;
 }
 .section-label::before { left: 10px; }
 .section-label::after { right: 10px; }
+.section-label:hover, .section-label:hover::before, .section-label:hover::after {
+    filter: brightness(1.1) sepia(0.3);
+}
+
 .highlight {
     font-family: var(--font-script);
     color: var(--accent-red); 
     line-height: 0.8;
-    padding: 0 5px;
+    padding: 0.5px;
     display: inline-block;
     animation: medieval-float 3s;
-}
-
-/* =========================================
-   2. Animations
-   ========================================= */
-@keyframes jazz-sway {
-    0%, 100% { transform: rotate(0deg); }
-    50% { transform: rotate(3deg); }
-}
-
-.anim-up { transform: translateY(40px); }
-.anim-left { transform: translateX(-60px); }
-
-@keyframes medieval-float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0); }
 }
 
 /* =========================================
@@ -191,26 +185,24 @@ body {
     color: #F2EAD3;
     letter-spacing: 1px;
 }
-.nav-link:hover, .btn:hover {
-    /* 模拟手稿被风吹动的轻微漂浮感 
-    transform: translateY(-3px) scale(1.02);
-    filter: brightness(1.1);
-    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);*/
-    transform: scale(1.1) translateY(-2px) !important;
-    color: #b12a27 !important; /* 变成你说的干涸血红色 */
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* 带有弹性的反馈感 */    
+/*.nav-link:hover*/
+.btn:hover {
+    background-image: url('../images/gold21.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    transform: translateY(-1px);
 }
 
 
 .nav-link.active { color: var(--cyan-grey) !important; }
 
 .dropdown-menu {
-    background-color: #F2EAD3;
-    border: 2px solid #1A1A1A;
+    background-color: #f2ead3bd;
+    border: 1px solid #1A1A1A;
     border-radius: 0;
 }
 .dropdown-item { color: #1A1A1A; font-family: var(--font-heading); }
-.dropdown-item:hover { background-color: var(--accent-red); color: #fff; }
+.dropdown-item:hover {color: #fff; }
 .dropdown-toggle { font-family: var(--font-heading);}
 
 .btn-style-toggle {
@@ -222,95 +214,7 @@ body {
 /* =========================================
    4. Buttons Visuals
    ========================================= */
-/* Gallery 详情页导航按钮 (Previous/Next) */
-/*.gallery-nav-btn {
-    background-color: #1A1A1A;
-    color: var(--cyan-grey);
-    border: 1px solid var(--cyan-grey);
-    border-radius: 0;  直角 
-    font-family: var(--font-heading);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 8px 20px;
-    box-shadow: 4px 4px 0 rgba(0,0,0,0.2); /阴影 
-    transition: all 0.2s ease;
-}
-.gallery-nav-btn:hover {
-    background-color: var(--cyan-grey);
-    color: #1A1A1A;
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 rgba(0,0,0,0.2);
-}
 
-.gallery-counter {
-    font-family: var(--font-script); 中间计数用花体 
-    font-size: 2rem;
-    color: var(--accent-red);
-    font-weight: 400;
-}*/
-
-/* Home Buttons */
-/*.btn-browse-custom {
-    background-color: rgba(168, 51, 42, 0.95); 
-    border: 2px solid #F2EAD3; 
-    color: #F2EAD3 !important; 
-    border-radius: 0;
-    font-family: var(--font-heading);
-    letter-spacing: 2px;
-    padding: 15px 30px; 
-    font-size: 1rem;
-    box-shadow: 4px 4px 0 rgba(0,0,0,0.5); 
-    transition: all 0.3s ease;
-}
-.btn-browse-custom:hover {
-    background-color: #F2EAD3; 
-    color: #A8332A !important; 
-    border-color: #A8332A;
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 rgba(0,0,0,0.5);
-}
-
-.btn-custom-primary {
-    background-color: #1A1A1A;
-    color: #F2EAD3;
-    border: 1px solid #1A1A1A;
-    border-radius: 0;
-    font-family: var(--font-heading);
-    letter-spacing: 2px;
-    box-shadow: 4px 4px 0 var(--cyan-grey); 
-}
-.btn-custom-primary:hover {
-    background-color: var(--accent-red);
-    border-color: var(--accent-red);
-    color: #fff;
-    box-shadow: 2px 2px 0 var(--cyan-grey);
-    transform: translate(2px, 2px);
-}
-
-.btn-custom-outline {
-    background-color: transparent;
-    color: #1A1A1A;
-    border: 2px solid #1A1A1A;
-    border-radius: 0;
-    font-family: var(--font-heading);
-    font-weight: 700;
-}
-.btn-custom-outline:hover {
-    background-color: #1A1A1A;
-    color: var(--cyan-grey);
-}
-
-#btn-back-to-top {
-    background-color: var(--cyan-grey); 
-    color: #1A1A1A;
-    border-radius: 0;
-    border: 2px solid #1A1A1A;
-}*/
-
-
-/* =========================================================
-   3) BUTTONS (distinct: embossed + manuscript frame)
-   ========================================================= */
 .btn-style-toggle,
 .btn-browse-custom,
 .btn-custom-primary,
@@ -322,6 +226,17 @@ body {
   text-transform: uppercase;
   letter-spacing: 2px;
 }/*#btn-back-to-top*/
+
+ .btn, #btn-back-to-top {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+ .btn:hover,  .member-card:hover {
+    transform: scale(1.08) translateY(-2px); /* 向上轻微漂浮并放大 */
+    box-shadow: 0 10px 20px rgba(45, 41, 38, 0.3); /* 焦褐色投影 */
+    filter: brightness(1.1) sepia(0.3);
+}
+.btn-outline-secondary{font-family: var(--font-body);}
 
 /* Theme toggle button */
 .btn-style-toggle{
@@ -342,59 +257,32 @@ body {
     linear-gradient(0deg, rgba(239,232,216,0.4), rgba(239,232,216,0.4));
   background-size: auto, 200px 200px, cover;
   background-repeat: no-repeat, repeat, no-repeat;
-
   border: 1px solid var(--text-muted);
   outline: 1px solid var(--text-muted);
   outline-offset: -6px;
   box-shadow: var(--shadow-inset), 0 12px 24px rgba(0,0,0,0.10);
   color: rgba(23,26,27,0.95) !important;
 }
-.btn-browse-custom:hover{
-  background-image: url('../images/gold21.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-  /*outline-color: var(--cyan-grey);*/
-  transform: translateY(-1px);
-}
 
 /* Primary: ink seal with gold edge (no gold block) */
 .btn-custom-primary,
+.gallery-nav-btn,.btn-custom-outline, .view-more-btn{
+  background-color: rgba(239,232,216,0.35);
+  border: 1px solid rgba(45,41,38,0.55);
+  outline: 1px solid rgba(45,41,38,0.35);
+  outline-offset: -4px;
+  color: var(--text-color);
+}
 .gallery-nav-btn{
-  background: rgba(23,26,27,0.92);
-  border: 1px solid rgba(217,184,90,0.55);
-  box-shadow: 0 14px 26px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.06);
-  color: rgba(246,241,231,0.95);
+    outline: 2px double rgba(45,41,38,0.35);
+    outline-offset: -6px;
 }
-.btn-custom-primary:hover,
-.gallery-nav-btn:hover{
-  border-color: rgba(217,184,90,0.95);
-  box-shadow: 0 16px 30px rgba(0,0,0,0.22), 0 0 18px var(--gold-glow);
+.btn-browse-custom:hover,.btn-custom-primary:hover,
+.gallery-nav-btn:hover, .view-more-btn:hover{
+  background-image: var(--accent-red);
+  background-size: cover;
+  background-attachment: fixed;
   transform: translateY(-1px);
-}
-
-/* Outline: carved frame */
-.btn-custom-outline{
-  background: rgba(239,232,216,0.35);
-  border: 1px solid rgba(23,26,27,0.55);
-  outline: 2px double rgba(23,26,27,0.35);
-  outline-offset: -6px;
-  color: rgba(23,26,27,0.92);
-}
-.btn-custom-outline:hover{
-  background: rgba(217,184,90,0.12);
-  outline-color: rgba(217,184,90,0.45);
-}
-
-/* View more: small label button */
-.view-more-btn{
-  background: rgba(239,232,216,0.92) !important;
-  border: 1px solid rgba(23,26,27,0.70) !important;
-  outline: 1px solid rgba(217,184,90,0.55);
-  outline-offset: 2px;
-  color: rgba(23,26,27,0.95) !important;
-}
-.view-more-btn:hover{
-  background: rgba(217,184,90,0.18) !important;
 }
 
 /* Back to top */
@@ -402,29 +290,20 @@ body {
     background-image: url('../images/gold21.jpg');
     color: var(--text-color) ;
     border: 0.5px solid var(--cyan-grey) !important;
-    border-radius: 0; /* 改为方形或通过 mask 变为盾牌形 */
+    border-radius: 0; 
     box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
     transition: all 0.3s;
 }
 
 #btn-back-to-top:hover {
+    filter: brightness(1.1) sepia(0.3);
     transform: rotate(360deg); /* 旋转特效，像罗盘 */
 }
 
 
 /* =========================================
-   5. GALLERY DETAIL PAGE (★ 重点优化 ★)
+   5. GALLERY DETAIL PAGE 
    ========================================= */
-/* 图片框：类似博物馆的画框 */
-.gallery-image-frame {
-    border: 10px solid #f4f1ea; /* 内层浅色衬纸 */
-    outline: 3px solid #4a2c11; /* 外层深色木质边框 */
-    box-shadow: 
-        inset 0 0 10px rgba(0,0,0,0.5), /* 内部阴影，增加深度 */
-        5px 5px 15px rgba(0,0,0,0.3);   /* 外部阴影 */
-    margin: 15px 0;
-}
-
 /* 详情页标题 */
 .description-section h2 {
     font-family: var(--font-heading);
@@ -442,7 +321,7 @@ body {
 }
 .table th {
     font-family: var(--font-heading);
-    color: var(--accent-red); /* 表头用红色 */
+    color: var(--accent-red); 
     font-size: 0.95rem;
     letter-spacing: 1px;
     border-bottom-width: 2px;
@@ -452,11 +331,12 @@ body {
     font-family: var(--font-body);
     font-size: 1.05rem;
     color: #333;
-    background-color: transparent; /* 透出背景 */
+    background-color: transparent; 
 }
 .table tr:hover td {
     background-color: rgba(197, 160, 89, 0.1); /* 金色悬停高亮 */
 }
+.table a
 
 /* 描述文字标题 */
 .description-section h4 {
@@ -475,9 +355,27 @@ body {
     font-weight: 400;
 }
 
+.card-footer { background-color: transparent !important;}
+.border-top {
+    border-top: 2px solid var(--text-muted) !important;
+}
+.border-bottom {
+    border-bottom: 1px solid var(--text-muted) !important;
+}
+
 /* =========================================
    6. Collection List Visuals
    ========================================= */
+.item-overlay {
+    font-family: var(--font-script);
+    color: var(--text-color);
+    font-size: 1rem; 
+    background: rgba(242, 234, 211, 0.85); 
+    color: #1A1A1A;
+}
+
+.item-overlay h5 {font-family: var(--font-script);}
+
 .image-frame {
     border-radius: 0;
     border: 6px solid #F2EAD3; 
@@ -488,65 +386,52 @@ body {
 }
 .image-frame:hover .hover-overlay { opacity: 1; }
 
-/* 应用于 gallery.html 里的图片 */
-.gallery-item img {
-    padding: 10px; /* 留出内衬白边的空间 */
-    background-color: #f4f1ea; /* 像卡纸一样的内衬 */
-    
-    /* 使用金箔图片做外框 */
-    border: 8px solid;
-    border-image-source: url('../images/gold21.jpg');
-    border-image-slice: 30;
-    
-    box-shadow: 
-        0 10px 20px rgba(0,0,0,0.5), /* 外部阴影 */
-        inset 0 0 5px rgba(0,0,0,0.2); /* 内部微弱压痕感 */
+/* Gallery 容器背景与边框 */
+.gallery-item, .info-image-wrapper, .gallery-image-frame {
+    background-color: #2D2926 !important; /* 焦褐色底 */
+    padding: 15px;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
 }
-.gallery-item img {
-    filter: sepia(0.3);
-    transition: all 0.5s ease;
-}
-.gallery-item:hover img {
-    filter: sepia(0);
-    transform: scale(1.02);
+.gallery-image-frame{
+    border: 3px solid transparent;
+    /* 金箔细边框 */
+    border-image: var(--accent-red) 10 stretch;
+    transition: filter 0.3s;
 }
 
-.item-overlay {
-    background: rgba(242, 234, 211, 0.95); 
-    color: #1A1A1A;
-    border-top: 3px solid var(--accent-red);
-}
-.item-overlay h5 {
-    font-family: var(--font-script);
-    color: #1A1A1A;
-    font-size: 2.2rem; 
+.gallery-item img, .info-image-wrapper img{
+    border: 3px solid transparent;
+    /* 金箔细边框 */
+    border-image: var(--accent-red) 10 stretch;
+    transition: filter 0.3s;
 }
 
-.view-more-btn {
-    background-color: #1A1A1A !important;
-    border: none !important;
-    color: var(--cyan-grey) !important;
-    border-radius: 0;
-    font-family: var(--font-heading);
+.gallery-item:hover img, .info-image-wrapper:hover img, .gallery-image-frame:hover img {
+    filter: sepia(0); /* 悬停时恢复原色，像在黑暗中被点亮 */
+}
+.gallery-item a {
+    font-family: var(--font-heading); font-weight: 500;
 }
 
 /* =========================================
    7. Map & Narratives Visuals
    ========================================= */
 .map-wrapper {
-    background-color: #FDFBF7; 
-    border: 4px double var(--cyan-grey); 
-    box-shadow: var(--shadow-hard);
+    background-image: var(--accent-red); 
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-.room-outline { 
-    fill: #EAE0C8; 
+.room-outline { /*#EAE0C8; */
+    fill: transparent;
     stroke: var(--text-color); 
-    stroke-width: 2px; 
+    stroke-width: 1px; 
 }
 .path-line { 
-    stroke: var(--accent-red); 
-    stroke-width: 2px; 
+    stroke: var(--text-muted); 
+    stroke-width: 1px; 
     stroke-dasharray: 8, 4; 
+    z-index: 100;
 }
 .room-text { 
     font-family: var(--font-heading); 
@@ -554,10 +439,19 @@ body {
     font-weight: 700; 
     font-size: 16px;
 }
-.map-point { stroke: var(--bg-color); stroke-width: 1px; }
-.point-room1 { fill: var(--text-color); }
-.point-room2 { fill: var(--cyan-grey); }
-.point-room3 { fill: var(--text-color); }
+
+.map-point { stroke: var(--text-color); width: 1px; }
+
+.map-point.active {
+    stroke-width: 3px;
+    filter: brightness(1.1) sepia(0.3);
+    background-image: var(--accent-red) !important;
+    background-size: cover;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+}
+
 
 .info-panel { 
     border-left: 1px solid var(--text-color); 
@@ -594,13 +488,16 @@ body {
 }
 .theme-subtitle::after { display: none; }
 
-.timeline-container { border-left: 2px dashed var(--cyan-grey); }
+.timeline-container { border-left: 1px dashed var(--text-muted); }
 .timeline-item::before {
-    background-color: var(--bg-color);
-    border: 2px solid var(--accent-red);
+    background-image: var(--accent-red);
     border-radius: 0; 
-    transform: rotate(45deg); 
 }
+.timeline-item:hover::before {
+    filter: brightness(1.1) sepia(0.3);
+    transform: rotate(180deg);
+}
+
 .timeline-year {
     font-family: var(--font-heading);
     color: #1A1A1A;
@@ -614,11 +511,9 @@ body {
     width: 240px; 
     left: -270px; 
 }
-/* 2. 优化图片悬浮遮罩 (红底金框) */
+/* nav.overlay */
 .overlay-bar {
-    background: rgba(168, 51, 42, 0.95); /* 红色背景 */
-    border: 2px solid var(--cyan-grey);   /* 金色边框 */
-    box-shadow: 4px 4px 0 rgba(0,0,0,0.3); 
+    background-color: #2d2926d5; 
     padding: 12px;
 }
 
@@ -632,33 +527,29 @@ body {
 }
 
 .member-card {
-    background-color: #fff;
-    border: 1px solid #1A1A1A;
+    background-image: var(--accent-red);
+    background-size:cover;
     border-radius: 0;
-    box-shadow: 6px 6px 0 var(--cyan-grey); 
 }
-.member-card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 8px 8px 0 var(--accent-red);
-}
+
 .member-info h3 { 
     font-family: var(--font-heading); 
-    border-bottom: 1px solid #ddd;
+    /*border-bottom: 1px solid #ddd;*/
     padding-bottom: 5px;
 }
 .member-info .role {
     font-family: var(--font-heading);
-    color: var(--accent-red);
+    color: var(--text-color);
     letter-spacing: 1px;
 }
 
 .source-link { 
     font-family: var(--font-heading);
-    color: #1A1A1A; 
-    text-decoration-color: var(--accent-red); 
+    color: var(--text-color) !important; 
+    text-decoration-color: var(--text-muted); 
 }
 .source-link:hover { font-style: italic; color: var(--accent-red); }
-.copyright-notice { border-top-color: var(--border-color-light); color: var(--text-muted); }
+/*.copyright-notice { border-top-color: var(--border-color-light); color: var(--text-muted); }*/
 
 /* =========================================
    8. Footer
@@ -721,6 +612,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-size: 0.85rem;
+    font-weight: 600;
 }
 
 /* 筛选栏颜色优化 */
@@ -762,16 +654,7 @@ body {
    MAP Page Fixes (Final Polish)
    ========================================= */
 
-/* 1. "Explore by" 标签：改为无衬线字体 (Inter) */
-.filter-header {
-    font-family: 'Inter', sans-serif !important; /* 强制无衬线 */
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: none; /* 取消强制大写，增加易读性 */
-    color: var(--text-muted);
-}
-
-/* 2. "Reset View" 按钮：颜色区分 */
+/*  "Reset View" 按钮：颜色区分 */
 .btn-view-all {
     /* 字体保持 Art Deco 风格，但颜色改深，不再是金色 */
     color: var(--text-muted) !important; 
@@ -784,21 +667,6 @@ body {
     opacity: 1;
     text-decoration: underline;
     text-underline-offset: 4px;
-}
-/*.map-info-box {
-    color: var(--text-color) !important;
-    background-color: rgba(252, 248, 240, 0.9) !important;  强制半透明纸张背景 
-    border: 2px solid var(--border-color-light);
-}*/
-
-/* =========================================
-   Navbar Dropdown Fix (Fix Invisible Title)
-   ========================================= */
-
-/* 修复：当下拉菜单打开(.show)时，强制大标题颜色为金色 */
-.navbar-nav .nav-link.show {
-    color: var(--cyan-grey) !important;
-    text-shadow: 0 0 5px rgba(197, 160, 89, 0.6); /* 保持发光效果 */
 }
 
 /* =========================================
@@ -830,29 +698,3 @@ body {
     font-weight: 700;
 }
 
-/* =========================================
-   Change Styles Button Fix (Patch)
-   ========================================= */
-
-/* 修复：当 Change Styles 下拉菜单打开(.show)时，强制按钮文字和边框为金色 */
-.btn-style-toggle.show,
-.btn-style-toggle:active,
-.btn-style-toggle:focus {
-    color: var(--cyan-grey) !important;
-    border-color: var(--cyan-grey) !important;
-    background-color: transparent !important; /* 保持背景透明，或根据需要改为黑色 */
-    text-shadow: 0 0 5px rgba(197, 160, 89, 0.6); /* 保持发光效果 */
-}
-
-/* =========================================
-   Change Styles Button Hover Fix (Patch)
-   ========================================= */
-
-/* 修复：鼠标悬浮时，强制按钮文字为金色，背景保持透明 */
-.btn-style-toggle:hover {
-    color: var(--cyan-grey) !important;       /* 强制金色文字 */
-    border-color: var(--cyan-grey) !important; /* 强制金色边框 */
-    background-color: transparent !important;  /* 背景透明 (或者用 #000) */
-    text-shadow: 0 0 8px rgba(197, 160, 89, 0.8); /* 增加强烈的金光，提示可点击 */
-    box-shadow: 0 0 10px rgba(197, 160, 89, 0.2); /* 边框也加一点光晕 */
-}
