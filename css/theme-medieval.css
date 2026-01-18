@@ -173,9 +173,11 @@ body {
 
 .logo-text {
     font-family: var(--font-heading);
+    font-size: var(--fs-logo);
+    font-weight: 500;
     letter-spacing: 2px;
     color: #F2EAD3; 
-    background: linear-gradient(45deg, #C5A059, #F2EAD3, #C5A059);
+    background: linear-gradient(180deg, #C5A059, #F2EAD3, #C5A059);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
 }
@@ -488,7 +490,7 @@ body {
 }
 .theme-subtitle::after { display: none; }
 
-.timeline-container { border-left: 1px dashed var(--text-muted); }
+.timeline-container { border-left: 1px solid var(--text-muted); }
 .timeline-item::before {
     background-image: var(--accent-red);
     border-radius: 0; 
@@ -525,6 +527,22 @@ body {
     text-transform: uppercase;
     font-style: normal;
 }
+
+/* 轮播箭头样式 */
+.card-img-wrapper .carousel-control-prev-icon,
+.card-img-wrapper .carousel-control-next-icon {
+    background-color: rgba(0,0,0,0.5); 
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-size: 50%;
+}
+
+.card-img-wrapper .carousel-control-prev,
+.card-img-wrapper .carousel-control-next {
+    transition: opacity var(--trans-normal);
+}
+
 
 .member-card {
     background-image: var(--accent-red);
@@ -563,7 +581,7 @@ body {
     /*border-top: 1.5px solid var(--text-color); */
     color: #F2EAD3; 
 }
-.footer-text p { color: #ffffff; font-family: var(--font-body); }
+.footer-text p { color: var(--text-muted); font-family: var(--font-body); }
 
 /* Documentation 爵士化 */
 .doc-sidebar {
