@@ -44,7 +44,7 @@
     
     /* --- 3. Decorative --- */
     --br-md: 4px;      /* Card radius */
-    --br-pill: 50px;   /* Button radius */
+    --br-pill: 0%;   /* Button radius */
     --shadow-soft: 0 10px 30px rgba(0,0,0,0.05);
     --shadow-hard: 0 15px 40px rgba(0,0,0,0.15);
 
@@ -207,9 +207,10 @@ body {
     color: var(--text-color);
     font-size: 0.75rem;
     letter-spacing: 1px;
+    border-radius: 0 !important;   
 }
 .btn-style-toggle:hover {
-    background-color: var(--cyan-grey);
+    background-color: transparent;
     border-color: var(--cyan-grey);
     color: #fff;
 }
@@ -217,89 +218,110 @@ body {
 /* =========================================
    4. Buttons & Components Visuals
    ========================================= */
-/* HOME Page "BROWSE COLLECTIONS" Button */
-.btn-browse-custom {
-    font-family: var(--font-script); 
-    font-style: normal; 
-    font-weight: 500;   
-    font-size: 0.9rem;  
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-    color: #fff;
-    /* Modern 风格特有的半透明磨砂效果 */
-    background-color: var(--cyan-grey); 
-    border-color: var(--line-color); 
-    border-radius: var(--br-pill); 
-}
-
-.btn-browse-custom:hover {
-    background-color: var(--accent-red);
-    border-color: var(--accent-red);
-    transform: translateY(-2px);
-}
-
 /* Primary Button */
-.btn-custom-primary {
-    background-color: var(--cyan-grey);
-    color: #fff;
-    border-color: var(--cyan-grey);
+.btn-custom-primary, .btn-custom-outline {
     border-radius: var(--br-pill);
     font-family: var(--font-script);
     font-size: 0.95rem;
     font-weight: 500;
-}
-
-.btn-custom-primary:hover {
-    background-color: var(--btn-hover-dark-cyan);
-    color: #fff;
-}
-
-/* Outline Button */
-.btn-custom-outline {
-    background-color: transparent;
-    color: var(--cyan-grey);
-    border-color: var(--cyan-grey);
-    border-radius: var(--br-pill);
-    font-family: var(--font-script);
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-.btn-custom-outline:hover {
-    background-color: var(--bg-color);
-    border-color: var(--accent-red);
-    color: var(--accent-red);
 }
 
 /* Back to Top */
 #btn-back-to-top {
     background-color: var(--cyan-grey); 
     color: #fff;
-    border-radius: 50%;
+    border-radius: 0;
     font-size: 1.2rem;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
 }
 #btn-back-to-top:hover {
-    background-color: var(--accent-red); 
-    transform: translateY(-5px); 
+    border-color: transparent;
+    color: var(--accent-red); 
+    animation: bloodSinking 1.2s ease-out forwards;
+}
+
+.btn, .btn-browse-custom{
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+
+  padding: .7rem 1.3rem;
+  border-radius: 0;                 /* 哥特不太圆 */
+  border: 1px solid rgba(255,255,255,.65);
+  color: var(--overlay-text, #F3F4F2);
+  background: var(--cyan-grey);   /* 你的 --cyan-grey + 透明 */
+  font-family: var(--font-script);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+.btn::before, .btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 18px;
+  transform: translateY(-50%);
+  background: rgba(12,15,18,.92);
+  border: 1px solid rgba(255,255,255,.65);
+}
+.btn::before{
+  left: -14px;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+}
+.btn::after{
+  right: -14px;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+.btn:hover, .btn-browse-custom:hover{
+    /*transform: translateY(-1px);*/
+    border-color: transparent;
+    background-color: transparent; 
+    animation: bloodSinking 1.2s ease-out forwards;
+
 }
 
 /* =========================================
    5. Cards & Gallery Visuals
    ========================================= */
-.image-frame {
-    border-radius: var(--br-md);
-    box-shadow: var(--shadow-hard);
+.image-frame, .gallery-image-frame {
+    position: relative;
+    border-radius: 0;
+    padding: 10px; /* 让装饰有空间 */
+    background: rgba(255,255,255,.6);
+    border: 1px solid rgba(0,0,0,.12);
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+.image-frame::before, .gallery-image-frame::before {
+    content:"";
+    position:absolute;
+    inset: 6px;
+    border: 1px solid rgba(12,15,18,.35);
+    pointer-events:none;
+}
+.image-frame::after, .gallery-image-frame::after {
+    content:"";
+    position:absolute;
+    inset: 0;
+    pointer-events:none;
+    background-repeat: no-repeat;
+    background-size: 44px 44px, 44px 44px, 44px 44px, 44px 44px;
+    background-position: left 8px top 8px, right 8px top 8px, left 8px bottom 8px, right 8px bottom 8px;
+    background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cpath d='M6 38c6-2 8-8 10-16 2-8 6-14 22-16' fill='none' stroke='%230C0F12' stroke-opacity='.75' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M10 34c5-3 7-7 8-12 2-7 5-11 18-13' fill='none' stroke='%23FFFFFF' stroke-opacity='.55' stroke-width='1.6'/%3E%3Ccircle cx='10' cy='34' r='2.4' fill='%234a0404'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cg transform='translate(44 0) scale(-1 1)'%3E%3Cpath d='M6 38c6-2 8-8 10-16 2-8 6-14 22-16' fill='none' stroke='%230C0F12' stroke-opacity='.75' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M10 34c5-3 7-7 8-12 2-7 5-11 18-13' fill='none' stroke='%23FFFFFF' stroke-opacity='.55' stroke-width='1.6'/%3E%3Ccircle cx='10' cy='34' r='2.4' fill='%234a0404'/%3E%3C/g%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cg transform='translate(0 44) scale(1 -1)'%3E%3Cpath d='M6 38c6-2 8-8 10-16 2-8 6-14 22-16' fill='none' stroke='%230C0F12' stroke-opacity='.75' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M10 34c5-3 7-7 8-12 2-7 5-11 18-13' fill='none' stroke='%23FFFFFF' stroke-opacity='.55' stroke-width='1.6'/%3E%3Ccircle cx='10' cy='34' r='2.4' fill='%234a0404'/%3E%3C/g%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44' viewBox='0 0 44 44'%3E%3Cg transform='translate(44 44) scale(-1 -1)'%3E%3Cpath d='M6 38c6-2 8-8 10-16 2-8 6-14 22-16' fill='none' stroke='%230C0F12' stroke-opacity='.75' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpath d='M10 34c5-3 7-7 8-12 2-7 5-11 18-13' fill='none' stroke='%23FFFFFF' stroke-opacity='.55' stroke-width='1.6'/%3E%3Ccircle cx='10' cy='34' r='2.4' fill='%234a0404'/%3E%3C/g%3E%3C/svg%3E");
+    z-index: 5;
 }
 
 .hover-overlay {
     background: rgba(0, 0, 0, 0.2);
+    opacity: 1;
 }
-
-.image-frame:hover .hover-overlay { opacity: 1; }
-.image-frame:hover .carousel-item img { transform: scale(1.03); }
-.image-frame:hover .carousel-control-prev, 
-.image-frame:hover .carousel-control-next { opacity: 0.8; }
 
 /* Collection Page Items */
 .gallery-item {
@@ -422,11 +444,11 @@ body {
     background-color: var(--card-bg);
 }
 
-.gallery-image-frame {
+/*.gallery-image-frame {
     background-color: var(--card-bg);
     border-color: var(--border-color-light);
     border-radius: var(--br-md);
-}
+}*/
 
 .table th {
     font-weight: 600;
@@ -454,10 +476,10 @@ body {
     background-color: var(--cyan-grey);
     border-color: var(--cyan-grey);
     color: #fff;
-    border-radius: var(--br-pill);
     font-size: 0.85rem;
     letter-spacing: 1px;
     text-transform: uppercase;
+    border-radius: 0%;
 }
 .gallery-nav-btn:hover {
     background-color: var(--accent-red);
@@ -523,8 +545,7 @@ body {
 }
 
 .member-card:hover {
-    transform: translateY(-5px); 
-    box-shadow: var(--shadow-hard);
+    animation: bloodSinking 1.2s ease-out forwards;
 }
 
 .member-card img {
@@ -694,8 +715,10 @@ body {
 
 /* 时间轴节点 */
 .timeline-item::before {
-    background-color: var(--accent-red); /* 红色圆点 */
-    box-shadow: 0 0 0 4px var(--bg-color); /* 白色外圈 */
+    background-color: var(--accent-red); 
+    text-shadow: 0 0 15px rgba(138, 3, 3, 0.9), 0 0 25px rgba(138, 3, 3, 0.4);
+    filter: blur(1px);
+
 }
 
 /* 时间轴文字 (The Rule...) */
@@ -705,6 +728,9 @@ body {
     font-size: 1.5rem; 
     color: var(--cyan-grey);
     letter-spacing: -0.5px;
+    text-shadow: 0 0 10px rgba(138, 3, 3, 0.9), 0 0 25px rgba(138, 3, 3, 0.4);
+    filter: blur(1px);
+
 }
 
 /* Section II 小标题 (The Identity...) */
@@ -713,6 +739,9 @@ body {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--text-color);
+    text-shadow: 0 0 10px rgba(138, 3, 3, 0.9), 0 0 25px rgba(138, 3, 3, 0.4);
+    filter: blur(1px);
+
 }
 
 /* 小标题下划线 */
@@ -722,9 +751,9 @@ body {
 
 /* 图片遮罩条背景 */
 .overlay-bar {
-    background: rgba(47, 72, 88, 0.95); 
+    background: var(--overlay-bg-main); 
     backdrop-filter: blur(4px); 
-    transition: bottom 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: bottom 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.84);
 }
 
 /* 遮罩文字样式 */
