@@ -203,16 +203,16 @@
                                         <em>Part II (Mental Discourse)</em> employs a <strong>Responsive Card Grid</strong> to group items conceptually.
                                     </li>
                                     
-                                    <li class="list-group-item bg-transparent">
+                                   <li class="list-group-item bg-transparent">
                                         <strong>4. Collections Catalog (collection.html):</strong>
                                         <br>
-                                        To handle images of varying aspect ratios gracefully, this page implements a <strong>Masonry-style Layout</strong> using CSS Flexbox columns (`.gallery-column`). Unlike a rigid grid, this approach allows items to stack organically, maximizing vertical space. Each item is wrapped in a card structure with a CSS-based overlay that reveals details on hover.
+                                         For the Collections page, the main technical goal was to neatly display images of different sizes. We implemented a <strong>flexible masonry layout</strong> using CSS Flexbox columns (`.gallery-column`) to solve this. This method allows pictures of various shapes to arrange themselves naturally and stack organically, maximizing vertical space without leaving gaps or getting cropped. At the same time, each item is structured as an <strong>interactive card</strong>; upon hovering, a CSS-based semi-transparent overlay automatically appears, revealing item details and providing a direct link to its dedicated narrative view.
                                     </li>
 
                                     <li class="list-group-item bg-transparent">
                                         <strong>5. Item Detail Template (gallery.html):</strong>
                                         <br>
-                                        This page functions as a <strong>Dynamic Single-Page Template</strong>. The HTML consists of empty structural placeholders with specific IDs (e.g., `&lt;h1 id="cardTitle"&gt;`). Upon loading, a client-side script parses the URL parameter (`?id=x`), fetches the corresponding data from the JSON store, and injects it into the DOM. This architecture significantly reduces code redundancy.
+                                         The Gallery Page is designed as a <strong>Universal Template</strong>. By leveraging a <strong>Data-Binding logic</strong> between `gallery.html` and `data.js`, we achieve a high level of scalability. Upon loading, the client-side script parses the URL parameters to inject specific artifact data into structural placeholders. More importantly, the page architecture supports <strong>Progressive Disclosure</strong>, allowing us to serve different content complexities (from simple summaries to academic analysis) to different <strong>user personas</strong> dynamically through a single interface.
                                     </li>
 
                                     <li class="list-group-item bg-transparent">
@@ -371,4 +371,5 @@
     <script src="js/loader.js"></script>
 </body>
 </html>
+
 
