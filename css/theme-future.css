@@ -967,7 +967,7 @@ pre {
 
 :root {
     --font-body: 'Space Grotesk', sans-serif !important;
-   
+   }
 
 /* =========================================
    UNIVERSAL SPACE GROTESK & NARRATIVES PATCH
@@ -1002,106 +1002,157 @@ pre,
     font-weight: 300 !important;
 }
 
-
-
 /* =========================================
-   REFINED SLENDER FUTURE PATCH (Space Grotesk 300)
+   FUTURE THEME: NARRATIVES 六大标题绝对统一 (终极修正版)
    ========================================= */
 
-/* 1. 全局字重锁定：将所有 Space Grotesk 区域强制设为 300 (Light) */
-body, 
-p, 
-span, 
-li, 
-div, 
-td, 
-th, 
-.info-desc,
-.dropdown-item,
-.footer-text,
-.data-label,
-code {
+/* 1. 强制闭合之前可能存在的任何括号错误 */
+} } 
+
+/* 2. 重新定义根变量，确保基础一致 */
+:root {
+    --font-body: 'Space Grotesk', sans-serif !important;
+    --font-heading: 'Orbitron', sans-serif !important;
+}
+
+/* 3. 核心补丁：使用 body 级联选择器强制覆盖 */
+/* 包含：The Rule, Utility, Improvisation (timeline-year) 
+   以及：IDENTITY, ECHO, SPIRIT (theme-subtitle) */
+
+body .timeline-year, 
+body .theme-subtitle, 
+body .main-content-area h3, 
+body .description-section h4,
+body .info-title {
+    /* --- 1. 字体与排版完全锁死 --- */
     font-family: 'Space Grotesk', sans-serif !important;
-    font-weight: 300 !important; /* 使用 CSS 导入的最细字重，增加呼吸感 */
-    letter-spacing: 0.5px;      /* 微调字间距，提升精致度 */
-}
-
-/* =========================================
-   REFINED NARRATIVES TITLE (Large & Slender)
-   ========================================= */
-
-/* 针对时间轴标题：The Rule, The Utility, The Improvisation */
-.timeline-year {
-    
-    font-size: 1.6rem !important; 
-    font-family: 'Space Grotesk', sans-serif !important; 
-    font-weight: 300 !important; 
+    font-size: 1.8rem !important; 
+    font-weight: 300 !important;      /* 确保是纤细的轻量字重 */
     text-transform: uppercase !important;
-    
-    
-    letter-spacing: 4px !important; 
-    display: inline-block !important;
-    margin-bottom: 8px !important;
-    color: var(--accent-metal) !important;
-    
-  
-    border-bottom: none !important; 
-    padding-bottom: 0 !important;
-    
-   
-    transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
-}
-
-
-.timeline-year:hover {
-    color: var(--accent-pink) !important; 
-    letter-spacing: 6px !important; 
-    transform: translateX(8px);    
-    cursor: default;
-}
-
-/* =========================================
-   UNIFIED SUBTITLE PATCH (IDENTITY, ECHO, SPIRIT)
-   ========================================= */
-
-.theme-subtitle {
-    
-    font-family: 'Space Grotesk', sans-serif !important;
-    font-weight: 300 !important; 
-    font-size: 2rem !important; /
-    
-    
-    text-transform: uppercase !important;
-    letter-spacing: 6px !important;
+    letter-spacing: 5px !important; 
     line-height: 1.2 !important;
-    
-   
+    font-style: normal !important;
     color: var(--accent-metal) !important;
     
- 
+    /* --- 2. 布局彻底归零 --- */
+    display: block !important;        /* 全部改为块状，确保换行一致 */
+    margin: 40px 0 15px 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    position: relative !important;
+    text-align: left !important;
+    width: 100% !important;
+}
+
+/* 4. 彻底铲除所有历史残留的伪元素（方块、圆点、斜杠等） */
+body .timeline-year::before, 
+body .theme-subtitle::before, 
+body .main-content-area h3::before,
+body .timeline-year::after, 
+body .theme-subtitle::after, 
+body .main-content-area h3::after {
+    content: none !important;
+    display: none !important;
     background: none !important;
     border: none !important;
-    padding: 0 !important;
-    margin-bottom: 20px !important;
+}
+
+/* 5. 重新添加唯一的、统一的未来感装饰线 */
+body .timeline-year::after, 
+body .theme-subtitle::after, 
+body .main-content-area h3::after {
+    content: "" !important;
     display: block !important;
+    width: 60px !important;
+    height: 1px !important;
+    background: var(--accent-pink) !important;
+    margin-top: 12px !important;
+    opacity: 0.7;
 }
 
-
-.theme-subtitle::before {
-    content: none !important;
-    display: none !important;
-}
-
-.theme-subtitle::after {
-    content: none !important;
-    display: none !important;
-}
-
-
-.theme-subtitle:hover {
+/* 6. 统一悬停动画 */
+body .timeline-year:hover, 
+body .theme-subtitle:hover {
     color: var(--accent-pink) !important;
-    letter-spacing: 8px !important;
-    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
-    cursor: default;
+    letter-spacing: 7px !important;
+    transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1) !important;
+    transform: translateX(5px) !important;
+    cursor: pointer;
 }
+
+/* =========================================
+   FUTURE THEME: NARRATIVES 
+   ========================================= */
+
+
+} } 
+
+
+body .timeline-year, 
+body .theme-subtitle, 
+body .main-content-area h3, 
+body .description-section h4,
+body .info-title {
+   
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-size: 1.2rem !important;      
+    font-weight: 300 !important;      
+    text-transform: uppercase !important;
+    letter-spacing: 4px !important;  
+    line-height: 1.2 !important;
+    font-style: normal !important;
+    color: var(--accent-metal) !important;
+    
+   
+    display: block !important;
+    margin: 30px 0 12px 0 !important; 
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    position: relative !important;
+    text-align: left !important;
+    width: 100% !important;
+}
+
+
+body .timeline-year::before, 
+body .theme-subtitle::before, 
+body .main-content-area h3::before,
+body .description-section h4::before,
+body .timeline-year::after, 
+body .theme-subtitle::after, 
+body .main-content-area h3::after,
+body .description-section h4::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+    border: none !important;
+}
+
+
+body .timeline-year::after, 
+body .theme-subtitle::after, 
+body .main-content-area h3::after {
+    content: "" !important;
+    display: block !important;
+    width: 35px !important;         
+    height: 1px !important;
+    background: var(--accent-pink) !important;
+    margin-top: 10px !important;
+    opacity: 0.6;
+}
+
+
+body .timeline-year:hover, 
+body .theme-subtitle:hover {
+    color: var(--accent-pink) !important;
+    letter-spacing: 5px !important;   
+    transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1) !important;
+    transform: translateX(5px) !important;
+    cursor: pointer;
+}
+
 
