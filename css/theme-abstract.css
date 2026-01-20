@@ -1,10 +1,10 @@
-/* theme-modernist-ultimate.css 
-   风格：现代主义画廊 / 蒙德里安撞色
-   特点：三色不规则背景、标题滑入特效、极粗字体、高对比度页脚
-*/
+/* =========================================
+   theme-abstract.css 
+   
+   ========================================= */
 
-/* 1. 字体引入：确保所有字重可用 */
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@900&family=Space+Mono:wght@700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@900&family=Space+Mono:wght@700&family=Dancing+Script:wght@700&display=swap');
 
 :root {
     --clr-red: #FF3B30;
@@ -12,13 +12,18 @@
     --clr-yellow: #FFD600;
     --clr-white: #FFFFFF;
     --clr-black: #1A1A1A;
+    
     --font-huge: 'Archivo Black', sans-serif;
     --font-body: 'Montserrat', sans-serif; 
     --font-mono: 'Space Mono', monospace;
+    --font-cursive: 'Dancing Script', cursive; 
+
+    --border-thick: 5px;
+    --shadow-offset: 12px;
 }
 
 /* =========================================
-   1. 背景布局：红蓝黄三原色块 (全自动化实现)
+   1. background
    ========================================= */
 body {
     background-color: var(--clr-white);
@@ -29,41 +34,32 @@ body {
     padding: 0;
     overflow-x: hidden;
     min-height: 100vh;
-    
-    /* 红色块：通过背景渐变直接生成在右下角，不占位，不遮挡文字 */
-    background-image: 
-        linear-gradient(155deg, transparent 82%, var(--clr-red) 82.1%);
+    background-image: linear-gradient(155deg, transparent 82%, var(--clr-red) 82.1%);
     background-attachment: fixed;
 }
 
-/* 黄色色块：右上角固定，不规则锐利切割 */
 body::before {
     content: "";
     position: fixed;
-    top: 0; 
-    right: 0;
-    width: 38vw; 
-    height: 42vh;
+    top: 0; right: 0;
+    width: 38vw; height: 42vh;
     background: var(--clr-yellow);
     z-index: -2;
     clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 80%);
 }
 
-/* 蓝色色块：左侧中部固定，不规则锐利切割 */
 body::after {
     content: "";
     position: fixed;
-    top: 25vh; 
-    left: 0;
-    width: 16vw; 
-    height: 48vh;
+    top: 25vh; left: 0;
+    width: 16vw; height: 48vh;
     background: var(--clr-blue);
     z-index: -2;
     clip-path: polygon(0 0, 100% 20%, 80% 100%, 0 90%);
 }
 
 /* =========================================
-   2. 标题特效：0.8s 优雅滑入动画 + 悬停重影
+   2. title
    ========================================= */
 .main-title {
     font-family: var(--font-huge);
@@ -76,7 +72,7 @@ body::after {
     letter-spacing: -3px;
     z-index: 1;
 
-    /* 初始状态：向下偏移并透明 */
+  
     opacity: 0;
     transform: translateY(50px);
     /* 动画控制 */
@@ -96,138 +92,708 @@ body::after {
     transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* 标题下方的黄色装饰横条 */
-.main-title::after {
-    content: "";
-    position: absolute;
-    left: -4%; 
-    bottom: 12px;
-    width: 108%; 
-    height: 22px;
-    background: var(--clr-yellow);
-    z-index: -1;
-    transform: skewX(-25deg);
-}
+
 
 /* =========================================
-   3. 地图 (Map) 样式强化：确保显示与交互
+   3. Map 
    ========================================= */
-.map-wrapper {
-    background: var(--clr-white);
-    border: 8px solid var(--clr-black);
-    padding: 30px;
-    box-shadow: 25px 25px 0px var(--clr-black);
-    margin: 2rem auto;
-    position: relative;
-    z-index: 2;
-}
 
-/* 地图房间轮廓：极粗黑色描边，确保在白墙背景可见 */
-.room-outline { 
-    stroke: var(--clr-black) !important; 
-    stroke-width: 4px !important;
-    fill: #FAFAFA !important; 
-    transition: 0.2s ease;
-    opacity: 1 !important;
-}
 
-/* 悬停交互变色 */
-.room-outline:hover { 
-    fill: var(--clr-yellow) !important;
-    cursor: crosshair;
-}
-
-/* 点击/激活变色 */
-.room-outline:active {
-    fill: var(--clr-blue) !important;
-}
-
-/* =========================================
-   4. 底部标志 (Logo) 与页脚：极致对比度
-   ========================================= */
-.site-footer {
-    background: var(--clr-black) !important;
-    color: var(--clr-white) !important;
-    padding: 80px 10%;
-    margin-top: 150px;
-    border-top: 20px solid var(--clr-yellow);
-    position: relative;
-    z-index: 5;
-}
-
-/* 解决标志看不清的问题：黑底白字 + 红色描边 */
-.footer-logo {
-    font-family: var(--font-huge);
-    font-size: 3.5rem;
-    color: var(--clr-white) !important;
-    text-transform: uppercase;
+.controls-container p, 
+.filter-section p {
+    font-family: var(--font-cursive) !important;
+    font-size: 2.8rem !important;
+    color: var(--clr-red) !important;
+    transform: rotate(-3deg);
+    text-shadow: 2px 2px 0px var(--clr-yellow);
+    margin-bottom: 25px !important;
     display: block;
-    margin-bottom: 10px;
-    -webkit-text-stroke: 1.5px var(--clr-red);
 }
 
-.site-footer p {
-    font-family: var(--font-mono);
-    color: #888;
-    font-weight: 700;
+/* (Evolution, Discourse, Reset)  */
+.controls-container ul li,
+.filter-section ul li {
+    font-family: var(--font-huge) !important;
+    text-transform: uppercase;
+    color: var(--clr-black) !important;
+    font-size: 1.4rem;
+    
+    display: block;
+    width: fit-content;
+    margin: 15px 0 !important;
+    padding: 10px 20px;
+    border: 4px solid var(--clr-black) !important;
+    background-color: var(--clr-white);
+    box-shadow: 6px 6px 0px var(--clr-blue);
+    
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    list-style: none;
+    cursor: pointer;
 }
+
+.controls-container ul li:hover,
+.filter-section ul li:hover {
+    color: var(--clr-white) !important;
+    background-color: var(--clr-black) !important;
+    box-shadow: -6px -6px 0px var(--clr-red);
+    transform: translate(4px, 4px);
+}
+
 
 /* =========================================
-   5. 通用组件：导航、链接与按钮
+   4. Navigation, Button, and Map Fixes
    ========================================= */
 .navbar {
     background: var(--clr-white) !important;
     border-bottom: 8px solid var(--clr-black) !important;
-    padding: 2rem 5%;
+    padding: 1.5rem 5% !important;
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
-.nav-link {
+.btn, .btn-browse-custom {
+    display: inline-block;
+    border-radius: 0 !important;
     font-family: var(--font-huge);
-    font-size: 1rem;
+    border: 4px solid var(--clr-black) !important;
+    padding: 12px 30px;
+    text-decoration: none;
+}
+
+.btn-browse-custom {
+    background-color: var(--clr-yellow) !important;
     color: var(--clr-black) !important;
-    text-transform: uppercase;
-    transition: 0.2s;
+    box-shadow: 10px 10px 0px var(--clr-black);
+    position: absolute; 
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
 }
 
-.nav-link:hover {
-    color: var(--clr-blue) !important;
-    background-color: var(--clr-yellow);
+/* Map Room Fix: Resolve Black Block Issue */
+.room-outline { 
+    stroke: var(--clr-black) !important; 
+    stroke-width: 6px !important;    
+    fill: var(--clr-white) !important; 
+    transition: 0.2s ease;
+    opacity: 1 !important;
 }
 
-.btn-custom-primary {
-    font-family: var(--font-huge);
-    background: var(--clr-black) !important;
-    color: var(--clr-white) !important;
-    border: none;
-    padding: 20px 50px;
-    border-radius: 0;
-    box-shadow: 12px 12px 0px var(--clr-red);
-    text-transform: uppercase;
-    transition: 0.2s;
+.room-outline:hover { 
+    fill: var(--clr-yellow) !important;
+    cursor: crosshair;
 }
 
-.btn-custom-primary:hover {
-    background: var(--clr-blue) !important;
-    box-shadow: 8px 8px 0px var(--clr-yellow);
-    transform: translate(4px, 4px);
-}
 
-/* 面板/卡片：增强实心色块阴影 */
+/* =========================================
+   5. footer
+   ========================================= */
 .glass-panel, .card {
     background: var(--clr-white) !important;
     border: 5px solid var(--clr-black) !important;
     box-shadow: 20px 20px 0px var(--clr-blue);
-    padding: 40px;
+    padding: 30px;
     border-radius: 0;
 }
 
-.data-label {
-    font-family: var(--font-mono);
-    background: var(--clr-black);
-    color: var(--clr-white);
-    padding: 5px 12px;
-    display: inline-block;
+.site-footer {
+    background: var(--clr-black) !important;
+    color: var(--clr-white) !important;
+    padding: 80px 10%;
+    border-top: 20px solid var(--clr-yellow);
 }
+
+.footer-logo {
+    font-family: var(--font-huge);
+    -webkit-text-stroke: 1.5px var(--clr-red);
+}
+
+/* ---timeline --- */
+
+
+.timeline-container { 
+    border-left: 3px solid #000000 !important; 
+}
+
+.timeline-item::before { 
+    background-color: #000000 !important; 
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.4) !important; 
+}
+
+.timeline-year { 
+    font-family: var(--font-heading) !important; 
+    color: #000000 !important; 
+    font-weight: 800 !important; 
+}
+
+.theme-subtitle::after { 
+    background-color: #000000 !important; 
+}
+
+
+/*  Collection */
+
+/* 1. Navigation */
+.overlay-bar { 
+    background: rgba(255, 255, 255, 0.329) !important; 
+    backdrop-filter: blur(15px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(15px) saturate(200%) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05); 
+}
+
+/* 2. Collection  */
+/* 锁定 gallery-item 内部的遮罩层 */
+.gallery-item .item-overlay, 
+.gallery-card .card-reveal,
+.image-caption-hover {
+    background: rgba(255, 255, 255, 0.363) !important;
+    backdrop-filter: blur(12px) !important;
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.gallery-item .item-overlay h3, 
+.gallery-item .item-overlay p,
+.overlay-bar .status-text {
+    color: #1A1A1A !important; 
+}
+
+/* 4. footer */
+.site-footer {
+    font-family: var(--font-body);
+    background-color: var(--accent-metal) !important;
+    border-top: 5px solid var(--accent-pink) !important;
+    color: #0e109b !important;
+}
+
+/* Collection 页面 View Detail --- */
+
+
+.gallery-item .item-overlay .view-more-btn, 
+.gallery-item .item-overlay .btn-custom-primary,
+.gallery-card .view-details {
+
+    border: 1.5px solid var(--accent-pink) !important;
+    background: rgba(255, 255, 255, 0.3) !important; 
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    
+   
+    font-family: 'Syncopate', sans-serif !important;
+    font-size: 0.7rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 2.5px !important;
+    text-transform: uppercase !important;
+
+
+    padding: 10px 24px !important;
+    border-radius: var(--br-pill, 50px) !important;
+    color: var(--accent-pink) !important; 
+    
+   
+    box-shadow: 0 4px 15px rgba(255, 102, 163, 0.1) !important;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important;
+}
+
+/* 2. 悬停状态：反转色彩以获得强反馈 */
+.gallery-item .item-overlay .view-more-btn:hover,
+.gallery-item .item-overlay .btn-custom-primary:hover,
+.gallery-card .view-details:hover {
+    background: var(--accent-pink) !important;
+    color: #FFFFFF !important; 
+    border-color: #FFFFFF !important; 
+    box-shadow: 0 0 20px var(--accent-pink) !important;
+    transform: translateY(-3px) scale(1.02) !important;
+}
+
+
+.gallery-item .item-overlay .view-more-btn::after {
+    content: " ◢";
+    margin-left: 8px;
+    font-size: 0.6rem;
+    opacity: 0.8;
+}
+
+/* --- 颜色更新补丁：全局替换为 #FFD600 --- */
+
+
+.overlay-bar, 
+.glass-panel, 
+.main-content-area { 
+    background-color: #FFD600 !important; 
+    background: #FFD600 !important; 
+    color: #000000 !important; 
+}
+
+
+.site-footer {
+    background-color: #FFD600 !important;
+    border-top: 5px solid #000000 !important; 
+    color: #000000 !important; 
+}
+
+
+.site-footer a,
+.overlay-bar .nav-link {
+    color: #000000 !important;
+    font-weight: 600 !important;
+}
+
+
+.gallery-item .item-overlay {
+    background: rgba(255, 214, 0, 0.95) !important; 
+}
+
+
+
+/* 1. 给大标题 (ABOUT THE EXHIBITION / PROJECT)  */
+h2:contains("ABOUT THE"), 
+.section-title, 
+.about-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-family: 'Syncopate', sans-serif !important;
+}
+
+h2:contains("ABOUT THE")::before,
+.section-title::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 24px;
+    background: #372f06; 
+    box-shadow: 8px 0 0 rgba(255, 214, 0, 0.3); 
+    border-radius: 2px;
+}
+
+/* =========================================
+   Map & Detail Page Visuals Patch
+   ========================================= */
+
+
+:root {
+    --cyan-grey: #546E7A;
+    --accent-red: #E53935;
+    --card-bg: #ffffff;
+    --border-color-light: #eceff1;
+    --text-color: #263238;
+    --br-md: 12px;
+    --br-pill: 50px;
+    --trans-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-soft: 0 4px 12px rgba(0,0,0,0.05);
+    --shadow-hard: 0 15px 35px rgba(0,0,0,0.1);
+    --font-body: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-heading: 'Georgia', serif;
+}
+
+
+.map-wrapper {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color-light);
+    border-radius: var(--br-md);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    overflow: hidden;
+}
+
+
+.room-outline { 
+    fill: none !important; 
+    stroke: var(--cyan-grey); 
+    stroke-width: 1.5; 
+    opacity: 0.3; 
+    transition: all var(--trans-normal); 
+}
+
+.path-line { 
+    fill: none;
+    stroke: var(--cyan-grey); 
+    stroke-width: 1; 
+    stroke-dasharray: 5, 5; 
+    opacity: 0.2; 
+}
+
+.room-text { 
+    font-family: var(--font-body); 
+    font-size: 14px; 
+    fill: var(--cyan-grey); 
+    font-weight: 600; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    pointer-events: none; 
+}
+
+
+.map-point { 
+    stroke: #fff; 
+    stroke-width: 2px; 
+    cursor: pointer;
+    transition: all var(--trans-normal);
+}
+.point-room1 { fill: var(--cyan-grey); }
+.point-room2 { fill: #8D6E63; }
+.point-room3 { fill: var(--accent-red); }
+
+.map-point:hover { r: 10; opacity: 0.8; }
+.map-point.active { 
+    r: 14; 
+    stroke: var(--text-color); 
+    stroke-width: 3px; 
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)); 
+}
+
+
+.info-panel { border-left: 4px solid var(--border-color-light); padding-left: 2rem; }
+.info-category { 
+    font-family: var(--font-body); 
+    font-size: 0.8rem; 
+    text-transform: uppercase; 
+    letter-spacing: 2px; 
+    color: var(--cyan-grey); 
+    display: flex;
+    align-items: center;
+}
+.info-category::before { 
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 2px;
+    background: var(--accent-red); 
+    margin-right: 10px;
+}
+.info-title { font-family: var(--font-heading); font-size: 2.2rem; line-height: 1.1; margin: 1rem 0; }
+.info-desc { font-size: 1rem; line-height: 1.6; color: #444; font-weight: 300; }
+
+
+.narrative-toggle { 
+    font-family: var(--font-body); 
+    font-size: 0.9rem; 
+    font-weight: 700; 
+    color: var(--cyan-grey); 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    cursor: pointer;
+}
+.narrative-toggle::after { content: ' ▾'; color: var(--accent-red); font-size: 1.2em; transition: 0.2s; }
+.narrative-toggle:hover { color: var(--accent-red); }
+
+.filter-menu { box-shadow: var(--shadow-hard); border-radius: 0; background: #fff; }
+.filter-header { font-family: var(--font-body); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #adb5bd; padding: 10px 15px; }
+.filter-item { font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; color: var(--cyan-grey); padding: 8px 15px; cursor: pointer; transition: 0.2s; }
+.filter-item:hover { background-color: #f8f9fa; color: var(--accent-red); }
+
+.btn-view-all { 
+    font-size: 0.8rem; 
+    color: #999; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    text-decoration: none;
+    border-bottom: 1px solid transparent; 
+    transition: all var(--trans-normal);
+}
+.btn-view-all:hover { 
+    color: var(--cyan-grey); 
+    border-bottom-color: var(--accent-red); 
+}
+
+
+.table th {
+    font-weight: 600;
+    color: var(--cyan-grey);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-top: none;
+}
+.table td { font-family: var(--font-body); font-weight: 300; color: #555; vertical-align: middle; }
+.table a { color: var(--accent-red); font-weight: 500; text-decoration: none; }
+.table a:hover { text-decoration: underline; }
+
+.gallery-nav-btn {
+    background-color: var(--cyan-grey);
+    border: 1px solid var(--cyan-grey);
+    color: #fff;
+    border-radius: var(--br-pill);
+    padding: 8px 20px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all var(--trans-normal);
+    cursor: pointer;
+}
+.gallery-nav-btn:hover {
+    background-color: var(--accent-red);
+    border-color: var(--accent-red);
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   Red Tech-Accent Patch (红色科技感补丁)
+   ========================================= */
+
+
+.section-label::before, 
+.theme-subtitle::before, 
+.main-content-area h3::before, 
+.description-section h4::before {
+    content: "" !important;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 12px; 
+    vertical-align: middle;
+    
+  
+    background-color: var(--accent-red) !important; 
+    
+  
+    box-shadow: 0 0 10px var(--accent-red), 0 0 20px rgba(229, 57, 53, 0.5);
+    
+  
+    clip-path: polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%);
+    
+ 
+    animation: subtitlePulseRed 2s infinite ease-in-out;
+}
+
+
+.theme-subtitle::after {
+    content: "";
+    display: block;
+    height: 1.5px !important;
+ 
+    background: linear-gradient(90deg, var(--accent-red), transparent) !important;
+    margin-top: 5px;
+}
+
+
+@keyframes subtitlePulseRed {
+    0% { transform: scale(1); opacity: 1; }
+    50% { 
+        transform: scale(1.2); 
+        opacity: 0.8; 
+        filter: brightness(1.5); 
+    }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* =========================================
+   RED THEME PATCH: Browse Collection Fix
+   ========================================= */
+
+/
+.hover-overlay {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: transparent !important;
+}
+
+
+.btn-browse-custom {
+    display: inline-block !important;
+    padding: 12px 28px !important;
+    
+ 
+    background: rgba(200, 16, 46, 0.2) !important; 
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    
+ 
+    border: 1.5px solid rgba(200, 16, 46, 0.5) !important;
+    border-radius: 50px !important;
+    
+
+    color: #FFFFFF !important;
+    font-family: 'Orbitron', sans-serif !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    
+  
+    box-shadow: 0 8px 32px rgba(200, 16, 46, 0.2) !important;
+    transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1) !important;
+}
+
+/* 3. cartoon */
+.btn-browse-custom:hover {
+   
+    background: #a00d25 !important; 
+    border-color: #FFFFFF !important;
+    
+
+    transform: translateY(-5px) !important;
+    
+
+    box-shadow: 0 15px 40px rgba(200, 16, 46, 0.5) !important;
+    color: #FFFFFF !important;
+}
+
+
+.btn-browse-custom:active {
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   PATCH: Minimalist Cyan-Blue Slogan
+   ========================================= */
+
+.welcome-msg {
+    
+    font-size: 1.15rem !important; 
+    font-family: 'Orbitron', sans-serif !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 4px !important;
+    
+   
+    background: linear-gradient(90deg, #00D2FF, #0072FF, #00D2FF);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    
+    text-shadow: 0 0 10px rgba(0, 114, 255, 0.3) !important;
+    
+   
+    display: inline-block !important;
+    margin: 20px 0 !important;
+    position: relative;
+    opacity: 0;
+    
+  
+    animation: 
+        blueSloganFadeIn 2s ease-out forwards,
+        blueFlow 4s linear infinite;
+}
+
+
+.welcome-msg::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 100%;
+    background: #00D2FF;
+    box-shadow: 0 0 8px #00D2FF;
+    animation: bluePulse 2s infinite ease-in-out;
+}
+
+/* --- 动画定义 --- */
+
+@keyframes blueSloganFadeIn {
+    0% { opacity: 0; transform: translateX(-10px); filter: blur(5px); }
+    100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+}
+
+@keyframes blueFlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+@keyframes bluePulse {
+    0%, 100% { opacity: 1; height: 100%; }
+    50% { opacity: 0.5; height: 60%; }
+}
+
+/* University Name */
+.member-info .university {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--accent-red); 
+    font-weight: 600;
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+/* Role (Responsible for the project) -  */
+.member-info .role {
+    font-family: var(--font-body);
+    font-size: 0.7rem; 
+    color: #999;       
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* =========================================
+   1.(Identity Patch)
+   ========================================= */
+
+/*  University of Bologna  */
+
+[id*="university" i], 
+[class*="university" i],
+.uni-name {
+    color: #0055A4 !important; 
+    font-weight: 600;
+}
+
+/* Responsible for the project */
+[id*="responsible" i], 
+[class*="responsible" i],
+.role-description {
+    color: #FF8C00 !important; /* 活力橙 */
+    font-weight: 500;
+}
+
+/* 2. Narratives  */
+
+/* The Rule, The Utility, The Improvisation */
+.timeline-year {
+    font-size: 1.8rem !important; 
+    display: inline-block;
+    margin-bottom: 10px;
+  
+    border-bottom: 4px solid var(--clr-yellow); 
+}
+
+/* 针对 Mental Discourse ：The Identity, The Echo, The Spirit */
+.theme-subtitle {
+    font-size: 2.2rem !important; 
+    font-family: var(--font-huge) !important;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 20px !important;
+}
+
+/* 3. 
+.timeline-year:hover {
+    color: var(--clr-red) !important;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+}
+
+/* THE IDENTITY, THE ECHO, THE SPIRIT  */
+.theme-subtitle {
+    font-size: 1.8rem !important;    
+    font-family: var(--font-huge) !important; 
+    text-transform: uppercase !important;
+    display: inline-block !important;
+    margin-bottom: 10px !important;
+    letter-spacing: 0px !important;
+    
+  
+    border-bottom: 4px solid var(--clr-yellow) !important; 
+    padding-bottom: 2px;
+}
+
+
+.theme-subtitle:hover {
+    color: var(--clr-red) !important;
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+
