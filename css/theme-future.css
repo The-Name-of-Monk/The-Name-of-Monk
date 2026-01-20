@@ -7,6 +7,7 @@
     --bg-color: #F0F2F5;         
     --text-color: #1F2326;       
     --accent-silver: #C2C8D1;    
+    --accent-red: #E53935;
     --accent-pink: #FF66A3;      
     --accent-metal: #3A444B;     
     --nav-bg: rgba(240, 242, 245, 0.7); 
@@ -275,7 +276,7 @@ img:hover {
 
 /* --- 针对 gallery.html (Collection) 页面详情按钮的精准补丁 --- */
 
-/
+
 .gallery-item .item-overlay .view-more-btn {
     
     border: 2px solid var(--accent-pink) !important;
@@ -1007,7 +1008,7 @@ pre,
    ========================================= */
 
 /* 1. 强制闭合之前可能存在的任何括号错误 */
-} } 
+
 
 /* 2. 重新定义根变量，确保基础一致 */
 :root {
@@ -1087,9 +1088,6 @@ body .theme-subtitle:hover {
    ========================================= */
 
 
-} } 
-
-
 body .timeline-year, 
 body .theme-subtitle, 
 body .main-content-area h3, 
@@ -1153,4 +1151,119 @@ body .theme-subtitle:hover {
     transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1) !important;
     transform: translateX(5px) !important;
     cursor: pointer;
+}
+
+/* =========================================
+   时间轴标题专项修复：左置、缩小、两行显示
+   ========================================= */
+
+/* 1. 调整时间轴主容器，为左侧标题腾出约 180px 的空间 */
+.timeline-container {
+    margin-left: 190px !important; 
+    position: relative !important;
+    border-left: 2px solid var(--accent-pink) !important;
+}
+
+/* 2. 定位时间轴内的三个标题 (The Rule, Utility, Improvisation) */
+.timeline-container .timeline-item .timeline-year,
+.timeline-container .timeline-item .theme-subtitle,
+.timeline-container .timeline-item h3 {
+    /* 核心：绝对定位到轴线左侧 */
+    position: absolute !important;
+    left: -190px !important;     /* 往左移动，数值略大于容器 margin-left 以留出间距 */
+    top: -5px !important;        /* 向上微调对齐圆点中心 */
+    
+    /* 核心：字号缩小与换行控制 */
+    width: 160px !important;      /* 限制宽度强制换行，但给够空间不拆散单词 */
+    font-size: 1.05rem !important; /* 缩小字号 */
+    line-height: 1.2 !important;  /* 紧凑行高 */
+    letter-spacing: 2px !important; /* 略微缩减字间距防止溢出 */
+    
+    /* 排版逻辑 */
+    text-align: right !important;  /* 文字向右对齐，紧贴轴线 */
+    white-space: normal !important; 
+    word-break: keep-all !important; /* 严禁在单词中间断开 */
+    display: block !important;
+    
+    /* 视觉修复 */
+    margin: 0 !important;
+    padding: 0 25px 0 0 !important; /* 标题右侧与轴线的呼吸间距 */
+    background: transparent !important;
+    z-index: 10;
+}
+
+/* 3. 移除标题下方原本的装饰短线，避免视觉混乱 */
+.timeline-container .timeline-year::after, 
+.timeline-container .theme-subtitle::after, 
+.timeline-container .main-content-area h3::after {
+    display: none !important;
+}
+
+/* 4. 确保右侧内容区域不被遮挡 */
+.timeline-item {
+    position: relative !important;
+    padding-left: 35px !important; 
+    margin-bottom: 60px !important; /* 增加项间距，防止多行标题重叠 */
+}
+
+.timeline-item::before {
+    left: -6px !important; 
+    z-index: 5;
+}
+
+/* =========================================
+   MAP PAGE EMERGENCY PATCH (针对地图页详情按钮)
+   ========================================= */
+
+/* 1. 针对 ID 为 d-link 的按钮进行强制样式注入 */
+#active-content #d-link.btn-custom-outline {
+    /* 强制显示粉色边框 */
+    border: 2px solid #FF66A3 !important;
+    
+    /* 核心排版：确保它看起来像 Future 主题的按钮 */
+    font-family: 'Orbitron', sans-serif !important;
+    color: #FFFFFF !important;
+    background: rgba(255, 102, 163, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    
+    /* 形状与间距 */
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    padding: 10px 25px !important;
+    border-radius: 50px !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    
+    /* 动画与阴影 */
+    transition: all 0.4s ease !important;
+    box-shadow: 0 0 15px rgba(255, 102, 163, 0.3) !important;
+    text-decoration: none !important;
+    margin-top: 2rem !important;
+}
+
+/* 2. 悬停效果强制覆盖 */
+#active-content #d-link.btn-custom-outline:hover {
+    background: #FF66A3 !important;
+    color: #FFFFFF !important;
+    border-color: #FFFFFF !important;
+    box-shadow: 0 0 25px #FF66A3 !important;
+    transform: translateY(-3px) !important;
+}
+
+/* 3. 针对所有可能的 View Detail 按钮（全站兜底） */
+.view-more-btn, 
+.view-details,
+[class*="view-more"],
+[class*="details-btn"],
+.btn-custom-outline {
+    border: 2px solid #3f3e3e !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* 4. 修复父级容器可能存在的溢出截断 */
+.info-panel, #active-content {
+    overflow: visible !important;
 }
