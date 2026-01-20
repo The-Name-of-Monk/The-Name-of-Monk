@@ -796,4 +796,59 @@ h2:contains("ABOUT THE")::before,
     cursor: default;
 }
 
+/* =========================================
+   Rule, Utility, Improvisation, Identity, Echo, Spirit
+   ========================================= */
+
+.timeline-year, 
+.theme-subtitle {
+   
+    font-family: 'Montserrat', sans-serif !important;
+    
+  
+    font-size: 1.4rem !important;
+    
+   
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 3px !important;
+    font-style: normal !important;
+    line-height: 1.2 !important;
+    
+  
+    color: #1A1A1A !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    display: inline-block !important;
+    margin: 25px 0 10px 0 !important;
+    position: relative !important;
+    text-shadow: none !important;
+}
+
+
+.timeline-year::after,
+.theme-subtitle::after {
+    content: "" !important;
+    display: block !important;
+    width: 60px !important; 
+    height: 5px !important;
+    background: #FF3B30 !important; 
+    margin-top: 8px !important;
+    transition: width 0.3s ease !important;
+    border: none !important;
+}
+
+
+.timeline-year:hover,
+.theme-subtitle:hover {
+    color: #0057FF !important; 
+    transform: none !important; 
+    cursor: default;
+}
+
+.timeline-year:hover::after,
+.theme-subtitle:hover::after {
+    width: 100% !important;
+}
 
