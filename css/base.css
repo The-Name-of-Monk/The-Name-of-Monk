@@ -1,9 +1,5 @@
 /* base.css - 网站骨架与布局 (Structure Only) */
 
-/* base.css */
-
-/* ... (原有头部注释) ... */
-
 /* =========================================
    0. SMOOTH TRANSITION (防卡顿优化)
    ========================================= */
@@ -644,25 +640,71 @@ svg { width: 100%; height: auto; max-height: 400px; overflow: visible; }
 }
 
 /* =========================================
-   12. LOADING OVERLAY
+   FIX: Mobile Narrative Timeline Layout
    ========================================= */
 
-#loading-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    /* 使用一种像旧纸张的颜色，或者干脆全白 */
-    background-color: #f9f7f2; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-    transition: opacity 0.8s ease;
+@media (max-width: 991px) {
+    /* 1. 取消整体容器的左侧巨大留白，改为紧凑布局 */
+    .timeline-container {
+        margin-left: 20px; /* 从 180px 改为 20px */
+        border-left: 3px solid transparent; /* 保持线条，颜色由主题决定 */
+        padding-left: 25px; /* 线条与内容之间的距离 */
+        padding-right: 15px; /* 防止右侧贴边 */
+    }
+
+    /* 2. 重置每一个时间节点的内边距 */
+    .timeline-item {
+        padding-left: 0; 
+        padding-bottom: 60px; /* 增加底部间距，区分不同节点 */
+    }
+
+    /* 3. 标题(The Rule等)不再悬浮在左侧，而是变回到内容上方 */
+    .timeline-year {
+        position: relative; /* 关键：取消 absolute */
+        left: 0;
+        top: 0;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 15px;
+        display: block;
+        
+        /* 稍微调大字号，使其像一个小标题 */
+        font-size: 1.5rem; 
+        font-weight: 700;
+        color: var(--primary-color, inherit); /* 确保颜色可见 */
+    }
+
+    /* 4. 调整时间轴圆点的位置，使其对齐新的线条 */
+    .timeline-item::before {
+        left: -29px; /* 根据 padding-left: 25px 和 border 宽度微调 */
+        top: 5px;   /* 微调垂直位置以对齐标题 */
+    }
+
+    /* 5. 修复文字挤压问题，确保 Lead Text 正常换行 */
+    .col-lg-7 .lead-text {
+        text-align: left; /* 手机上 justify 容易产生大空隙，建议 left */
+        margin-top: 20px; /* 图片和文字拉开一点距离 */
+    }
 }
 
-#lottie-box {
-    width: 300px; /* 根据需要调整大小 */
-    height: 300px;
+/* =========================================
+   FIX: Mobile Homepage Buttons Layout
+   ========================================= */
+
+@media (max-width: 576px) {
+    /* 1. 强制按钮容器垂直排列 */
+    .content-wrapper .d-flex.gap-3 {
+        flex-direction: column;
+        gap: 15px !important; /* 强制增加垂直间距 */
+    }
+
+    /* 2. 让按钮占满宽度，方便手指点击 */
+    .content-wrapper .btn-lg {
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin-right: 0; /* 清除可能存在的右边距 */
+    }
 }
 
 
