@@ -173,8 +173,6 @@ body {
 
 .logo-text {
     font-family: var(--font-heading);
-    font-size: var(--fs-logo);
-    font-weight: 500;
     letter-spacing: 2px;
     color: #F2EAD3; 
     background: linear-gradient(180deg, #C5A059, #F2EAD3, #C5A059);
@@ -227,9 +225,10 @@ body {
   font-family: var(--font-heading);
   text-transform: uppercase;
   letter-spacing: 2px;
-}/*#btn-back-to-top*/
+}
+.btn-custom-outline{text-transform:none;}
 
- .btn, #btn-back-to-top {
+.btn, #btn-back-to-top {
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 }
 
@@ -527,22 +526,6 @@ body {
     text-transform: uppercase;
     font-style: normal;
 }
-
-/* 轮播箭头样式 */
-.card-img-wrapper .carousel-control-prev-icon,
-.card-img-wrapper .carousel-control-next-icon {
-    background-color: rgba(0,0,0,0.5); 
-    border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
-    background-size: 50%;
-}
-
-.card-img-wrapper .carousel-control-prev,
-.card-img-wrapper .carousel-control-next {
-    transition: opacity var(--trans-normal);
-}
-
 
 .member-card {
     background-image: var(--accent-red);

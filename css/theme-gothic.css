@@ -776,3 +776,6 @@ body {
 .card-img-wrapper .carousel-control-next {
     transition: opacity var(--trans-normal);
 }
+
+#progressiveToggle {
+    text-transform: none !important;}
