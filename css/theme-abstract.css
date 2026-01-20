@@ -939,7 +939,6 @@ h2:contains("ABOUT THE")::before,
    ============================================================ */
 
 /* 1. 强制闭合之前可能断掉的逻辑 */
-} } } 
 
 /* 2. 容器与轴线设定 */
 .timeline-container {
@@ -974,8 +973,6 @@ h2:contains("ABOUT THE")::before,
  (对标一级标题) + 仿图排版 + MAP 修复
    ============================================================ */
 
-
-} } } 
 
 /* 2. 容器与轴线设定 */
 .timeline-container {
@@ -1048,3 +1045,42 @@ h2:contains("ABOUT THE")::before,
     min-height: 60px;
 }
 
+/* =========================================
+   HOME 页面 BROWSE COLLECTION 交互补丁
+   ========================================= */
+
+/* 1. 初始状态：隐藏遮罩层和按钮 */
+.gallery-item .hover-overlay,
+.hover-overlay {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.4s ease-in-out !important;
+    background: rgba(0, 0, 0, 0.2) !important; /* 稍微加深遮罩背景提升对比度 */
+}
+
+/* 2. 初始状态：按钮轻微下移，准备弹出动画 */
+.btn-browse-custom {
+    transform: translateY(20px) !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* 3. 触发状态：当鼠标悬停在容器（图片）上时显示 */
+.gallery-item:hover .hover-overlay,
+.hover-overlay:hover,
+[class*="item"]:hover > .hover-overlay {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* 4. 触发状态：按钮向上弹起并恢复正常位置 */
+.gallery-item:hover .btn-browse-custom,
+.hover-overlay:hover .btn-browse-custom {
+    transform: translateY(0) !important;
+}
+
+/* 5. 保持原有的按钮悬停变红特效 (优先级提升) */
+.btn-browse-custom:hover {
+    background-color: #FF3B30 !important;
+    transform: scale(1.05) !important;
+    box-shadow: -8px -8px 0px #0057FF !important;
+}
