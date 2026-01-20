@@ -904,3 +904,147 @@ h2:contains("ABOUT THE")::before,
     transform: translate(4px, 4px) !important;
 }
 
+/* ============================================================
+   最终集成补丁：标题左移 + 仿图排版 + 圆点精准平分
+   ============================================================ */
+
+/* 1. 强制闭合之前可能断掉的逻辑 */
+} } } 
+
+/* 2. 容器与轴线设定 */
+.timeline-container {
+    margin-left: 210px !important; /* 给左侧标题留出空间 */
+    position: relative !important;
+    border-left: 2px solid var(--accent-pink) !important; /* 轴线宽度为 2px */
+}
+
+/* 3. 时间轴黑点（圆点）定位：确保被轴线平分 */
+.timeline-item::before {
+    content: "" !important;
+    position: absolute !important;
+    /* 轴线 2px，圆点 12px -> (12 - 2) / 2 = 5px。
+       设置 left 为 -7px (或 -6px) 即可实现中心平分 */
+    left: -7px !important; 
+    top: 0 !important;
+    width: 12px !important;
+    height: 12px !important;
+    background-color: var(--accent-pink) !important;
+    border-radius: 50% !important;
+    z-index: 5 !important;
+    box-shadow: 0 0 8px var(--accent-pink) !important;
+}
+
+/* ============================================================
+   最终集成补丁：加大黑点核心 + 标题左移 + MAP 边框修复
+   ============================================================ */
+
+/* 1. 强制闭合之前可能断掉的逻辑 */
+} } } 
+
+/* 2. 容器与轴线设定 */
+.timeline-container {
+    margin-left: 210px !important; 
+    position: relative !important;
+    border-left: 2px solid var(--accent-pink) !important; 
+}
+
+/* 3. 时间轴圆点定位：加大尺寸 + 深色核心 + 强力晕染 */
+.timeline-item::before {
+    content: "" !important;
+    position: absolute !important;
+    
+    /* 圆点加大到 16px (原为12px) */
+    /* 精准居中对齐计算：(16px圆点 - 2px轴线) / 2 = 7px，即 left: -9px */
+    left: -9px !important; 
+    top: 0 !important;
+    width: 16px !important;
+    height: 16px !important;
+    
+    /* 核心样式：深色核心 */
+    background-color: #1F2326 !important; 
+    border: 2px solid var(--accent-pink) !important; /* 粉色粗边框 */
+    border-radius: 50% !important;
+    
+    /* 增强外发光晕染效果，让点看起来更有存在感 */
+    box-shadow: 0 0 12px var(--accent-pink), 0 0 6px var(--accent-pink) !important;
+    z-index: 5 !important;
+}
+
+/* ============================================================
+ (对标一级标题) + 仿图排版 + MAP 修复
+   ============================================================ */
+
+
+} } } 
+
+/* 2. 容器与轴线设定 */
+.timeline-container {
+    margin-left: 230px !important; 
+    position: relative !important;
+    border-left: 2px solid var(--accent-pink) !important; 
+}
+
+
+.timeline-item::before {
+    content: "" !important;
+    position: absolute !important;
+    
+    
+    /* 精准居中计算：(24px圆点 - 2px轴线) / 2 = 11px，即 left: -13px */
+    left: -13px !important; 
+    top: -4px !important; 
+    width: 24px !important;
+    height: 24px !important;
+    
+   
+    background-color: #1F2326 !important; 
+    border: 3px solid var(--accent-pink) !important; 
+    border-radius: 50% !important;
+    
+   
+    box-shadow: 0 0 15px var(--accent-pink), 0 0 8px rgba(255, 102, 163, 0.6) !important;
+    z-index: 5 !important;
+}
+
+
+.timeline-container .timeline-item .timeline-year,
+.timeline-container .timeline-item .theme-subtitle,
+.timeline-container .timeline-item h3 {
+    position: absolute !important;
+    left: -220px !important; 
+    top: -6px !important;
+    
+  
+    width: 200px !important;      
+    white-space: normal !important; 
+    word-break: keep-all !important; 
+    
+
+    text-align: right !important; 
+    line-height: 1.1 !important;  
+    font-size: 1.1rem !important; 
+    font-weight: 700 !important;
+    color: var(--accent-metal) !important;
+    
+    padding-right: 35px !important; 
+    margin: 0 !important;
+    background: transparent !important;
+    z-index: 10 !important;
+}
+
+
+.timeline-container .timeline-year::after, 
+.timeline-container .theme-subtitle::after, 
+.timeline-container .main-content-area h3::after {
+    display: none !important;
+    content: none !important;
+}
+
+
+.timeline-item {
+    position: relative !important;
+    padding-left: 45px !important; 
+    margin-bottom: 80px !important; 
+    min-height: 60px;
+}
+
