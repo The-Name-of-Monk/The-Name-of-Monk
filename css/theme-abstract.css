@@ -1084,3 +1084,28 @@ h2:contains("ABOUT THE")::before,
     transform: scale(1.05) !important;
     box-shadow: -8px -8px 0px #0057FF !important;
 }
+
+/* =========================================
+   修复：找回消失的时间轴线
+   ========================================= */
+
+.timeline-container {
+    /* 1. 强制显示左侧边框线 */
+    border-left: 3px solid #1A1A1A !important; /* 使用深黑色或 var(--accent-pink) */
+    
+    /* 2. 确保容器有空间显示这条线 */
+    margin-left: 230px !important; 
+    padding-left: 0 !important;
+    position: relative !important;
+    display: block !important;
+    
+    /* 3. 这里的 visibility 必须为 visible */
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* 确保轴线贯穿整个高度 */
+.timeline-item {
+    border-left: none !important; /* 清除单项的干扰 */
+    position: relative !important;
+}
