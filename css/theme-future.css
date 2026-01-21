@@ -1267,3 +1267,75 @@ body .theme-subtitle:hover {
 .info-panel, #active-content {
     overflow: visible !important;
 }
+
+/* =========================================
+   HOME 页面 BROWSE COLLECTION 交互补丁 (精准匹配版)
+   ========================================= */
+
+/* 1. 父容器处理：确保它是定位基准，并隐藏溢出 */
+.carousel-link-area {
+    position: relative !important;
+    display: block !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+}
+
+/* 2. 初始状态：黑色半透明遮罩层 (对应你的 div.hover-overlay) */
+.carousel-link-area .hover-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(13, 15, 17, 0.7) !important; 
+    backdrop-filter: blur(8px) !important;      
+    -webkit-backdrop-filter: blur(8px);
+    
+    opacity: 0 !important;                     
+    visibility: hidden !important;
+    transition: all 0.4s ease-in-out !important;
+    z-index: 1 !important;
+}
+
+/* 3. 初始状态：按钮文字 (对应你的 span.btn-browse-custom) */
+.carousel-link-area .btn-browse-custom {
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, calc(-50% + 30px)) !important; 
+    
+    opacity: 0 !important;                    
+    visibility: hidden !important;
+    z-index: 2 !important;                     
+    
+ 
+    display: inline-block !important;
+    white-space: nowrap !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* 4. 触发状态：当鼠标悬停在图片区域时 */
+.carousel-link-area:hover .hover-overlay {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.carousel-link-area:hover .btn-browse-custom {
+    opacity: 1 !important;
+    visibility: visible !important;
+    /* 弹起并恢复到正中心 */
+    transform: translate(-50%, -50%) !important;
+}
+
+
+.carousel-link-area .btn-browse-custom:hover {
+    background-color: var(--accent-pink) !important;
+    transform: translate(-50%, -50%) scale(1.1) !important;
+    box-shadow: 0 0 20px rgba(255, 102, 163, 0.5) !important;
+}
+
+
+.carousel-link-area:hover img {
+    transform: scale(1.1) !important;
+    filter: blur(2px);
+}
