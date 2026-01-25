@@ -1,7 +1,6 @@
-# The-Name-of-Monk
-Group project for the course Information Modelling and Web Technologies at @ DHDK, UNIBO.
-
 # The Name of Monk: A Multimedia Museum Meta Mirror (MMMM)
+
+Group project for the course Information Modelling and Web Technologies at @ DHDK, UNIBO.
 
 ![Project Status](https://img.shields.io/badge/Status-Completed-success)
 ![Course](https://img.shields.io/badge/Course-Digital_Humanities-blue)
@@ -9,7 +8,7 @@ Group project for the course Information Modelling and Web Technologies at @ DHD
 
 > A web-based virtual exhibition exploring the semantic evolution of the "Monk" — from the strict discipline of **Benedictine Monasticism** to the rigorous freedom of **Jazz Improvisation**.
 
-[🔴 **View Live Demo**](https://your-username.github.io/your-repo-name/) | [📄 **Read Documentation**](documentation.html)
+[🔴 **View the Website**](https://the-name-of-monk.github.io/The-Name-of-Monk) | [📄 **Read Documentation**](https://the-name-of-monk.github.io/The-Name-of-Monk/documentation.html)
 
 ---
 
