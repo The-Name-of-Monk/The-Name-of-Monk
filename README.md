@@ -2,10 +2,6 @@
 
 Group project for the course Information Modelling and Web Technologies at @ DHDK, UNIBO.
 
-![Project Status](https://img.shields.io/badge/Status-Completed-success)
-![Course](https://img.shields.io/badge/Course-Digital_Humanities-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
-
 > A web-based virtual exhibition exploring the semantic evolution of the "Monk" — from the strict discipline of **Benedictine Monasticism** to the rigorous freedom of **Jazz Improvisation**.
 
 [🔴 **View the Website**](https://the-name-of-monk.github.io/The-Name-of-Monk) | [📄 **Read Documentation**](https://the-name-of-monk.github.io/The-Name-of-Monk/documentation.html)
@@ -55,5 +51,9 @@ The-Name-of-Monk/
 ├── index.html             # Entry point (Split-screen layout)
 ├── map.html               # Interactive SVG Map
 ├── narratives.html        # Timeline & Thematic views
+├── collection.html        # All the Selected Items
+├── gallery.html           # Detailed Information of the Selected Items
+├── aboutus.html           # Distribution of Resposibilities
+├── disclaimer.html        # Copyright Disclaimer
 └── documentation.html     # Technical documentation
 
